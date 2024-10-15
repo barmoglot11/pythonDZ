@@ -89,6 +89,7 @@ class Ui_ProfessionPage(object):
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
+"   color: #010101;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -116,6 +117,7 @@ class Ui_ProfessionPage(object):
         self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
+"   color: #010101;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -132,6 +134,7 @@ class Ui_ProfessionPage(object):
         self.pushButton_3.setFont(font)
         self.pushButton_3.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
+"   color: #010101;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -278,6 +281,7 @@ class Ui_ProfessionPage(object):
 "	border-radius: 10px;\n"
 "	padding-left: 20px;\n"
 "	padding-right: 20px;\n"
+"   color: #010101;\n"
 "}")
 
         self.horizontalLayout_2.addWidget(self.findInput)
