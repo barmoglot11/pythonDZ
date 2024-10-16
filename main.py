@@ -6,7 +6,7 @@ def get_vacancies(keyword):
     url = "https://api.hh.ru/vacancies"
     params = {
         "text": keyword,
-        "area": 1,  # Specify the desired area ID (1 is Moscow)
+        "area": 1249,  # Specify the desired area ID (1 is Moscow)
         "per_page": 10,  # Number of vacancies per page
     }
     headers = {
@@ -27,11 +27,13 @@ def get_vacancies(keyword):
                 vacancy_title = vacancy.get("name")
                 vacancy_url = vacancy.get("alternate_url")
                 company_name = vacancy.get("employer", {}).get("name")
-                salary = vacancy.get("salary", {}).get("from")
+                salary_min = vacancy.get("salary", {}).get("from")
+                salary_m = vacancy.get("salary", {}).get("to")
                 output.put_text(f"ID: {vacancy_id}")
                 output.put_text(f"Title: {vacancy_title}")
                 output.put_text(f"Company: {company_name}")
-                output.put_text(f"Salary: {salary}")
+                output.put_text(f"URL: {salary_min}")
+                output.put_text(f"URL: {salary_m}")
                 output.put_text(f"URL: {vacancy_url}")
                 output.put_text("")  # Add an empty line for separation
 
