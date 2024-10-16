@@ -27,7 +27,7 @@ def get_vacancies(keyword):
                 vacancy_title = vacancy.get("name")
                 vacancy_url = vacancy.get("alternate_url")
                 company_name = vacancy.get("employer", {}).get("name")
-                salary = vacancy.get("salary")
+                salary = vacancy.get("salary", {}).get("from")
                 output.put_text(f"ID: {vacancy_id}")
                 output.put_text(f"Title: {vacancy_title}")
                 output.put_text(f"Company: {company_name}")
