@@ -2,7 +2,7 @@ import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 
-from ProfessionPage import Ui_ProfessionPage
+from professionPage import Ui_ProfessionPage
 
 class ExpenseTracker(QMainWindow):
     def __init__(self):

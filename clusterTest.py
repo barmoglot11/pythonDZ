@@ -2,7 +2,7 @@ import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 
-from ClusterPage import Ui_ClusterPage
+from clusterPage import Ui_ClusterPage
 
 class ExpenseTracker(QMainWindow):
     def __init__(self):

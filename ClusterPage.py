@@ -89,7 +89,7 @@ class Ui_ClusterPage(object):
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
-"   color: #010101;\n"
+"	color: #101010;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -117,7 +117,7 @@ class Ui_ClusterPage(object):
         self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
-"   color: #010101;\n"
+"	color: #101010;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -134,7 +134,7 @@ class Ui_ClusterPage(object):
         self.pushButton_3.setFont(font)
         self.pushButton_3.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
-"   color: #010101;\n"
+"	color: #101010;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -149,13 +149,15 @@ class Ui_ClusterPage(object):
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
 
-        self.verticalLayout_5.addWidget(self.headerFrame)
+        self.verticalLayout_5.addWidget(self.headerFrame, 0, Qt.AlignTop)
 
-        self.title = QHBoxLayout()
+        self.titleFrame = QFrame(self.clusterPage)
+        self.titleFrame.setObjectName(u"titleFrame")
+        self.title = QHBoxLayout(self.titleFrame)
         self.title.setSpacing(0)
         self.title.setObjectName(u"title")
-        self.title.setContentsMargins(30, 0, 30, -1)
-        self.title_2 = QLabel(self.clusterPage)
+        self.title.setContentsMargins(30, 1, 30, -1)
+        self.title_2 = QLabel(self.titleFrame)
         self.title_2.setObjectName(u"title_2")
         sizePolicy1.setHeightForWidth(self.title_2.sizePolicy().hasHeightForWidth())
         self.title_2.setSizePolicy(sizePolicy1)
@@ -194,7 +196,7 @@ class Ui_ClusterPage(object):
 
         self.title.addItem(self.horizontalSpacer)
 
-        self.findCluster = QFrame(self.clusterPage)
+        self.findCluster = QFrame(self.titleFrame)
         self.findCluster.setObjectName(u"findCluster")
         self.horizontalLayout_2 = QHBoxLayout(self.findCluster)
         self.horizontalLayout_2.setSpacing(15)
@@ -233,7 +235,7 @@ class Ui_ClusterPage(object):
 "	border-radius: 10px;\n"
 "	padding-left: 20px;\n"
 "	padding-right: 20px;\n"
-"   color: #010101;\n"
+"	color: #101010;\n"
 "}")
 
         self.horizontalLayout_2.addWidget(self.findInput)
@@ -264,9 +266,11 @@ class Ui_ClusterPage(object):
         self.title.addWidget(self.findCluster)
 
 
-        self.verticalLayout_5.addLayout(self.title)
+        self.verticalLayout_5.addWidget(self.titleFrame, 0, Qt.AlignTop)
 
-        self.clusters = QHBoxLayout()
+        self.clustersFrame = QFrame(self.clusterPage)
+        self.clustersFrame.setObjectName(u"clustersFrame")
+        self.clusters = QHBoxLayout(self.clustersFrame)
         self.clusters.setSpacing(20)
         self.clusters.setObjectName(u"clusters")
         self.clusters.setContentsMargins(30, -1, 30, -1)
@@ -274,9 +278,10 @@ class Ui_ClusterPage(object):
         self.gridClusters.setObjectName(u"gridClusters")
         self.gridClusters.setHorizontalSpacing(22)
         self.gridClusters.setVerticalSpacing(20)
-        self.cluster = QFrame(self.clusterPage)
+        self.cluster = QFrame(self.clustersFrame)
         self.cluster.setObjectName(u"cluster")
-        self.cluster.setMaximumSize(QSize(346, 16777215))
+        self.cluster.setMinimumSize(QSize(346, 407))
+        self.cluster.setMaximumSize(QSize(346, 407))
         self.cluster.setStyleSheet(u"QFrame {\n"
 "	border-right: 2px solid #E7E7E7;\n"
 "	border-bottom: 2px solid #E7E7E7;\n"
@@ -608,8 +613,10 @@ class Ui_ClusterPage(object):
 
         self.gridClusters.addWidget(self.cluster, 0, 0, 1, 1)
 
-        self.clusterAdd = QFrame(self.clusterPage)
+        self.clusterAdd = QFrame(self.clustersFrame)
         self.clusterAdd.setObjectName(u"clusterAdd")
+        self.clusterAdd.setMinimumSize(QSize(346, 407))
+        self.clusterAdd.setMaximumSize(QSize(346, 407))
         self.clusterAdd.setLayoutDirection(Qt.LeftToRight)
         self.clusterAdd.setStyleSheet(u"background-color: #FFFFFF;\n"
 "border: 2px dashed #501EBC;\n"
@@ -670,9 +677,10 @@ class Ui_ClusterPage(object):
 
         self.gridClusters.addWidget(self.clusterAdd, 1, 1, 1, 1)
 
-        self.cluster_10 = QFrame(self.clusterPage)
+        self.cluster_10 = QFrame(self.clustersFrame)
         self.cluster_10.setObjectName(u"cluster_10")
-        self.cluster_10.setMaximumSize(QSize(346, 16777215))
+        self.cluster_10.setMinimumSize(QSize(346, 407))
+        self.cluster_10.setMaximumSize(QSize(346, 407))
         self.cluster_10.setStyleSheet(u"QFrame {\n"
 "	border-right: 2px solid #E7E7E7;\n"
 "	border-bottom: 2px solid #E7E7E7;\n"
@@ -985,9 +993,10 @@ class Ui_ClusterPage(object):
 
         self.gridClusters.addWidget(self.cluster_10, 0, 3, 1, 1)
 
-        self.cluster_7 = QFrame(self.clusterPage)
+        self.cluster_7 = QFrame(self.clustersFrame)
         self.cluster_7.setObjectName(u"cluster_7")
-        self.cluster_7.setMaximumSize(QSize(346, 16777215))
+        self.cluster_7.setMinimumSize(QSize(346, 407))
+        self.cluster_7.setMaximumSize(QSize(346, 407))
         self.cluster_7.setStyleSheet(u"QFrame {\n"
 "	border-right: 2px solid #E7E7E7;\n"
 "	border-bottom: 2px solid #E7E7E7;\n"
@@ -1300,9 +1309,10 @@ class Ui_ClusterPage(object):
 
         self.gridClusters.addWidget(self.cluster_7, 0, 1, 1, 1)
 
-        self.cluster_8 = QFrame(self.clusterPage)
+        self.cluster_8 = QFrame(self.clustersFrame)
         self.cluster_8.setObjectName(u"cluster_8")
-        self.cluster_8.setMaximumSize(QSize(346, 16777215))
+        self.cluster_8.setMinimumSize(QSize(346, 407))
+        self.cluster_8.setMaximumSize(QSize(346, 407))
         self.cluster_8.setStyleSheet(u"QFrame {\n"
 "	border-right: 2px solid #E7E7E7;\n"
 "	border-bottom: 2px solid #E7E7E7;\n"
@@ -1615,9 +1625,10 @@ class Ui_ClusterPage(object):
 
         self.gridClusters.addWidget(self.cluster_8, 0, 4, 1, 1)
 
-        self.cluster_9 = QFrame(self.clusterPage)
+        self.cluster_9 = QFrame(self.clustersFrame)
         self.cluster_9.setObjectName(u"cluster_9")
-        self.cluster_9.setMaximumSize(QSize(346, 16777215))
+        self.cluster_9.setMinimumSize(QSize(346, 407))
+        self.cluster_9.setMaximumSize(QSize(346, 407))
         self.cluster_9.setStyleSheet(u"QFrame {\n"
 "	border-right: 2px solid #E7E7E7;\n"
 "	border-bottom: 2px solid #E7E7E7;\n"
@@ -1930,9 +1941,10 @@ class Ui_ClusterPage(object):
 
         self.gridClusters.addWidget(self.cluster_9, 0, 2, 1, 1)
 
-        self.cluster_2 = QFrame(self.clusterPage)
+        self.cluster_2 = QFrame(self.clustersFrame)
         self.cluster_2.setObjectName(u"cluster_2")
-        self.cluster_2.setMaximumSize(QSize(346, 16777215))
+        self.cluster_2.setMinimumSize(QSize(346, 407))
+        self.cluster_2.setMaximumSize(QSize(346, 407))
         self.cluster_2.setStyleSheet(u"QFrame {\n"
 "	border-right: 2px solid #E7E7E7;\n"
 "	border-bottom: 2px solid #E7E7E7;\n"
@@ -2248,7 +2260,7 @@ class Ui_ClusterPage(object):
 
         self.clusters.addLayout(self.gridClusters)
 
-        self.verticalScrollBar = QScrollBar(self.clusterPage)
+        self.verticalScrollBar = QScrollBar(self.clustersFrame)
         self.verticalScrollBar.setObjectName(u"verticalScrollBar")
         palette71 = QPalette()
         brush4 = QBrush(QColor(231, 231, 231, 255))
@@ -2326,7 +2338,7 @@ class Ui_ClusterPage(object):
         self.clusters.addWidget(self.verticalScrollBar)
 
 
-        self.verticalLayout_5.addLayout(self.clusters)
+        self.verticalLayout_5.addWidget(self.clustersFrame, 0, Qt.AlignTop)
 
         ClusterPage.setCentralWidget(self.clusterPage)
 
