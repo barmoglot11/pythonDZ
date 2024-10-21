@@ -74,8 +74,8 @@ cursor.executemany('''
                     ''', vacances)
 
 
-
 cursor.execute("SELECT * FROM Vacances")
+
 items = cursor.fetchall()
 
 for item in items:

@@ -1,7 +1,7 @@
 import sqlite3
 
 
-def get_vacance():
+def get_vacancy():
     connection = sqlite3.connect('vacances-sqlite.db')
 
     cursor = connection.cursor()
@@ -16,4 +16,4 @@ def get_vacance():
     connection.close()
 
 
-get_vacance()
+get_vacancy()
