@@ -53,7 +53,6 @@ cursor.execute(''' CREATE TABLE IF NOT EXISTS Vacances
                 ''')
 
 vacances = get_vacancies("Программист", 50)
-
 cursor.executemany('''
                         INSERT INTO Vacances(vacance_name, company_name, vacancu_url, salary_mean)
                         VALUES (?,?,?,?)
