@@ -43,8 +43,6 @@ def get_vacancies(keyword):
             output.put_text("No vacancies found.")
     else:
         output.put_text(f"Request failed with status code: {response.status_code}")
-
-
 def search_vacancies():
     keyword = input.input("Enter a keyword to search for vacancies:", type=input.TEXT)
     output.clear()

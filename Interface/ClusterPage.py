@@ -9,19 +9,20 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
+                            QMetaObject, QObject, QPoint, QRect,
+                            QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+                           QFont, QFontDatabase, QGradient, QIcon,
+                           QImage, QKeySequence, QLinearGradient, QPainter,
+                           QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QLayout, QLineEdit,
-    QListView, QListWidget, QListWidgetItem, QMainWindow,
-    QPushButton, QScrollBar, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+                               QHBoxLayout, QLabel, QLayout, QLineEdit,
+                               QListView, QListWidget, QListWidgetItem, QMainWindow,
+                               QPushButton, QScrollBar, QSizePolicy, QSpacerItem,
+                               QVBoxLayout, QWidget)
 import Logo
 import Icons
+
 
 class Ui_ClusterPage(object):
     def setupUi(self, ClusterPage):
@@ -29,7 +30,7 @@ class Ui_ClusterPage(object):
             ClusterPage.setObjectName(u"ClusterPage")
         ClusterPage.resize(1920, 1142)
         ClusterPage.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"font-family: Roboto;")
+                                  "font-family: Roboto;")
         self.clusterPage = QWidget(ClusterPage)
         self.clusterPage.setObjectName(u"clusterPage")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
@@ -46,7 +47,7 @@ class Ui_ClusterPage(object):
         self.headerFrame.setObjectName(u"headerFrame")
         self.headerFrame.setLayoutDirection(Qt.LeftToRight)
         self.headerFrame.setStyleSheet(u"background-color: #FFFFFF;\n"
-"border-bottom: 2px solid #E7E7E7;")
+                                       "border-bottom: 2px solid #E7E7E7;")
         self.horizontalLayout = QHBoxLayout(self.headerFrame)
         self.horizontalLayout.setSpacing(30)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -62,7 +63,7 @@ class Ui_ClusterPage(object):
         self.label.setMinimumSize(QSize(180, 80))
         self.label.setMaximumSize(QSize(180, 80))
         self.label.setStyleSheet(u"background-image: url(:/Logo/Icons And Logo/Logo.png);\n"
-"border: none;")
+                                 "border: none;")
 
         self.horizontalLayout.addWidget(self.label)
 
@@ -89,14 +90,14 @@ class Ui_ClusterPage(object):
         font.setBold(True)
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet(u"QPushButton {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	border-bottom: 4px solid #501EBC;\n"
-"	border-radius: 2px;\n"
-"}")
+                                      "	border: none;\n"
+                                      "   color: #101010;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QPushButton:hover {\n"
+                                      "	border-bottom: 4px solid #501EBC;\n"
+                                      "	border-radius: 2px;\n"
+                                      "}")
 
         self.horizontalLayout.addWidget(self.pushButton)
 
@@ -117,14 +118,14 @@ class Ui_ClusterPage(object):
         self.pushButton_2.setPalette(palette1)
         self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet(u"QPushButton {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	border-bottom: 4px solid #501EBC;\n"
-"	border-radius: 2px;\n"
-"}")
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "	border-bottom: 4px solid #501EBC;\n"
+                                        "	border-radius: 2px;\n"
+                                        "}")
 
         self.horizontalLayout.addWidget(self.pushButton_2)
 
@@ -134,21 +135,20 @@ class Ui_ClusterPage(object):
         self.pushButton_3.setSizePolicy(sizePolicy1)
         self.pushButton_3.setFont(font)
         self.pushButton_3.setStyleSheet(u"QPushButton {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	border-bottom: 4px solid #501EBC;\n"
-"	border-radius: 2px;\n"
-"}")
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "	border-bottom: 4px solid #501EBC;\n"
+                                        "	border-radius: 2px;\n"
+                                        "}")
 
         self.horizontalLayout.addWidget(self.pushButton_3)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
-
 
         self.verticalLayout_13.addWidget(self.headerFrame, 0, Qt.AlignTop)
 
@@ -232,12 +232,12 @@ class Ui_ClusterPage(object):
         self.findInput.setFont(font2)
         self.findInput.setAcceptDrops(True)
         self.findInput.setStyleSheet(u"QLineEdit {\n"
-"   color: #101010;\n"
-"	border: 2px solid #5B5B5B;\n"
-"	border-radius: 10px;\n"
-"	padding-left: 20px;\n"
-"	padding-right: 20px;\n"
-"}")
+                                     "   color: #101010;\n"
+                                     "	border: 2px solid #5B5B5B;\n"
+                                     "	border-radius: 10px;\n"
+                                     "	padding-left: 20px;\n"
+                                     "	padding-right: 20px;\n"
+                                     "}")
 
         self.horizontalLayout_2.addWidget(self.findInput)
 
@@ -249,13 +249,13 @@ class Ui_ClusterPage(object):
         self.pushButtonFind.setMinimumSize(QSize(48, 48))
         self.pushButtonFind.setFont(font)
         self.pushButtonFind.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgb(80, 30, 188);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(50, 19, 116);\n"
-"}")
+                                          "	background-color: rgb(80, 30, 188);\n"
+                                          "	border-radius: 10px;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "	background-color: rgb(50, 19, 116);\n"
+                                          "}")
         icon = QIcon()
         icon.addFile(u":/Icons/Icons And Logo/Search.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButtonFind.setIcon(icon)
@@ -263,9 +263,7 @@ class Ui_ClusterPage(object):
 
         self.horizontalLayout_2.addWidget(self.pushButtonFind)
 
-
         self.title.addWidget(self.findCluster)
-
 
         self.verticalLayout_13.addWidget(self.titleFrame, 0, Qt.AlignTop)
 
@@ -285,8 +283,8 @@ class Ui_ClusterPage(object):
         self.clusterAdd.setMaximumSize(QSize(346, 407))
         self.clusterAdd.setLayoutDirection(Qt.LeftToRight)
         self.clusterAdd.setStyleSheet(u"background-color: #FFFFFF;\n"
-"border: 2px dashed #501EBC;\n"
-"border-radius: 10px;")
+                                      "border: 2px dashed #501EBC;\n"
+                                      "border-radius: 10px;")
         self.pushButtonAdd = QPushButton(self.clusterAdd)
         self.pushButtonAdd.setObjectName(u"pushButtonAdd")
         self.pushButtonAdd.setGeometry(QRect(125, 123, 96, 96))
@@ -298,14 +296,14 @@ class Ui_ClusterPage(object):
         self.pushButtonAdd.setMinimumSize(QSize(96, 96))
         self.pushButtonAdd.setMaximumSize(QSize(96, 96))
         self.pushButtonAdd.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgb(80, 30, 188);\n"
-"	border: none;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(50, 19, 116);\n"
-"}")
+                                         "	background-color: rgb(80, 30, 188);\n"
+                                         "	border: none;\n"
+                                         "	border-radius: 20px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "	background-color: rgb(50, 19, 116);\n"
+                                         "}")
         icon1 = QIcon()
         icon1.addFile(u":/Icons/Icons And Logo/Add.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButtonAdd.setIcon(icon1)
@@ -350,10 +348,10 @@ class Ui_ClusterPage(object):
         self.cluster.setMinimumSize(QSize(346, 407))
         self.cluster.setMaximumSize(QSize(346, 407))
         self.cluster.setStyleSheet(u"QFrame {\n"
-"	border-right: 2px solid #E7E7E7;\n"
-"	border-bottom: 2px solid #E7E7E7;\n"
-"	border-radius: 10px;\n"
-"}")
+                                   "	border-right: 2px solid #E7E7E7;\n"
+                                   "	border-bottom: 2px solid #E7E7E7;\n"
+                                   "	border-radius: 10px;\n"
+                                   "}")
         self.verticalLayout_2 = QVBoxLayout(self.cluster)
         self.verticalLayout_2.setSpacing(15)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -398,13 +396,13 @@ class Ui_ClusterPage(object):
         self.pushButtonRedact.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact.setMaximumSize(QSize(24, 24))
         self.pushButtonRedact.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
-"}")
+                                            "	border: none;\n"
+                                            "	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
+                                            "}\n"
+                                            "\n"
+                                            "QAbstractButton:hover {\n"
+                                            "	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
+                                            "}")
         self.pushButtonRedact.setIconSize(QSize(24, 24))
 
         self.buttons.addWidget(self.pushButtonRedact)
@@ -414,20 +412,18 @@ class Ui_ClusterPage(object):
         self.pushButtonDelete.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete.setMaximumSize(QSize(24, 24))
         self.pushButtonDelete.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
-"}")
+                                            "	border: none;\n"
+                                            "	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
+                                            "}\n"
+                                            "\n"
+                                            "QAbstractButton:hover {\n"
+                                            "	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
+                                            "}")
         self.pushButtonDelete.setIconSize(QSize(24, 24))
 
         self.buttons.addWidget(self.pushButtonDelete)
 
-
         self.clusterButtons.addLayout(self.buttons)
-
 
         self.verticalLayout_2.addLayout(self.clusterButtons)
 
@@ -487,68 +483,68 @@ class Ui_ClusterPage(object):
         self.listWidget.setPalette(palette7)
         self.listWidget.setFont(font5)
         self.listWidget.setStyleSheet(u"QWidget {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: #E7E7E7;\n"
-"    width: 14px;\n"
-"    margin: 15px 0 15px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"\n"
-"QScrollBar::handle:vertical {	\n"
-"	background-color: #5B5B5B;\n"
-"	min-height: 30px;\n"
-"	border-radius: 7px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical:hover{	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 7px;\n"
-"	border-top-right-radius: 7px;\n"
-"	border-bottom-left-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;\n"
-"	subcontrol-position: top;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 3px;\n"
-"	border-top-right-radius: 3px;\n"
-"	border-bottom-left-radi"
-                        "us: 7px;\n"
-"	border-bottom-right-radius: 7px;\n"
-"	subcontrol-position: bottom;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}")
+                                      "	border: none;\n"
+                                      "   color: #101010;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar:vertical {\n"
+                                      "	border: none;\n"
+                                      "    background: #E7E7E7;\n"
+                                      "    width: 14px;\n"
+                                      "    margin: 15px 0 15px 0;\n"
+                                      "	border-radius: 0px;\n"
+                                      " }\n"
+                                      "\n"
+                                      "QScrollBar::handle:vertical {	\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	min-height: 30px;\n"
+                                      "	border-radius: 7px;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::handle:vertical:hover{	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::sub-line:vertical {\n"
+                                      "	border: none;\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	height: 15px;\n"
+                                      "	border-top-left-radius: 7px;\n"
+                                      "	border-top-right-radius: 7px;\n"
+                                      "	border-bottom-left-radius: 3px;\n"
+                                      "	border-bottom-right-radius: 3px;\n"
+                                      "	subcontrol-position: top;\n"
+                                      "	subcontrol-origin: margin;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::sub-line:vertical:hover {	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-line:vertical {\n"
+                                      "	border: none;\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	height: 15px;\n"
+                                      "	border-top-left-radius: 3px;\n"
+                                      "	border-top-right-radius: 3px;\n"
+                                      "	border-bottom-left-radi"
+                                      "us: 7px;\n"
+                                      "	border-bottom-right-radius: 7px;\n"
+                                      "	subcontrol-position: bottom;\n"
+                                      "	subcontrol-origin: margin;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-line:vertical:hover {	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                      "	background: none;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                      "	background: none;\n"
+                                      "}")
         self.listWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget.setProperty(u"showDropIndicator", False)
         self.listWidget.setSelectionMode(QAbstractItemView.NoSelection)
@@ -557,7 +553,6 @@ class Ui_ClusterPage(object):
         self.listWidget.setSpacing(4)
 
         self.verticalLayout.addWidget(self.listWidget)
-
 
         self.verticalLayout_2.addLayout(self.verticalLayout)
 
@@ -593,16 +588,15 @@ class Ui_ClusterPage(object):
         font6.setUnderline(True)
         self.pushButtonMore.setFont(font6)
         self.pushButtonMore.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	color: #010101;\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	color: #501EBC;\n"
-"}")
+                                          "	border: none;\n"
+                                          "	color: #010101;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QAbstractButton:hover {\n"
+                                          "	color: #501EBC;\n"
+                                          "}")
 
         self.verticalLayout_2.addWidget(self.pushButtonMore, 0, Qt.AlignHCenter)
-
 
         self.gridClusters.addWidget(self.cluster, 0, 0, 1, 1)
 
@@ -611,10 +605,10 @@ class Ui_ClusterPage(object):
         self.cluster_4.setMinimumSize(QSize(346, 407))
         self.cluster_4.setMaximumSize(QSize(346, 407))
         self.cluster_4.setStyleSheet(u"QFrame {\n"
-"	border-right: 2px solid #E7E7E7;\n"
-"	border-bottom: 2px solid #E7E7E7;\n"
-"	border-radius: 10px;\n"
-"}")
+                                     "	border-right: 2px solid #E7E7E7;\n"
+                                     "	border-bottom: 2px solid #E7E7E7;\n"
+                                     "	border-radius: 10px;\n"
+                                     "}")
         self.verticalLayout_7 = QVBoxLayout(self.cluster_4)
         self.verticalLayout_7.setSpacing(15)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
@@ -651,13 +645,13 @@ class Ui_ClusterPage(object):
         self.pushButtonRedact_4.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_4.setMaximumSize(QSize(24, 24))
         self.pushButtonRedact_4.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
+                                              "}")
         self.pushButtonRedact_4.setIconSize(QSize(24, 24))
 
         self.buttons_4.addWidget(self.pushButtonRedact_4)
@@ -667,20 +661,18 @@ class Ui_ClusterPage(object):
         self.pushButtonDelete_4.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_4.setMaximumSize(QSize(24, 24))
         self.pushButtonDelete_4.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
+                                              "}")
         self.pushButtonDelete_4.setIconSize(QSize(24, 24))
 
         self.buttons_4.addWidget(self.pushButtonDelete_4)
 
-
         self.clusterButtons_4.addLayout(self.buttons_4)
-
 
         self.verticalLayout_7.addLayout(self.clusterButtons_4)
 
@@ -736,68 +728,68 @@ class Ui_ClusterPage(object):
         self.listWidget_4.setPalette(palette11)
         self.listWidget_4.setFont(font5)
         self.listWidget_4.setStyleSheet(u"QWidget {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: #E7E7E7;\n"
-"    width: 14px;\n"
-"    margin: 15px 0 15px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"\n"
-"QScrollBar::handle:vertical {	\n"
-"	background-color: #5B5B5B;\n"
-"	min-height: 30px;\n"
-"	border-radius: 7px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical:hover{	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 7px;\n"
-"	border-top-right-radius: 7px;\n"
-"	border-bottom-left-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;\n"
-"	subcontrol-position: top;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 3px;\n"
-"	border-top-right-radius: 3px;\n"
-"	border-bottom-left-radi"
-                        "us: 7px;\n"
-"	border-bottom-right-radius: 7px;\n"
-"	subcontrol-position: bottom;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}")
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
         self.listWidget_4.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget_4.setProperty(u"showDropIndicator", False)
         self.listWidget_4.setSelectionMode(QAbstractItemView.NoSelection)
@@ -806,7 +798,6 @@ class Ui_ClusterPage(object):
         self.listWidget_4.setSpacing(4)
 
         self.verticalLayout_8.addWidget(self.listWidget_4)
-
 
         self.verticalLayout_7.addLayout(self.verticalLayout_8)
 
@@ -837,16 +828,15 @@ class Ui_ClusterPage(object):
         self.pushButtonMore_4.setPalette(palette12)
         self.pushButtonMore_4.setFont(font6)
         self.pushButtonMore_4.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	color: #010101;\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	color: #501EBC;\n"
-"}")
+                                            "	border: none;\n"
+                                            "	color: #010101;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QAbstractButton:hover {\n"
+                                            "	color: #501EBC;\n"
+                                            "}")
 
         self.verticalLayout_7.addWidget(self.pushButtonMore_4, 0, Qt.AlignHCenter)
-
 
         self.gridClusters.addWidget(self.cluster_4, 0, 3, 1, 1)
 
@@ -855,10 +845,10 @@ class Ui_ClusterPage(object):
         self.cluster_2.setMinimumSize(QSize(346, 407))
         self.cluster_2.setMaximumSize(QSize(346, 407))
         self.cluster_2.setStyleSheet(u"QFrame {\n"
-"	border-right: 2px solid #E7E7E7;\n"
-"	border-bottom: 2px solid #E7E7E7;\n"
-"	border-radius: 10px;\n"
-"}")
+                                     "	border-right: 2px solid #E7E7E7;\n"
+                                     "	border-bottom: 2px solid #E7E7E7;\n"
+                                     "	border-radius: 10px;\n"
+                                     "}")
         self.verticalLayout_3 = QVBoxLayout(self.cluster_2)
         self.verticalLayout_3.setSpacing(15)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
@@ -895,13 +885,13 @@ class Ui_ClusterPage(object):
         self.pushButtonRedact_2.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_2.setMaximumSize(QSize(24, 24))
         self.pushButtonRedact_2.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
+                                              "}")
         self.pushButtonRedact_2.setIconSize(QSize(24, 24))
 
         self.buttons_2.addWidget(self.pushButtonRedact_2)
@@ -911,20 +901,18 @@ class Ui_ClusterPage(object):
         self.pushButtonDelete_2.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_2.setMaximumSize(QSize(24, 24))
         self.pushButtonDelete_2.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
+                                              "}")
         self.pushButtonDelete_2.setIconSize(QSize(24, 24))
 
         self.buttons_2.addWidget(self.pushButtonDelete_2)
 
-
         self.clusterButtons_2.addLayout(self.buttons_2)
-
 
         self.verticalLayout_3.addLayout(self.clusterButtons_2)
 
@@ -980,68 +968,68 @@ class Ui_ClusterPage(object):
         self.listWidget_2.setPalette(palette15)
         self.listWidget_2.setFont(font5)
         self.listWidget_2.setStyleSheet(u"QWidget {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: #E7E7E7;\n"
-"    width: 14px;\n"
-"    margin: 15px 0 15px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"\n"
-"QScrollBar::handle:vertical {	\n"
-"	background-color: #5B5B5B;\n"
-"	min-height: 30px;\n"
-"	border-radius: 7px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical:hover{	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 7px;\n"
-"	border-top-right-radius: 7px;\n"
-"	border-bottom-left-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;\n"
-"	subcontrol-position: top;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 3px;\n"
-"	border-top-right-radius: 3px;\n"
-"	border-bottom-left-radi"
-                        "us: 7px;\n"
-"	border-bottom-right-radius: 7px;\n"
-"	subcontrol-position: bottom;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}")
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
         self.listWidget_2.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget_2.setProperty(u"showDropIndicator", False)
         self.listWidget_2.setSelectionMode(QAbstractItemView.NoSelection)
@@ -1050,7 +1038,6 @@ class Ui_ClusterPage(object):
         self.listWidget_2.setSpacing(4)
 
         self.verticalLayout_4.addWidget(self.listWidget_2)
-
 
         self.verticalLayout_3.addLayout(self.verticalLayout_4)
 
@@ -1081,16 +1068,15 @@ class Ui_ClusterPage(object):
         self.pushButtonMore_2.setPalette(palette16)
         self.pushButtonMore_2.setFont(font6)
         self.pushButtonMore_2.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	color: #010101;\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	color: #501EBC;\n"
-"}")
+                                            "	border: none;\n"
+                                            "	color: #010101;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QAbstractButton:hover {\n"
+                                            "	color: #501EBC;\n"
+                                            "}")
 
         self.verticalLayout_3.addWidget(self.pushButtonMore_2, 0, Qt.AlignHCenter)
-
 
         self.gridClusters.addWidget(self.cluster_2, 0, 1, 1, 1)
 
@@ -1099,10 +1085,10 @@ class Ui_ClusterPage(object):
         self.cluster_3.setMinimumSize(QSize(346, 407))
         self.cluster_3.setMaximumSize(QSize(346, 407))
         self.cluster_3.setStyleSheet(u"QFrame {\n"
-"	border-right: 2px solid #E7E7E7;\n"
-"	border-bottom: 2px solid #E7E7E7;\n"
-"	border-radius: 10px;\n"
-"}")
+                                     "	border-right: 2px solid #E7E7E7;\n"
+                                     "	border-bottom: 2px solid #E7E7E7;\n"
+                                     "	border-radius: 10px;\n"
+                                     "}")
         self.verticalLayout_5 = QVBoxLayout(self.cluster_3)
         self.verticalLayout_5.setSpacing(15)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -1139,13 +1125,13 @@ class Ui_ClusterPage(object):
         self.pushButtonRedact_3.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_3.setMaximumSize(QSize(24, 24))
         self.pushButtonRedact_3.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
+                                              "}")
         self.pushButtonRedact_3.setIconSize(QSize(24, 24))
 
         self.buttons_3.addWidget(self.pushButtonRedact_3)
@@ -1155,20 +1141,18 @@ class Ui_ClusterPage(object):
         self.pushButtonDelete_3.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_3.setMaximumSize(QSize(24, 24))
         self.pushButtonDelete_3.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
+                                              "}")
         self.pushButtonDelete_3.setIconSize(QSize(24, 24))
 
         self.buttons_3.addWidget(self.pushButtonDelete_3)
 
-
         self.clusterButtons_3.addLayout(self.buttons_3)
-
 
         self.verticalLayout_5.addLayout(self.clusterButtons_3)
 
@@ -1224,68 +1208,68 @@ class Ui_ClusterPage(object):
         self.listWidget_3.setPalette(palette19)
         self.listWidget_3.setFont(font5)
         self.listWidget_3.setStyleSheet(u"QWidget {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: #E7E7E7;\n"
-"    width: 14px;\n"
-"    margin: 15px 0 15px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"\n"
-"QScrollBar::handle:vertical {	\n"
-"	background-color: #5B5B5B;\n"
-"	min-height: 30px;\n"
-"	border-radius: 7px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical:hover{	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 7px;\n"
-"	border-top-right-radius: 7px;\n"
-"	border-bottom-left-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;\n"
-"	subcontrol-position: top;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 3px;\n"
-"	border-top-right-radius: 3px;\n"
-"	border-bottom-left-radi"
-                        "us: 7px;\n"
-"	border-bottom-right-radius: 7px;\n"
-"	subcontrol-position: bottom;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}")
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
         self.listWidget_3.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget_3.setProperty(u"showDropIndicator", False)
         self.listWidget_3.setSelectionMode(QAbstractItemView.NoSelection)
@@ -1294,7 +1278,6 @@ class Ui_ClusterPage(object):
         self.listWidget_3.setSpacing(4)
 
         self.verticalLayout_6.addWidget(self.listWidget_3)
-
 
         self.verticalLayout_5.addLayout(self.verticalLayout_6)
 
@@ -1325,16 +1308,15 @@ class Ui_ClusterPage(object):
         self.pushButtonMore_3.setPalette(palette20)
         self.pushButtonMore_3.setFont(font6)
         self.pushButtonMore_3.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	color: #010101;\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	color: #501EBC;\n"
-"}")
+                                            "	border: none;\n"
+                                            "	color: #010101;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QAbstractButton:hover {\n"
+                                            "	color: #501EBC;\n"
+                                            "}")
 
         self.verticalLayout_5.addWidget(self.pushButtonMore_3, 0, Qt.AlignHCenter)
-
 
         self.gridClusters.addWidget(self.cluster_3, 0, 2, 1, 1)
 
@@ -1343,10 +1325,10 @@ class Ui_ClusterPage(object):
         self.cluster_5.setMinimumSize(QSize(346, 407))
         self.cluster_5.setMaximumSize(QSize(346, 407))
         self.cluster_5.setStyleSheet(u"QFrame {\n"
-"	border-right: 2px solid #E7E7E7;\n"
-"	border-bottom: 2px solid #E7E7E7;\n"
-"	border-radius: 10px;\n"
-"}")
+                                     "	border-right: 2px solid #E7E7E7;\n"
+                                     "	border-bottom: 2px solid #E7E7E7;\n"
+                                     "	border-radius: 10px;\n"
+                                     "}")
         self.verticalLayout_9 = QVBoxLayout(self.cluster_5)
         self.verticalLayout_9.setSpacing(15)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
@@ -1383,13 +1365,13 @@ class Ui_ClusterPage(object):
         self.pushButtonRedact_5.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_5.setMaximumSize(QSize(24, 24))
         self.pushButtonRedact_5.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
+                                              "}")
         self.pushButtonRedact_5.setIconSize(QSize(24, 24))
 
         self.buttons_5.addWidget(self.pushButtonRedact_5)
@@ -1399,20 +1381,18 @@ class Ui_ClusterPage(object):
         self.pushButtonDelete_5.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_5.setMaximumSize(QSize(24, 24))
         self.pushButtonDelete_5.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
+                                              "}")
         self.pushButtonDelete_5.setIconSize(QSize(24, 24))
 
         self.buttons_5.addWidget(self.pushButtonDelete_5)
 
-
         self.clusterButtons_5.addLayout(self.buttons_5)
-
 
         self.verticalLayout_9.addLayout(self.clusterButtons_5)
 
@@ -1468,68 +1448,68 @@ class Ui_ClusterPage(object):
         self.listWidget_5.setPalette(palette23)
         self.listWidget_5.setFont(font5)
         self.listWidget_5.setStyleSheet(u"QWidget {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: #E7E7E7;\n"
-"    width: 14px;\n"
-"    margin: 15px 0 15px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"\n"
-"QScrollBar::handle:vertical {	\n"
-"	background-color: #5B5B5B;\n"
-"	min-height: 30px;\n"
-"	border-radius: 7px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical:hover{	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 7px;\n"
-"	border-top-right-radius: 7px;\n"
-"	border-bottom-left-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;\n"
-"	subcontrol-position: top;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 3px;\n"
-"	border-top-right-radius: 3px;\n"
-"	border-bottom-left-radi"
-                        "us: 7px;\n"
-"	border-bottom-right-radius: 7px;\n"
-"	subcontrol-position: bottom;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}")
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
         self.listWidget_5.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget_5.setProperty(u"showDropIndicator", False)
         self.listWidget_5.setSelectionMode(QAbstractItemView.NoSelection)
@@ -1538,7 +1518,6 @@ class Ui_ClusterPage(object):
         self.listWidget_5.setSpacing(4)
 
         self.verticalLayout_10.addWidget(self.listWidget_5)
-
 
         self.verticalLayout_9.addLayout(self.verticalLayout_10)
 
@@ -1569,16 +1548,15 @@ class Ui_ClusterPage(object):
         self.pushButtonMore_5.setPalette(palette24)
         self.pushButtonMore_5.setFont(font6)
         self.pushButtonMore_5.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	color: #010101;\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	color: #501EBC;\n"
-"}")
+                                            "	border: none;\n"
+                                            "	color: #010101;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QAbstractButton:hover {\n"
+                                            "	color: #501EBC;\n"
+                                            "}")
 
         self.verticalLayout_9.addWidget(self.pushButtonMore_5, 0, Qt.AlignHCenter)
-
 
         self.gridClusters.addWidget(self.cluster_5, 0, 4, 1, 1)
 
@@ -1587,10 +1565,10 @@ class Ui_ClusterPage(object):
         self.cluster_6.setMinimumSize(QSize(346, 407))
         self.cluster_6.setMaximumSize(QSize(346, 407))
         self.cluster_6.setStyleSheet(u"QFrame {\n"
-"	border-right: 2px solid #E7E7E7;\n"
-"	border-bottom: 2px solid #E7E7E7;\n"
-"	border-radius: 10px;\n"
-"}")
+                                     "	border-right: 2px solid #E7E7E7;\n"
+                                     "	border-bottom: 2px solid #E7E7E7;\n"
+                                     "	border-radius: 10px;\n"
+                                     "}")
         self.verticalLayout_11 = QVBoxLayout(self.cluster_6)
         self.verticalLayout_11.setSpacing(15)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
@@ -1627,13 +1605,13 @@ class Ui_ClusterPage(object):
         self.pushButtonRedact_6.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_6.setMaximumSize(QSize(24, 24))
         self.pushButtonRedact_6.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Edit_purple.png);\n"
+                                              "}")
         self.pushButtonRedact_6.setIconSize(QSize(24, 24))
 
         self.buttons_6.addWidget(self.pushButtonRedact_6)
@@ -1643,20 +1621,18 @@ class Ui_ClusterPage(object):
         self.pushButtonDelete_6.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_6.setMaximumSize(QSize(24, 24))
         self.pushButtonDelete_6.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
-"}")
+                                              "	border: none;\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_grey.png);\n"
+                                              "}\n"
+                                              "\n"
+                                              "QAbstractButton:hover {\n"
+                                              "	image: url(:/Icons/Icons And Logo/Trash_purple.png);\n"
+                                              "}")
         self.pushButtonDelete_6.setIconSize(QSize(24, 24))
 
         self.buttons_6.addWidget(self.pushButtonDelete_6)
 
-
         self.clusterButtons_6.addLayout(self.buttons_6)
-
 
         self.verticalLayout_11.addLayout(self.clusterButtons_6)
 
@@ -1712,68 +1688,68 @@ class Ui_ClusterPage(object):
         self.listWidget_6.setPalette(palette27)
         self.listWidget_6.setFont(font5)
         self.listWidget_6.setStyleSheet(u"QWidget {\n"
-"	border: none;\n"
-"   color: #101010;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: #E7E7E7;\n"
-"    width: 14px;\n"
-"    margin: 15px 0 15px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"\n"
-"QScrollBar::handle:vertical {	\n"
-"	background-color: #5B5B5B;\n"
-"	min-height: 30px;\n"
-"	border-radius: 7px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical:hover{	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 7px;\n"
-"	border-top-right-radius: 7px;\n"
-"	border-bottom-left-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;\n"
-"	subcontrol-position: top;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 3px;\n"
-"	border-top-right-radius: 3px;\n"
-"	border-bottom-left-radi"
-                        "us: 7px;\n"
-"	border-bottom-right-radius: 7px;\n"
-"	subcontrol-position: bottom;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}")
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
         self.listWidget_6.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.listWidget_6.setProperty(u"showDropIndicator", False)
         self.listWidget_6.setSelectionMode(QAbstractItemView.NoSelection)
@@ -1782,7 +1758,6 @@ class Ui_ClusterPage(object):
         self.listWidget_6.setSpacing(4)
 
         self.verticalLayout_12.addWidget(self.listWidget_6)
-
 
         self.verticalLayout_11.addLayout(self.verticalLayout_12)
 
@@ -1813,19 +1788,17 @@ class Ui_ClusterPage(object):
         self.pushButtonMore_6.setPalette(palette28)
         self.pushButtonMore_6.setFont(font6)
         self.pushButtonMore_6.setStyleSheet(u"QAbstractButton {\n"
-"	border: none;\n"
-"	color: #010101;\n"
-"}\n"
-"\n"
-"QAbstractButton:hover {\n"
-"	color: #501EBC;\n"
-"}")
+                                            "	border: none;\n"
+                                            "	color: #010101;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QAbstractButton:hover {\n"
+                                            "	color: #501EBC;\n"
+                                            "}")
 
         self.verticalLayout_11.addWidget(self.pushButtonMore_6, 0, Qt.AlignHCenter)
 
-
         self.gridClusters.addWidget(self.cluster_6, 1, 0, 1, 1)
-
 
         self.clusters.addLayout(self.gridClusters)
 
@@ -1845,67 +1818,66 @@ class Ui_ClusterPage(object):
         palette29.setBrush(QPalette.Disabled, QPalette.Window, brush4)
         self.verticalScrollBar.setPalette(palette29)
         self.verticalScrollBar.setStyleSheet(u"QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: #E7E7E7;\n"
-"    width: 14px;\n"
-"    margin: 15px 0 15px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"\n"
-"QScrollBar::handle:vertical {	\n"
-"	background-color: #5B5B5B;\n"
-"	min-height: 30px;\n"
-"	border-radius: 7px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical:hover{	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 7px;\n"
-"	border-top-right-radius: 7px;\n"
-"	border-bottom-left-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;\n"
-"	subcontrol-position: top;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"	border: none;\n"
-"	background-color: #5B5B5B;\n"
-"	height: 15px;\n"
-"	border-top-left-radius: 3px;\n"
-"	border-top-right-radius: 3px;\n"
-"	border-bottom-left-radius: 7px;\n"
-"	border-bottom-right-radius: 7p"
-                        "x;\n"
-"	subcontrol-position: bottom;\n"
-"	subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover {	\n"
-"	background-color: #501EBC;\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}")
+                                             "	border: none;\n"
+                                             "    background: #E7E7E7;\n"
+                                             "    width: 14px;\n"
+                                             "    margin: 15px 0 15px 0;\n"
+                                             "	border-radius: 0px;\n"
+                                             " }\n"
+                                             "\n"
+                                             "QScrollBar::handle:vertical {	\n"
+                                             "	background-color: #5B5B5B;\n"
+                                             "	min-height: 30px;\n"
+                                             "	border-radius: 7px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QScrollBar::handle:vertical:hover{	\n"
+                                             "	background-color: #501EBC;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QScrollBar::sub-line:vertical {\n"
+                                             "	border: none;\n"
+                                             "	background-color: #5B5B5B;\n"
+                                             "	height: 15px;\n"
+                                             "	border-top-left-radius: 7px;\n"
+                                             "	border-top-right-radius: 7px;\n"
+                                             "	border-bottom-left-radius: 3px;\n"
+                                             "	border-bottom-right-radius: 3px;\n"
+                                             "	subcontrol-position: top;\n"
+                                             "	subcontrol-origin: margin;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QScrollBar::sub-line:vertical:hover {	\n"
+                                             "	background-color: #501EBC;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QScrollBar::add-line:vertical {\n"
+                                             "	border: none;\n"
+                                             "	background-color: #5B5B5B;\n"
+                                             "	height: 15px;\n"
+                                             "	border-top-left-radius: 3px;\n"
+                                             "	border-top-right-radius: 3px;\n"
+                                             "	border-bottom-left-radius: 7px;\n"
+                                             "	border-bottom-right-radius: 7p"
+                                             "x;\n"
+                                             "	subcontrol-position: bottom;\n"
+                                             "	subcontrol-origin: margin;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QScrollBar::add-line:vertical:hover {	\n"
+                                             "	background-color: #501EBC;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                             "	background: none;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                             "	background: none;\n"
+                                             "}")
         self.verticalScrollBar.setOrientation(Qt.Vertical)
 
         self.clusters.addWidget(self.verticalScrollBar)
-
 
         self.verticalLayout_13.addWidget(self.clustersFrame, 0, Qt.AlignTop)
 
@@ -1914,211 +1886,334 @@ class Ui_ClusterPage(object):
         self.retranslateUi(ClusterPage)
 
         QMetaObject.connectSlotsByName(ClusterPage)
+
     # setupUi
 
     def retranslateUi(self, ClusterPage):
         ClusterPage.setWindowTitle(QCoreApplication.translate("ClusterPage", u"Your Vacancy", None))
         self.label.setText("")
-        self.pushButton.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u043e\u0434\u043e\u0431\u0440\u0430\u0442\u044c \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u044e", None))
-        self.pushButton_2.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043b\u0430\u0441\u0442\u0435\u0440\u044b", None))
-        self.pushButton_3.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u0438", None))
-        self.title_2.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043b\u0430\u0441\u0442\u0435\u0440\u044b", None))
+        self.pushButton.setText(QCoreApplication.translate("ClusterPage",
+                                                           u"\u041f\u043e\u0434\u043e\u0431\u0440\u0430\u0442\u044c \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u044e",
+                                                           None))
+        self.pushButton_2.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041a\u043b\u0430\u0441\u0442\u0435\u0440\u044b", None))
+        self.pushButton_3.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u0438", None))
+        self.title_2.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041a\u043b\u0430\u0441\u0442\u0435\u0440\u044b", None))
         self.findInput.setText("")
-        self.findInput.setPlaceholderText(QCoreApplication.translate("ClusterPage", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0442\u0435\u0440\u0430", None))
+        self.findInput.setPlaceholderText(QCoreApplication.translate("ClusterPage",
+                                                                     u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0442\u0435\u0440\u0430",
+                                                                     None))
         self.pushButtonFind.setText("")
         self.pushButtonAdd.setText("")
-        self.textAdd.setText(QCoreApplication.translate("ClusterPage", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u043a\u043b\u0430\u0441\u0442\u0435\u0440", None))
-        self.clusterName.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
+        self.textAdd.setText(QCoreApplication.translate("ClusterPage",
+                                                        u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u043a\u043b\u0430\u0441\u0442\u0435\u0440",
+                                                        None))
+        self.clusterName.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
         self.pushButtonRedact.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonRedact.setShortcut("")
-#endif // QT_CONFIG(shortcut)
+        #endif // QT_CONFIG(shortcut)
         self.pushButtonDelete.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonDelete.setShortcut("")
-#endif // QT_CONFIG(shortcut)
-        self.vacancy.setText(QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
+        #endif // QT_CONFIG(shortcut)
+        self.vacancy.setText(
+            QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
 
         __sortingEnabled = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)
         ___qlistwidgetitem = self.listWidget.item(0)
-        ___qlistwidgetitem.setText(QCoreApplication.translate("ClusterPage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None));
+        ___qlistwidgetitem.setText(QCoreApplication.translate("ClusterPage",
+                                                              u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c",
+                                                              None));
         ___qlistwidgetitem1 = self.listWidget.item(1)
-        ___qlistwidgetitem1.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440", None));
+        ___qlistwidgetitem1.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+                                                               None));
         ___qlistwidgetitem2 = self.listWidget.item(2)
-        ___qlistwidgetitem2.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435", None));
+        ___qlistwidgetitem2.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435",
+                                                               None));
         ___qlistwidgetitem3 = self.listWidget.item(3)
-        ___qlistwidgetitem3.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430", None));
+        ___qlistwidgetitem3.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430",
+                                                               None));
         ___qlistwidgetitem4 = self.listWidget.item(4)
-        ___qlistwidgetitem4.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436", None));
+        ___qlistwidgetitem4.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436",
+                                                               None));
         ___qlistwidgetitem5 = self.listWidget.item(5)
-        ___qlistwidgetitem5.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem5.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
         ___qlistwidgetitem6 = self.listWidget.item(6)
-        ___qlistwidgetitem6.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem6.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440",
+                                                               None));
         ___qlistwidgetitem7 = self.listWidget.item(7)
-        ___qlistwidgetitem7.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442", None));
+        ___qlistwidgetitem7.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442",
+                                                               None));
         self.listWidget.setSortingEnabled(__sortingEnabled)
 
-        self.pushButtonMore.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451", None))
-        self.clusterName_4.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
+        self.pushButtonMore.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451",
+                                                               None))
+        self.clusterName_4.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
         self.pushButtonRedact_4.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonRedact_4.setShortcut("")
-#endif // QT_CONFIG(shortcut)
+        #endif // QT_CONFIG(shortcut)
         self.pushButtonDelete_4.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonDelete_4.setShortcut("")
-#endif // QT_CONFIG(shortcut)
-        self.vacancy_4.setText(QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
+        #endif // QT_CONFIG(shortcut)
+        self.vacancy_4.setText(
+            QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
 
         __sortingEnabled1 = self.listWidget_4.isSortingEnabled()
         self.listWidget_4.setSortingEnabled(False)
         ___qlistwidgetitem8 = self.listWidget_4.item(0)
-        ___qlistwidgetitem8.setText(QCoreApplication.translate("ClusterPage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None));
+        ___qlistwidgetitem8.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c",
+                                                               None));
         ___qlistwidgetitem9 = self.listWidget_4.item(1)
-        ___qlistwidgetitem9.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440", None));
+        ___qlistwidgetitem9.setText(QCoreApplication.translate("ClusterPage",
+                                                               u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+                                                               None));
         ___qlistwidgetitem10 = self.listWidget_4.item(2)
-        ___qlistwidgetitem10.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435", None));
+        ___qlistwidgetitem10.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435",
+                                                                None));
         ___qlistwidgetitem11 = self.listWidget_4.item(3)
-        ___qlistwidgetitem11.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430", None));
+        ___qlistwidgetitem11.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430",
+                                                                None));
         ___qlistwidgetitem12 = self.listWidget_4.item(4)
-        ___qlistwidgetitem12.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436", None));
+        ___qlistwidgetitem12.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436",
+                                                                None));
         ___qlistwidgetitem13 = self.listWidget_4.item(5)
-        ___qlistwidgetitem13.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem13.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
         ___qlistwidgetitem14 = self.listWidget_4.item(6)
-        ___qlistwidgetitem14.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem14.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440",
+                                                                None));
         ___qlistwidgetitem15 = self.listWidget_4.item(7)
-        ___qlistwidgetitem15.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442", None));
+        ___qlistwidgetitem15.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442",
+                                                                None));
         self.listWidget_4.setSortingEnabled(__sortingEnabled1)
 
-        self.pushButtonMore_4.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451", None))
-        self.clusterName_2.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
+        self.pushButtonMore_4.setText(QCoreApplication.translate("ClusterPage",
+                                                                 u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451",
+                                                                 None))
+        self.clusterName_2.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
         self.pushButtonRedact_2.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonRedact_2.setShortcut("")
-#endif // QT_CONFIG(shortcut)
+        #endif // QT_CONFIG(shortcut)
         self.pushButtonDelete_2.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonDelete_2.setShortcut("")
-#endif // QT_CONFIG(shortcut)
-        self.vacancy_2.setText(QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
+        #endif // QT_CONFIG(shortcut)
+        self.vacancy_2.setText(
+            QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
 
         __sortingEnabled2 = self.listWidget_2.isSortingEnabled()
         self.listWidget_2.setSortingEnabled(False)
         ___qlistwidgetitem16 = self.listWidget_2.item(0)
-        ___qlistwidgetitem16.setText(QCoreApplication.translate("ClusterPage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None));
+        ___qlistwidgetitem16.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c",
+                                                                None));
         ___qlistwidgetitem17 = self.listWidget_2.item(1)
-        ___qlistwidgetitem17.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440", None));
+        ___qlistwidgetitem17.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+                                                                None));
         ___qlistwidgetitem18 = self.listWidget_2.item(2)
-        ___qlistwidgetitem18.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435", None));
+        ___qlistwidgetitem18.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435",
+                                                                None));
         ___qlistwidgetitem19 = self.listWidget_2.item(3)
-        ___qlistwidgetitem19.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430", None));
+        ___qlistwidgetitem19.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430",
+                                                                None));
         ___qlistwidgetitem20 = self.listWidget_2.item(4)
-        ___qlistwidgetitem20.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436", None));
+        ___qlistwidgetitem20.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436",
+                                                                None));
         ___qlistwidgetitem21 = self.listWidget_2.item(5)
-        ___qlistwidgetitem21.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem21.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
         ___qlistwidgetitem22 = self.listWidget_2.item(6)
-        ___qlistwidgetitem22.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem22.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440",
+                                                                None));
         ___qlistwidgetitem23 = self.listWidget_2.item(7)
-        ___qlistwidgetitem23.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442", None));
+        ___qlistwidgetitem23.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442",
+                                                                None));
         self.listWidget_2.setSortingEnabled(__sortingEnabled2)
 
-        self.pushButtonMore_2.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451", None))
-        self.clusterName_3.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
+        self.pushButtonMore_2.setText(QCoreApplication.translate("ClusterPage",
+                                                                 u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451",
+                                                                 None))
+        self.clusterName_3.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
         self.pushButtonRedact_3.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonRedact_3.setShortcut("")
-#endif // QT_CONFIG(shortcut)
+        #endif // QT_CONFIG(shortcut)
         self.pushButtonDelete_3.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonDelete_3.setShortcut("")
-#endif // QT_CONFIG(shortcut)
-        self.vacancy_3.setText(QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
+        #endif // QT_CONFIG(shortcut)
+        self.vacancy_3.setText(
+            QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
 
         __sortingEnabled3 = self.listWidget_3.isSortingEnabled()
         self.listWidget_3.setSortingEnabled(False)
         ___qlistwidgetitem24 = self.listWidget_3.item(0)
-        ___qlistwidgetitem24.setText(QCoreApplication.translate("ClusterPage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None));
+        ___qlistwidgetitem24.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c",
+                                                                None));
         ___qlistwidgetitem25 = self.listWidget_3.item(1)
-        ___qlistwidgetitem25.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440", None));
+        ___qlistwidgetitem25.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+                                                                None));
         ___qlistwidgetitem26 = self.listWidget_3.item(2)
-        ___qlistwidgetitem26.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435", None));
+        ___qlistwidgetitem26.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435",
+                                                                None));
         ___qlistwidgetitem27 = self.listWidget_3.item(3)
-        ___qlistwidgetitem27.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430", None));
+        ___qlistwidgetitem27.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430",
+                                                                None));
         ___qlistwidgetitem28 = self.listWidget_3.item(4)
-        ___qlistwidgetitem28.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436", None));
+        ___qlistwidgetitem28.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436",
+                                                                None));
         ___qlistwidgetitem29 = self.listWidget_3.item(5)
-        ___qlistwidgetitem29.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem29.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
         ___qlistwidgetitem30 = self.listWidget_3.item(6)
-        ___qlistwidgetitem30.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem30.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440",
+                                                                None));
         ___qlistwidgetitem31 = self.listWidget_3.item(7)
-        ___qlistwidgetitem31.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442", None));
+        ___qlistwidgetitem31.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442",
+                                                                None));
         self.listWidget_3.setSortingEnabled(__sortingEnabled3)
 
-        self.pushButtonMore_3.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451", None))
-        self.clusterName_5.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
+        self.pushButtonMore_3.setText(QCoreApplication.translate("ClusterPage",
+                                                                 u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451",
+                                                                 None))
+        self.clusterName_5.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
         self.pushButtonRedact_5.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonRedact_5.setShortcut("")
-#endif // QT_CONFIG(shortcut)
+        #endif // QT_CONFIG(shortcut)
         self.pushButtonDelete_5.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonDelete_5.setShortcut("")
-#endif // QT_CONFIG(shortcut)
-        self.vacancy_5.setText(QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
+        #endif // QT_CONFIG(shortcut)
+        self.vacancy_5.setText(
+            QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
 
         __sortingEnabled4 = self.listWidget_5.isSortingEnabled()
         self.listWidget_5.setSortingEnabled(False)
         ___qlistwidgetitem32 = self.listWidget_5.item(0)
-        ___qlistwidgetitem32.setText(QCoreApplication.translate("ClusterPage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None));
+        ___qlistwidgetitem32.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c",
+                                                                None));
         ___qlistwidgetitem33 = self.listWidget_5.item(1)
-        ___qlistwidgetitem33.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440", None));
+        ___qlistwidgetitem33.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+                                                                None));
         ___qlistwidgetitem34 = self.listWidget_5.item(2)
-        ___qlistwidgetitem34.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435", None));
+        ___qlistwidgetitem34.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435",
+                                                                None));
         ___qlistwidgetitem35 = self.listWidget_5.item(3)
-        ___qlistwidgetitem35.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430", None));
+        ___qlistwidgetitem35.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430",
+                                                                None));
         ___qlistwidgetitem36 = self.listWidget_5.item(4)
-        ___qlistwidgetitem36.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436", None));
+        ___qlistwidgetitem36.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436",
+                                                                None));
         ___qlistwidgetitem37 = self.listWidget_5.item(5)
-        ___qlistwidgetitem37.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem37.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
         ___qlistwidgetitem38 = self.listWidget_5.item(6)
-        ___qlistwidgetitem38.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem38.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440",
+                                                                None));
         ___qlistwidgetitem39 = self.listWidget_5.item(7)
-        ___qlistwidgetitem39.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442", None));
+        ___qlistwidgetitem39.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442",
+                                                                None));
         self.listWidget_5.setSortingEnabled(__sortingEnabled4)
 
-        self.pushButtonMore_5.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451", None))
-        self.clusterName_6.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
+        self.pushButtonMore_5.setText(QCoreApplication.translate("ClusterPage",
+                                                                 u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451",
+                                                                 None))
+        self.clusterName_6.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
         self.pushButtonRedact_6.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonRedact_6.setShortcut("")
-#endif // QT_CONFIG(shortcut)
+        #endif // QT_CONFIG(shortcut)
         self.pushButtonDelete_6.setText("")
-#if QT_CONFIG(shortcut)
+        #if QT_CONFIG(shortcut)
         self.pushButtonDelete_6.setShortcut("")
-#endif // QT_CONFIG(shortcut)
-        self.vacancy_6.setText(QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
+        #endif // QT_CONFIG(shortcut)
+        self.vacancy_6.setText(
+            QCoreApplication.translate("ClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
 
         __sortingEnabled5 = self.listWidget_6.isSortingEnabled()
         self.listWidget_6.setSortingEnabled(False)
         ___qlistwidgetitem40 = self.listWidget_6.item(0)
-        ___qlistwidgetitem40.setText(QCoreApplication.translate("ClusterPage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None));
+        ___qlistwidgetitem40.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c",
+                                                                None));
         ___qlistwidgetitem41 = self.listWidget_6.item(1)
-        ___qlistwidgetitem41.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440", None));
+        ___qlistwidgetitem41.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+                                                                None));
         ___qlistwidgetitem42 = self.listWidget_6.item(2)
-        ___qlistwidgetitem42.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435", None));
+        ___qlistwidgetitem42.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435",
+                                                                None));
         ___qlistwidgetitem43 = self.listWidget_6.item(3)
-        ___qlistwidgetitem43.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430", None));
+        ___qlistwidgetitem43.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u0441\u0430\u043b\u043e\u043d\u0430",
+                                                                None));
         ___qlistwidgetitem44 = self.listWidget_6.item(4)
-        ___qlistwidgetitem44.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436", None));
+        ___qlistwidgetitem44.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436",
+                                                                None));
         ___qlistwidgetitem45 = self.listWidget_6.item(5)
-        ___qlistwidgetitem45.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem45.setText(
+            QCoreApplication.translate("ClusterPage", u"\u041a\u0430\u0441\u0441\u0438\u0440", None));
         ___qlistwidgetitem46 = self.listWidget_6.item(6)
-        ___qlistwidgetitem46.setText(QCoreApplication.translate("ClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440", None));
+        ___qlistwidgetitem46.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440",
+                                                                None));
         ___qlistwidgetitem47 = self.listWidget_6.item(7)
-        ___qlistwidgetitem47.setText(QCoreApplication.translate("ClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442", None));
+        ___qlistwidgetitem47.setText(QCoreApplication.translate("ClusterPage",
+                                                                u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442",
+                                                                None));
         self.listWidget_6.setSortingEnabled(__sortingEnabled5)
 
-        self.pushButtonMore_6.setText(QCoreApplication.translate("ClusterPage", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451", None))
+        self.pushButtonMore_6.setText(QCoreApplication.translate("ClusterPage",
+                                                                 u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0435\u0449\u0451",
+                                                                 None))
     # retranslateUi
-
