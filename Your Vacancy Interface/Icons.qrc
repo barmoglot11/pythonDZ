@@ -1,0 +1,37 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>Icons And Logo/Map.png</file>
+    <file>Icons And Logo/Map_grey.png</file>
+    <file>Icons And Logo/Map_purple.png</file>
+    <file>Icons And Logo/Search.png</file>
+    <file>Icons And Logo/Search_grey.png</file>
+    <file>Icons And Logo/Search_purple.png</file>
+    <file>Icons And Logo/Trash.png</file>
+    <file>Icons And Logo/Trash_grey.png</file>
+    <file>Icons And Logo/Trash_purple.png</file>
+    <file>Icons And Logo/User.png</file>
+    <file>Icons And Logo/User_grey.png</file>
+    <file>Icons And Logo/User_purple.png</file>
+    <file>Icons And Logo/Wallet.png</file>
+    <file>Icons And Logo/Wallet_grey.png</file>
+    <file>Icons And Logo/Wallet_purple.png</file>
+    <file>Icons And Logo/Add.png</file>
+    <file>Icons And Logo/Add_grey.png</file>
+    <file>Icons And Logo/Add_purple.png</file>
+    <file>Icons And Logo/Close.png</file>
+    <file>Icons And Logo/Close_grey.png</file>
+    <file>Icons And Logo/Close_purple.png</file>
+    <file>Icons And Logo/Edit.png</file>
+    <file>Icons And Logo/Edit_grey.png</file>
+    <file>Icons And Logo/Edit_purple.png</file>
+    <file>Icons And Logo/Expand_down.png</file>
+    <file>Icons And Logo/Expand_down_grey.png</file>
+    <file>Icons And Logo/Expand_down_purple.png</file>
+    <file>Icons And Logo/Expand_up.png</file>
+    <file>Icons And Logo/Expand_up_grey.png</file>
+    <file>Icons And Logo/Expand_up_purple.png</file>
+    <file>Icons And Logo/File.png</file>
+    <file>Icons And Logo/File_grey.png</file>
+    <file>Icons And Logo/File_purple.png</file>
+  </qresource>
+</RCC>
