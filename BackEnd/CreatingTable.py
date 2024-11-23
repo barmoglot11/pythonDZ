@@ -1,3 +1,5 @@
+import random
+
 import requests
 import sqlite3
 import statistics
@@ -53,7 +55,7 @@ def get_vacancies(keyword, count):
         print(response)
 
 
-connection = sqlite3.connect('../Interface/vacances-sqlite.db')
+connection = sqlite3.connect('../Interface/vacancies-sqlite.db')
 
 cursor = connection.cursor()
 
@@ -76,36 +78,65 @@ cursor.execute(''' CREATE TABLE IF NOT EXISTS Cluster
                     Association TEXT)
                 ''')
 
-profession_name = ["Программист", "Механик", "Продавец", "Флорист", "Менеджер"]
+association_list = {
+    "Программист":["Разработчик ПО",
+     "Системный администратор",
+     "Тестировщик программного обеспечения",
+     "Аналитик данных",
+     "Инженер по машинному обучению"],
+    "Механик":["Автомеханик",
+     "Инженер-электрик",
+     "Технический специалист",
+     "Ремонтник бытовой техники",
+     "Машинист"],
+    "Продавец":["Консультант по продажам",
+     "Менеджер по работе с клиентами",
+     "Кассир",
+     "Специалист по торговле",
+     "Маркетолог"],
+    "Флорист":["Декоратор",
+     "Ландшафтный дизайнер",
+     "Специалист по цветочным композициям",
+     "Садовод",
+     "Агроном"],
+    "Менеджер":["Проектный менеджер",
+     "Операционный менеджер",
+     "Маркетинговый менеджер",
+     "Менеджер по продажам",
+     "HR-менеджер"]
+}
 
-for names in profession_name:
+for names in association_list:
 
-    vacancies, company, roles = get_vacancies(profession_name, 10)
+    data_Vacancy = ("AAA", names, "aaaaaaaaaaa", "hh.ru", random.randint(20, 40) * 1000)
+    data_Association = (names, ", ".join(association_list[names]))
 
-    association = ",".join([element for element in roles[0] if element != profession_name])
+    cursor.execute('''
+                            INSERT INTO Vacancy(Organization, VacancyName, VacancyDesc, URL, SalaryMean)
+                            VALUES (?,?,?,?,?)
+                        ''', data_Vacancy)
 
     cursor.executemany('''
-                            INSERT INTO Vacancy(vacance_name, company_name, vacancu_url, salary_mean)
-                            VALUES (?,?,?,?)
-                        ''', vacancies)
+                            INSERT INTO Organization( Organization)
+                            VALUES (?)
+                        ''', "AAA")
 
-    cursor.executemany('''
-                            INSERT INTO Organization(OrganizationID, Organization)
+    cursor.execute('''
+                            INSERT INTO Cluster(Profession, Association)
                             VALUES (?,?)
-                        ''', company)
-
-    cursor.executemany('''
-                            INSERT INTO Vacancy(vacance_name, company_name, vacancu_url, salary_mean)
-                            VALUES (?,?,?,?)
-                        ''', (profession_name, association))
+                        ''', data_Association)
 
 
 
-cursor.execute("SELECT * FROM Vacances")
-
+cursor.execute("SELECT * FROM Vacancy")
 items = cursor.fetchall()
+for item in items:
+    print(item)
 
+print("--------------------")
 
+cursor.execute("SELECT * FROM Cluster")
+items = cursor.fetchall()
 for item in items:
     print(item)
 
