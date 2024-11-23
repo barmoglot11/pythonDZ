@@ -43,7 +43,7 @@ def get_vacancies(keyword, count):
         print(f"Vacances not found. Error:{response.status_code}")
 
 
-connection = sqlite3.connect('vacances-sqlite.db')
+connection = sqlite3.connect('../Interface/vacances-sqlite.db')
 
 cursor = connection.cursor()
 
