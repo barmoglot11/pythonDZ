@@ -3448,18 +3448,72 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout.addWidget(self.vacancy)
 
-        self.listWidget = QListWidget(self.cluster)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setMinimumSize(QSize(302, 260))
-        self.listWidget.setMaximumSize(QSize(302, 260))
+        self.clusterDescription = QTextBrowser(self.cluster)
+        self.clusterDescription.setObjectName(u"clusterDescription")
+        self.clusterDescription.setStyleSheet(u"QWidget {\n"
+                                           "	border: none;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QScrollBar:vertical {\n"
+                                           "	border: none;\n"
+                                           "    background: #E7E7E7;\n"
+                                           "    width: 14px;\n"
+                                           "    margin: 15px 0 15px 0;\n"
+                                           "	border-radius: 0px;\n"
+                                           " }\n"
+                                           "\n"
+                                           "QScrollBar::handle:vertical {	\n"
+                                           "	background-color: #5B5B5B;\n"
+                                           "	min-height: 30px;\n"
+                                           "	border-radius: 7px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QScrollBar::handle:vertical:hover{	\n"
+                                           "	background-color: #501EBC;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QScrollBar::sub-line:vertical {\n"
+                                           "	border: none;\n"
+                                           "	background-color: #5B5B5B;\n"
+                                           "	height: 15px;\n"
+                                           "	border-top-left-radius: 7px;\n"
+                                           "	border-top-right-radius: 7px;\n"
+                                           "	border-bottom-left-radius: 3px;\n"
+                                           "	border-bottom-right-radius: 3px;\n"
+                                           "	subcontrol-position: top;\n"
+                                           "	subcontrol-origin: margin;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QScrollBar::sub-line:vertical:hover {	\n"
+                                           "	background-color: #501EBC;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QScrollBar::add-line:vertical {\n"
+                                           "	border: none;\n"
+                                           "	background-color: #5B5B5B;\n"
+                                           "	height: 15px;\n"
+                                           "	border-top-left-radius: 3px;\n"
+                                           "	border-top-right-radius: 3px;\n"
+                                           "	border-bottom-left-radi"
+                                           "us: 7px;\n"
+                                           "	border-bottom-right-radius: 7px;\n"
+                                           "	subcontrol-position: bottom;\n"
+                                           "	subcontrol-origin: margin;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QScrollBar::add-line:vertical:hover {	\n"
+                                           "	background-color: #501EBC;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                           "	background: none;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                           "	background: none;\n"
+                                           "}")
+        self.verticalLayout.addWidget(self.clusterDescription)
+
         palette7 = QPalette()
         palette7.setBrush(QPalette.Active, QPalette.Button, brush)
         palette7.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -3470,79 +3524,6 @@ class Ui_ClusterPage(object):
         palette7.setBrush(QPalette.Disabled, QPalette.Button, brush)
         palette7.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette7.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.listWidget.setPalette(palette7)
-        self.listWidget.setFont(font5)
-        self.listWidget.setStyleSheet(u"QWidget {\n"
-                                      "	border: none;\n"
-                                      "   color: #101010;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QScrollBar:vertical {\n"
-                                      "	border: none;\n"
-                                      "    background: #E7E7E7;\n"
-                                      "    width: 14px;\n"
-                                      "    margin: 15px 0 15px 0;\n"
-                                      "	border-radius: 0px;\n"
-                                      " }\n"
-                                      "\n"
-                                      "QScrollBar::handle:vertical {	\n"
-                                      "	background-color: #5B5B5B;\n"
-                                      "	min-height: 30px;\n"
-                                      "	border-radius: 7px;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QScrollBar::handle:vertical:hover{	\n"
-                                      "	background-color: #501EBC;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QScrollBar::sub-line:vertical {\n"
-                                      "	border: none;\n"
-                                      "	background-color: #5B5B5B;\n"
-                                      "	height: 15px;\n"
-                                      "	border-top-left-radius: 7px;\n"
-                                      "	border-top-right-radius: 7px;\n"
-                                      "	border-bottom-left-radius: 3px;\n"
-                                      "	border-bottom-right-radius: 3px;\n"
-                                      "	subcontrol-position: top;\n"
-                                      "	subcontrol-origin: margin;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QScrollBar::sub-line:vertical:hover {	\n"
-                                      "	background-color: #501EBC;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QScrollBar::add-line:vertical {\n"
-                                      "	border: none;\n"
-                                      "	background-color: #5B5B5B;\n"
-                                      "	height: 15px;\n"
-                                      "	border-top-left-radius: 3px;\n"
-                                      "	border-top-right-radius: 3px;\n"
-                                      "	border-bottom-left-radi"
-                                      "us: 7px;\n"
-                                      "	border-bottom-right-radius: 7px;\n"
-                                      "	subcontrol-position: bottom;\n"
-                                      "	subcontrol-origin: margin;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QScrollBar::add-line:vertical:hover {	\n"
-                                      "	background-color: #501EBC;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                      "	background: none;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                      "	background: none;\n"
-                                      "}")
-        self.listWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.listWidget.setProperty(u"showDropIndicator", False)
-        self.listWidget.setSelectionMode(QAbstractItemView.NoSelection)
-        self.listWidget.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.listWidget.setLayoutMode(QListView.SinglePass)
-        self.listWidget.setSpacing(4)
-
-        self.verticalLayout.addWidget(self.listWidget)
 
         self.verticalLayout_2.addLayout(self.verticalLayout)
 
@@ -3693,18 +3674,71 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_8.addWidget(self.vacancy_4)
 
-        self.listWidget_4 = QListWidget(self.cluster_4)
-        QListWidgetItem(self.listWidget_4)
-        QListWidgetItem(self.listWidget_4)
-        QListWidgetItem(self.listWidget_4)
-        QListWidgetItem(self.listWidget_4)
-        QListWidgetItem(self.listWidget_4)
-        QListWidgetItem(self.listWidget_4)
-        QListWidgetItem(self.listWidget_4)
-        QListWidgetItem(self.listWidget_4)
-        self.listWidget_4.setObjectName(u"listWidget_4")
-        self.listWidget_4.setMinimumSize(QSize(302, 260))
-        self.listWidget_4.setMaximumSize(QSize(302, 260))
+        self.clusterDescription_4 = QTextBrowser(self.cluster_4)
+        self.clusterDescription_4.setObjectName(u"clusterDescription")
+        self.clusterDescription_4.setStyleSheet(u"QWidget {\n"
+                                              "	border: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar:vertical {\n"
+                                              "	border: none;\n"
+                                              "    background: #E7E7E7;\n"
+                                              "    width: 14px;\n"
+                                              "    margin: 15px 0 15px 0;\n"
+                                              "	border-radius: 0px;\n"
+                                              " }\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical {	\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	min-height: 30px;\n"
+                                              "	border-radius: 7px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical:hover{	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 7px;\n"
+                                              "	border-top-right-radius: 7px;\n"
+                                              "	border-bottom-left-radius: 3px;\n"
+                                              "	border-bottom-right-radius: 3px;\n"
+                                              "	subcontrol-position: top;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 3px;\n"
+                                              "	border-top-right-radius: 3px;\n"
+                                              "	border-bottom-left-radi"
+                                              "us: 7px;\n"
+                                              "	border-bottom-right-radius: 7px;\n"
+                                              "	subcontrol-position: bottom;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                              "	background: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                              "	background: none;\n"
+                                              "}")
+        self.verticalLayout_8.addWidget(self.clusterDescription_4)
         palette11 = QPalette()
         palette11.setBrush(QPalette.Active, QPalette.Button, brush)
         palette11.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -3715,79 +3749,7 @@ class Ui_ClusterPage(object):
         palette11.setBrush(QPalette.Disabled, QPalette.Button, brush)
         palette11.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette11.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.listWidget_4.setPalette(palette11)
-        self.listWidget_4.setFont(font5)
-        self.listWidget_4.setStyleSheet(u"QWidget {\n"
-                                        "	border: none;\n"
-                                        "   color: #101010;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar:vertical {\n"
-                                        "	border: none;\n"
-                                        "    background: #E7E7E7;\n"
-                                        "    width: 14px;\n"
-                                        "    margin: 15px 0 15px 0;\n"
-                                        "	border-radius: 0px;\n"
-                                        " }\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical {	\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	min-height: 30px;\n"
-                                        "	border-radius: 7px;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical:hover{	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 7px;\n"
-                                        "	border-top-right-radius: 7px;\n"
-                                        "	border-bottom-left-radius: 3px;\n"
-                                        "	border-bottom-right-radius: 3px;\n"
-                                        "	subcontrol-position: top;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 3px;\n"
-                                        "	border-top-right-radius: 3px;\n"
-                                        "	border-bottom-left-radi"
-                                        "us: 7px;\n"
-                                        "	border-bottom-right-radius: 7px;\n"
-                                        "	subcontrol-position: bottom;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                        "	background: none;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                        "	background: none;\n"
-                                        "}")
-        self.listWidget_4.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.listWidget_4.setProperty(u"showDropIndicator", False)
-        self.listWidget_4.setSelectionMode(QAbstractItemView.NoSelection)
-        self.listWidget_4.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.listWidget_4.setLayoutMode(QListView.SinglePass)
-        self.listWidget_4.setSpacing(4)
 
-        self.verticalLayout_8.addWidget(self.listWidget_4)
 
         self.verticalLayout_7.addLayout(self.verticalLayout_8)
 
@@ -3933,18 +3895,71 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_4.addWidget(self.vacancy_2)
 
-        self.listWidget_2 = QListWidget(self.cluster_2)
-        QListWidgetItem(self.listWidget_2)
-        QListWidgetItem(self.listWidget_2)
-        QListWidgetItem(self.listWidget_2)
-        QListWidgetItem(self.listWidget_2)
-        QListWidgetItem(self.listWidget_2)
-        QListWidgetItem(self.listWidget_2)
-        QListWidgetItem(self.listWidget_2)
-        QListWidgetItem(self.listWidget_2)
-        self.listWidget_2.setObjectName(u"listWidget_2")
-        self.listWidget_2.setMinimumSize(QSize(302, 260))
-        self.listWidget_2.setMaximumSize(QSize(302, 260))
+        self.clusterDescription_2 = QTextBrowser(self.cluster_2)
+        self.clusterDescription_2.setObjectName(u"clusterDescription")
+        self.clusterDescription_2.setStyleSheet(u"QWidget {\n"
+                                              "	border: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar:vertical {\n"
+                                              "	border: none;\n"
+                                              "    background: #E7E7E7;\n"
+                                              "    width: 14px;\n"
+                                              "    margin: 15px 0 15px 0;\n"
+                                              "	border-radius: 0px;\n"
+                                              " }\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical {	\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	min-height: 30px;\n"
+                                              "	border-radius: 7px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical:hover{	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 7px;\n"
+                                              "	border-top-right-radius: 7px;\n"
+                                              "	border-bottom-left-radius: 3px;\n"
+                                              "	border-bottom-right-radius: 3px;\n"
+                                              "	subcontrol-position: top;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 3px;\n"
+                                              "	border-top-right-radius: 3px;\n"
+                                              "	border-bottom-left-radi"
+                                              "us: 7px;\n"
+                                              "	border-bottom-right-radius: 7px;\n"
+                                              "	subcontrol-position: bottom;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                              "	background: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                              "	background: none;\n"
+                                              "}")
+        self.verticalLayout_4.addWidget(self.clusterDescription_2)
         palette15 = QPalette()
         palette15.setBrush(QPalette.Active, QPalette.Button, brush)
         palette15.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -3955,79 +3970,7 @@ class Ui_ClusterPage(object):
         palette15.setBrush(QPalette.Disabled, QPalette.Button, brush)
         palette15.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette15.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.listWidget_2.setPalette(palette15)
-        self.listWidget_2.setFont(font5)
-        self.listWidget_2.setStyleSheet(u"QWidget {\n"
-                                        "	border: none;\n"
-                                        "   color: #101010;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar:vertical {\n"
-                                        "	border: none;\n"
-                                        "    background: #E7E7E7;\n"
-                                        "    width: 14px;\n"
-                                        "    margin: 15px 0 15px 0;\n"
-                                        "	border-radius: 0px;\n"
-                                        " }\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical {	\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	min-height: 30px;\n"
-                                        "	border-radius: 7px;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical:hover{	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 7px;\n"
-                                        "	border-top-right-radius: 7px;\n"
-                                        "	border-bottom-left-radius: 3px;\n"
-                                        "	border-bottom-right-radius: 3px;\n"
-                                        "	subcontrol-position: top;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 3px;\n"
-                                        "	border-top-right-radius: 3px;\n"
-                                        "	border-bottom-left-radi"
-                                        "us: 7px;\n"
-                                        "	border-bottom-right-radius: 7px;\n"
-                                        "	subcontrol-position: bottom;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                        "	background: none;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                        "	background: none;\n"
-                                        "}")
-        self.listWidget_2.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.listWidget_2.setProperty(u"showDropIndicator", False)
-        self.listWidget_2.setSelectionMode(QAbstractItemView.NoSelection)
-        self.listWidget_2.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.listWidget_2.setLayoutMode(QListView.SinglePass)
-        self.listWidget_2.setSpacing(4)
 
-        self.verticalLayout_4.addWidget(self.listWidget_2)
 
         self.verticalLayout_3.addLayout(self.verticalLayout_4)
 
@@ -4173,18 +4116,71 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_6.addWidget(self.vacancy_3)
 
-        self.listWidget_3 = QListWidget(self.cluster_3)
-        QListWidgetItem(self.listWidget_3)
-        QListWidgetItem(self.listWidget_3)
-        QListWidgetItem(self.listWidget_3)
-        QListWidgetItem(self.listWidget_3)
-        QListWidgetItem(self.listWidget_3)
-        QListWidgetItem(self.listWidget_3)
-        QListWidgetItem(self.listWidget_3)
-        QListWidgetItem(self.listWidget_3)
-        self.listWidget_3.setObjectName(u"listWidget_3")
-        self.listWidget_3.setMinimumSize(QSize(302, 260))
-        self.listWidget_3.setMaximumSize(QSize(302, 260))
+        self.clusterDescription_3 = QTextBrowser(self.cluster_3)
+        self.clusterDescription_3.setObjectName(u"clusterDescription")
+        self.clusterDescription_3.setStyleSheet(u"QWidget {\n"
+                                              "	border: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar:vertical {\n"
+                                              "	border: none;\n"
+                                              "    background: #E7E7E7;\n"
+                                              "    width: 14px;\n"
+                                              "    margin: 15px 0 15px 0;\n"
+                                              "	border-radius: 0px;\n"
+                                              " }\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical {	\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	min-height: 30px;\n"
+                                              "	border-radius: 7px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical:hover{	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 7px;\n"
+                                              "	border-top-right-radius: 7px;\n"
+                                              "	border-bottom-left-radius: 3px;\n"
+                                              "	border-bottom-right-radius: 3px;\n"
+                                              "	subcontrol-position: top;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 3px;\n"
+                                              "	border-top-right-radius: 3px;\n"
+                                              "	border-bottom-left-radi"
+                                              "us: 7px;\n"
+                                              "	border-bottom-right-radius: 7px;\n"
+                                              "	subcontrol-position: bottom;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                              "	background: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                              "	background: none;\n"
+                                              "}")
+        self.verticalLayout_6.addWidget(self.clusterDescription_3)
         palette19 = QPalette()
         palette19.setBrush(QPalette.Active, QPalette.Button, brush)
         palette19.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -4195,79 +4191,7 @@ class Ui_ClusterPage(object):
         palette19.setBrush(QPalette.Disabled, QPalette.Button, brush)
         palette19.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette19.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.listWidget_3.setPalette(palette19)
-        self.listWidget_3.setFont(font5)
-        self.listWidget_3.setStyleSheet(u"QWidget {\n"
-                                        "	border: none;\n"
-                                        "   color: #101010;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar:vertical {\n"
-                                        "	border: none;\n"
-                                        "    background: #E7E7E7;\n"
-                                        "    width: 14px;\n"
-                                        "    margin: 15px 0 15px 0;\n"
-                                        "	border-radius: 0px;\n"
-                                        " }\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical {	\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	min-height: 30px;\n"
-                                        "	border-radius: 7px;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical:hover{	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 7px;\n"
-                                        "	border-top-right-radius: 7px;\n"
-                                        "	border-bottom-left-radius: 3px;\n"
-                                        "	border-bottom-right-radius: 3px;\n"
-                                        "	subcontrol-position: top;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 3px;\n"
-                                        "	border-top-right-radius: 3px;\n"
-                                        "	border-bottom-left-radi"
-                                        "us: 7px;\n"
-                                        "	border-bottom-right-radius: 7px;\n"
-                                        "	subcontrol-position: bottom;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                        "	background: none;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                        "	background: none;\n"
-                                        "}")
-        self.listWidget_3.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.listWidget_3.setProperty(u"showDropIndicator", False)
-        self.listWidget_3.setSelectionMode(QAbstractItemView.NoSelection)
-        self.listWidget_3.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.listWidget_3.setLayoutMode(QListView.SinglePass)
-        self.listWidget_3.setSpacing(4)
 
-        self.verticalLayout_6.addWidget(self.listWidget_3)
 
         self.verticalLayout_5.addLayout(self.verticalLayout_6)
 
@@ -4413,18 +4337,71 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_10.addWidget(self.vacancy_5)
 
-        self.listWidget_5 = QListWidget(self.cluster_5)
-        QListWidgetItem(self.listWidget_5)
-        QListWidgetItem(self.listWidget_5)
-        QListWidgetItem(self.listWidget_5)
-        QListWidgetItem(self.listWidget_5)
-        QListWidgetItem(self.listWidget_5)
-        QListWidgetItem(self.listWidget_5)
-        QListWidgetItem(self.listWidget_5)
-        QListWidgetItem(self.listWidget_5)
-        self.listWidget_5.setObjectName(u"listWidget_5")
-        self.listWidget_5.setMinimumSize(QSize(302, 260))
-        self.listWidget_5.setMaximumSize(QSize(302, 260))
+        self.clusterDescription_5 = QTextBrowser(self.cluster_5)
+        self.clusterDescription_5.setObjectName(u"clusterDescription")
+        self.clusterDescription_5.setStyleSheet(u"QWidget {\n"
+                                              "	border: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar:vertical {\n"
+                                              "	border: none;\n"
+                                              "    background: #E7E7E7;\n"
+                                              "    width: 14px;\n"
+                                              "    margin: 15px 0 15px 0;\n"
+                                              "	border-radius: 0px;\n"
+                                              " }\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical {	\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	min-height: 30px;\n"
+                                              "	border-radius: 7px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical:hover{	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 7px;\n"
+                                              "	border-top-right-radius: 7px;\n"
+                                              "	border-bottom-left-radius: 3px;\n"
+                                              "	border-bottom-right-radius: 3px;\n"
+                                              "	subcontrol-position: top;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 3px;\n"
+                                              "	border-top-right-radius: 3px;\n"
+                                              "	border-bottom-left-radi"
+                                              "us: 7px;\n"
+                                              "	border-bottom-right-radius: 7px;\n"
+                                              "	subcontrol-position: bottom;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                              "	background: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                              "	background: none;\n"
+                                              "}")
+        self.verticalLayout_10.addWidget(self.clusterDescription_5)
         palette23 = QPalette()
         palette23.setBrush(QPalette.Active, QPalette.Button, brush)
         palette23.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -4435,79 +4412,7 @@ class Ui_ClusterPage(object):
         palette23.setBrush(QPalette.Disabled, QPalette.Button, brush)
         palette23.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette23.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.listWidget_5.setPalette(palette23)
-        self.listWidget_5.setFont(font5)
-        self.listWidget_5.setStyleSheet(u"QWidget {\n"
-                                        "	border: none;\n"
-                                        "   color: #101010;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar:vertical {\n"
-                                        "	border: none;\n"
-                                        "    background: #E7E7E7;\n"
-                                        "    width: 14px;\n"
-                                        "    margin: 15px 0 15px 0;\n"
-                                        "	border-radius: 0px;\n"
-                                        " }\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical {	\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	min-height: 30px;\n"
-                                        "	border-radius: 7px;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical:hover{	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 7px;\n"
-                                        "	border-top-right-radius: 7px;\n"
-                                        "	border-bottom-left-radius: 3px;\n"
-                                        "	border-bottom-right-radius: 3px;\n"
-                                        "	subcontrol-position: top;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 3px;\n"
-                                        "	border-top-right-radius: 3px;\n"
-                                        "	border-bottom-left-radi"
-                                        "us: 7px;\n"
-                                        "	border-bottom-right-radius: 7px;\n"
-                                        "	subcontrol-position: bottom;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                        "	background: none;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                        "	background: none;\n"
-                                        "}")
-        self.listWidget_5.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.listWidget_5.setProperty(u"showDropIndicator", False)
-        self.listWidget_5.setSelectionMode(QAbstractItemView.NoSelection)
-        self.listWidget_5.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.listWidget_5.setLayoutMode(QListView.SinglePass)
-        self.listWidget_5.setSpacing(4)
 
-        self.verticalLayout_10.addWidget(self.listWidget_5)
 
         self.verticalLayout_9.addLayout(self.verticalLayout_10)
 
@@ -4653,18 +4558,71 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_12.addWidget(self.vacancy_6)
 
-        self.listWidget_6 = QListWidget(self.cluster_6)
-        QListWidgetItem(self.listWidget_6)
-        QListWidgetItem(self.listWidget_6)
-        QListWidgetItem(self.listWidget_6)
-        QListWidgetItem(self.listWidget_6)
-        QListWidgetItem(self.listWidget_6)
-        QListWidgetItem(self.listWidget_6)
-        QListWidgetItem(self.listWidget_6)
-        QListWidgetItem(self.listWidget_6)
-        self.listWidget_6.setObjectName(u"listWidget_6")
-        self.listWidget_6.setMinimumSize(QSize(302, 260))
-        self.listWidget_6.setMaximumSize(QSize(302, 260))
+        self.clusterDescription_6 = QTextBrowser(self.cluster_6)
+        self.clusterDescription_6.setObjectName(u"clusterDescription")
+        self.clusterDescription_6.setStyleSheet(u"QWidget {\n"
+                                              "	border: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar:vertical {\n"
+                                              "	border: none;\n"
+                                              "    background: #E7E7E7;\n"
+                                              "    width: 14px;\n"
+                                              "    margin: 15px 0 15px 0;\n"
+                                              "	border-radius: 0px;\n"
+                                              " }\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical {	\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	min-height: 30px;\n"
+                                              "	border-radius: 7px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::handle:vertical:hover{	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 7px;\n"
+                                              "	border-top-right-radius: 7px;\n"
+                                              "	border-bottom-left-radius: 3px;\n"
+                                              "	border-bottom-right-radius: 3px;\n"
+                                              "	subcontrol-position: top;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::sub-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical {\n"
+                                              "	border: none;\n"
+                                              "	background-color: #5B5B5B;\n"
+                                              "	height: 15px;\n"
+                                              "	border-top-left-radius: 3px;\n"
+                                              "	border-top-right-radius: 3px;\n"
+                                              "	border-bottom-left-radi"
+                                              "us: 7px;\n"
+                                              "	border-bottom-right-radius: 7px;\n"
+                                              "	subcontrol-position: bottom;\n"
+                                              "	subcontrol-origin: margin;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-line:vertical:hover {	\n"
+                                              "	background-color: #501EBC;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                              "	background: none;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                              "	background: none;\n"
+                                              "}")
+        self.verticalLayout_12.addWidget(self.clusterDescription_6)
         palette27 = QPalette()
         palette27.setBrush(QPalette.Active, QPalette.Button, brush)
         palette27.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -4675,79 +4633,7 @@ class Ui_ClusterPage(object):
         palette27.setBrush(QPalette.Disabled, QPalette.Button, brush)
         palette27.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette27.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.listWidget_6.setPalette(palette27)
-        self.listWidget_6.setFont(font5)
-        self.listWidget_6.setStyleSheet(u"QWidget {\n"
-                                        "	border: none;\n"
-                                        "   color: #101010;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar:vertical {\n"
-                                        "	border: none;\n"
-                                        "    background: #E7E7E7;\n"
-                                        "    width: 14px;\n"
-                                        "    margin: 15px 0 15px 0;\n"
-                                        "	border-radius: 0px;\n"
-                                        " }\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical {	\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	min-height: 30px;\n"
-                                        "	border-radius: 7px;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::handle:vertical:hover{	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 7px;\n"
-                                        "	border-top-right-radius: 7px;\n"
-                                        "	border-bottom-left-radius: 3px;\n"
-                                        "	border-bottom-right-radius: 3px;\n"
-                                        "	subcontrol-position: top;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::sub-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical {\n"
-                                        "	border: none;\n"
-                                        "	background-color: #5B5B5B;\n"
-                                        "	height: 15px;\n"
-                                        "	border-top-left-radius: 3px;\n"
-                                        "	border-top-right-radius: 3px;\n"
-                                        "	border-bottom-left-radi"
-                                        "us: 7px;\n"
-                                        "	border-bottom-right-radius: 7px;\n"
-                                        "	subcontrol-position: bottom;\n"
-                                        "	subcontrol-origin: margin;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-line:vertical:hover {	\n"
-                                        "	background-color: #501EBC;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                        "	background: none;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                        "	background: none;\n"
-                                        "}")
-        self.listWidget_6.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.listWidget_6.setProperty(u"showDropIndicator", False)
-        self.listWidget_6.setSelectionMode(QAbstractItemView.NoSelection)
-        self.listWidget_6.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.listWidget_6.setLayoutMode(QListView.SinglePass)
-        self.listWidget_6.setSpacing(4)
 
-        self.verticalLayout_12.addWidget(self.listWidget_6)
 
         self.verticalLayout_11.addLayout(self.verticalLayout_12)
 
@@ -4880,6 +4766,9 @@ class Ui_ClusterPage(object):
     # setupUi
 
     def retranslateUi(self, ClusterPage):
+        DB_data = ClusterPage.TakeDataFromDB("Cluster")
+
+
         ClusterPage.setWindowTitle(QCoreApplication.translate("ClusterPage", u"Ваша Вакансия", None))
         self.label.setText("")
         self.pushButton.setText(QCoreApplication.translate("ClusterPage",
@@ -4901,7 +4790,7 @@ class Ui_ClusterPage(object):
                                                         u"Добавить новый кластер",
                                                         None))
         self.clusterName.setText(
-            QCoreApplication.translate("ClusterPage", u"Продажи", None))
+            QCoreApplication.translate("ClusterPage", DB_data[0][1], None))
         self.pushButtonRedact.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact.setShortcut("")
@@ -4913,46 +4802,21 @@ class Ui_ClusterPage(object):
         self.vacancy.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        __sortingEnabled = self.listWidget.isSortingEnabled()
-        self.listWidget.setSortingEnabled(False)
-        ___qlistwidgetitem = self.listWidget.item(0)
-        ___qlistwidgetitem.setText(QCoreApplication.translate("ClusterPage",
-                                                              u"Менеджер по продажам",
-                                                              None))
-        ___qlistwidgetitem1 = self.listWidget.item(1)
-        ___qlistwidgetitem1.setText(QCoreApplication.translate("ClusterPage",
-                                                               u"Старший менеджер",
-                                                               None))
-        ___qlistwidgetitem2 = self.listWidget.item(2)
-        ___qlistwidgetitem2.setText(QCoreApplication.translate("ClusterPage",
-                                                               u"Продавец в магазине",
-                                                               None))
-        ___qlistwidgetitem3 = self.listWidget.item(3)
-        ___qlistwidgetitem3.setText(QCoreApplication.translate("ClusterPage",
-                                                               u"Консультант автосалона",
-                                                               None))
-        ___qlistwidgetitem4 = self.listWidget.item(4)
-        ___qlistwidgetitem4.setText(QCoreApplication.translate("ClusterPage",
-                                                               u"Продавец в сфере продаж",
-                                                               None))
-        ___qlistwidgetitem5 = self.listWidget.item(5)
-        ___qlistwidgetitem5.setText(
-            QCoreApplication.translate("ClusterPage", u"Кассир", None))
-        ___qlistwidgetitem6 = self.listWidget.item(6)
-        ___qlistwidgetitem6.setText(QCoreApplication.translate("ClusterPage",
-                                                               u"Старший кассир",
-                                                               None))
-        ___qlistwidgetitem7 = self.listWidget.item(7)
-        ___qlistwidgetitem7.setText(QCoreApplication.translate("ClusterPage",
-                                                               u"Консультант Магнит",
-                                                               None))
-        self.listWidget.setSortingEnabled(__sortingEnabled)
+        self.clusterDescription.setHtml(QCoreApplication.translate("ClusterPage",
+                                                                  u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                                  "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                                  "p, li { white-space: pre-wrap; }\n"
+                                                                  "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
+                                                                  DB_data[0][-1] + "</span></"
+                                                                                    "p></body></html>", None))
+
 
         self.pushButtonMore.setText(QCoreApplication.translate("ClusterPage",
                                                                u"Показать ещё",
                                                                None))
         self.clusterName_4.setText(
-            QCoreApplication.translate("ClusterPage", u"Продажи", None))
+            QCoreApplication.translate("ClusterPage", DB_data[3][1], None))
         self.pushButtonRedact_4.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_4.setShortcut("")
@@ -4964,46 +4828,20 @@ class Ui_ClusterPage(object):
         self.vacancy_4.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        __sortingEnabled1 = self.listWidget_4.isSortingEnabled()
-        self.listWidget_4.setSortingEnabled(False)
-        ___qlistwidgetitem8 = self.listWidget_4.item(0)
-        ___qlistwidgetitem8.setText(QCoreApplication.translate("ClusterPage",
-                                                               u"Менеджер по продажам",
-                                                               None))
-        ___qlistwidgetitem9 = self.listWidget_4.item(1)
-        ___qlistwidgetitem9.setText(QCoreApplication.translate("ClusterPage",
-                                                               u"Старший менеджер",
-                                                               None))
-        ___qlistwidgetitem10 = self.listWidget_4.item(2)
-        ___qlistwidgetitem10.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в магазине",
-                                                                None))
-        ___qlistwidgetitem11 = self.listWidget_4.item(3)
-        ___qlistwidgetitem11.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант автосалона",
-                                                                None))
-        ___qlistwidgetitem12 = self.listWidget_4.item(4)
-        ___qlistwidgetitem12.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в сфере продаж",
-                                                                None))
-        ___qlistwidgetitem13 = self.listWidget_4.item(5)
-        ___qlistwidgetitem13.setText(
-            QCoreApplication.translate("ClusterPage", u"Кассир", None))
-        ___qlistwidgetitem14 = self.listWidget_4.item(6)
-        ___qlistwidgetitem14.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший кассир",
-                                                                None))
-        ___qlistwidgetitem15 = self.listWidget_4.item(7)
-        ___qlistwidgetitem15.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант Магнит",
-                                                                None))
-        self.listWidget_4.setSortingEnabled(__sortingEnabled1)
+        self.clusterDescription_2.setHtml(QCoreApplication.translate("ClusterPage",
+                                                                   u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                                   "p, li { white-space: pre-wrap; }\n"
+                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                                   "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
+                                                                   DB_data[1][-1] + "</span></"
+                                                                                    "p></body></html>", None))
 
         self.pushButtonMore_4.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.clusterName_2.setText(
-            QCoreApplication.translate("ClusterPage", u"Продажи", None))
+            QCoreApplication.translate("ClusterPage", DB_data[1][1], None))
         self.pushButtonRedact_2.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_2.setShortcut("")
@@ -5015,46 +4853,20 @@ class Ui_ClusterPage(object):
         self.vacancy_2.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        __sortingEnabled2 = self.listWidget_2.isSortingEnabled()
-        self.listWidget_2.setSortingEnabled(False)
-        ___qlistwidgetitem16 = self.listWidget_2.item(0)
-        ___qlistwidgetitem16.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Менеджер по продажам",
-                                                                None))
-        ___qlistwidgetitem17 = self.listWidget_2.item(1)
-        ___qlistwidgetitem17.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший менеджер",
-                                                                None))
-        ___qlistwidgetitem18 = self.listWidget_2.item(2)
-        ___qlistwidgetitem18.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в магазине",
-                                                                None))
-        ___qlistwidgetitem19 = self.listWidget_2.item(3)
-        ___qlistwidgetitem19.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант автосалона",
-                                                                None))
-        ___qlistwidgetitem20 = self.listWidget_2.item(4)
-        ___qlistwidgetitem20.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в сфере продаж",
-                                                                None))
-        ___qlistwidgetitem21 = self.listWidget_2.item(5)
-        ___qlistwidgetitem21.setText(
-            QCoreApplication.translate("ClusterPage", u"Кассир", None))
-        ___qlistwidgetitem22 = self.listWidget_2.item(6)
-        ___qlistwidgetitem22.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший кассир",
-                                                                None))
-        ___qlistwidgetitem23 = self.listWidget_2.item(7)
-        ___qlistwidgetitem23.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант Магнит",
-                                                                None))
-        self.listWidget_2.setSortingEnabled(__sortingEnabled2)
+        self.clusterDescription_3.setHtml(QCoreApplication.translate("ClusterPage",
+                                                                     u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                                     "p, li { white-space: pre-wrap; }\n"
+                                                                     "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
+                                                                     DB_data[2][-1] + "</span></"
+                                                                                      "p></body></html>", None))
 
         self.pushButtonMore_2.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.clusterName_3.setText(
-            QCoreApplication.translate("ClusterPage", u"Продажи", None))
+            QCoreApplication.translate("ClusterPage", DB_data[2][1], None))
         self.pushButtonRedact_3.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_3.setShortcut("")
@@ -5066,46 +4878,20 @@ class Ui_ClusterPage(object):
         self.vacancy_3.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        __sortingEnabled3 = self.listWidget_3.isSortingEnabled()
-        self.listWidget_3.setSortingEnabled(False)
-        ___qlistwidgetitem24 = self.listWidget_3.item(0)
-        ___qlistwidgetitem24.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Менеджер по продажам",
-                                                                None))
-        ___qlistwidgetitem25 = self.listWidget_3.item(1)
-        ___qlistwidgetitem25.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший менеджер",
-                                                                None))
-        ___qlistwidgetitem26 = self.listWidget_3.item(2)
-        ___qlistwidgetitem26.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в магазине",
-                                                                None))
-        ___qlistwidgetitem27 = self.listWidget_3.item(3)
-        ___qlistwidgetitem27.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант автосалона",
-                                                                None))
-        ___qlistwidgetitem28 = self.listWidget_3.item(4)
-        ___qlistwidgetitem28.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в сфере продаж",
-                                                                None))
-        ___qlistwidgetitem29 = self.listWidget_3.item(5)
-        ___qlistwidgetitem29.setText(
-            QCoreApplication.translate("ClusterPage", u"Кассир", None))
-        ___qlistwidgetitem30 = self.listWidget_3.item(6)
-        ___qlistwidgetitem30.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший кассир",
-                                                                None))
-        ___qlistwidgetitem31 = self.listWidget_3.item(7)
-        ___qlistwidgetitem31.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант Магнит",
-                                                                None))
-        self.listWidget_3.setSortingEnabled(__sortingEnabled3)
+        self.clusterDescription_4.setHtml(QCoreApplication.translate("ClusterPage",
+                                                                     u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                                     "p, li { white-space: pre-wrap; }\n"
+                                                                     "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
+                                                                     DB_data[3][-1] + "</span></"
+                                                                                      "p></body></html>", None))
 
         self.pushButtonMore_3.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.clusterName_5.setText(
-            QCoreApplication.translate("ClusterPage", u"Продажи", None))
+            QCoreApplication.translate("ClusterPage", DB_data[4][1], None))
         self.pushButtonRedact_5.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_5.setShortcut("")
@@ -5117,46 +4903,20 @@ class Ui_ClusterPage(object):
         self.vacancy_5.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        __sortingEnabled4 = self.listWidget_5.isSortingEnabled()
-        self.listWidget_5.setSortingEnabled(False)
-        ___qlistwidgetitem32 = self.listWidget_5.item(0)
-        ___qlistwidgetitem32.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Менеджер по продажам",
-                                                                None))
-        ___qlistwidgetitem33 = self.listWidget_5.item(1)
-        ___qlistwidgetitem33.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший менеджер",
-                                                                None))
-        ___qlistwidgetitem34 = self.listWidget_5.item(2)
-        ___qlistwidgetitem34.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в магазине",
-                                                                None))
-        ___qlistwidgetitem35 = self.listWidget_5.item(3)
-        ___qlistwidgetitem35.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант автосалона",
-                                                                None))
-        ___qlistwidgetitem36 = self.listWidget_5.item(4)
-        ___qlistwidgetitem36.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в сфере продаж",
-                                                                None))
-        ___qlistwidgetitem37 = self.listWidget_5.item(5)
-        ___qlistwidgetitem37.setText(
-            QCoreApplication.translate("ClusterPage", u"Кассир", None))
-        ___qlistwidgetitem38 = self.listWidget_5.item(6)
-        ___qlistwidgetitem38.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший кассир",
-                                                                None))
-        ___qlistwidgetitem39 = self.listWidget_5.item(7)
-        ___qlistwidgetitem39.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант Магнит",
-                                                                None))
-        self.listWidget_5.setSortingEnabled(__sortingEnabled4)
+        self.clusterDescription_5.setHtml(QCoreApplication.translate("ClusterPage",
+                                                                     u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                                     "p, li { white-space: pre-wrap; }\n"
+                                                                     "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
+                                                                     DB_data[4][-1] + "</span></"
+                                                                                      "p></body></html>", None))
 
         self.pushButtonMore_5.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.clusterName_6.setText(
-            QCoreApplication.translate("ClusterPage", u"Продажи", None))
+            QCoreApplication.translate("ClusterPage", DB_data[5][1], None))
         self.pushButtonRedact_6.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_6.setShortcut("")
@@ -5168,40 +4928,14 @@ class Ui_ClusterPage(object):
         self.vacancy_6.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        __sortingEnabled5 = self.listWidget_6.isSortingEnabled()
-        self.listWidget_6.setSortingEnabled(False)
-        ___qlistwidgetitem40 = self.listWidget_6.item(0)
-        ___qlistwidgetitem40.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Менеджер по продажам",
-                                                                None))
-        ___qlistwidgetitem41 = self.listWidget_6.item(1)
-        ___qlistwidgetitem41.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший менеджер",
-                                                                None))
-        ___qlistwidgetitem42 = self.listWidget_6.item(2)
-        ___qlistwidgetitem42.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в магазине",
-                                                                None))
-        ___qlistwidgetitem43 = self.listWidget_6.item(3)
-        ___qlistwidgetitem43.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант автосалона",
-                                                                None))
-        ___qlistwidgetitem44 = self.listWidget_6.item(4)
-        ___qlistwidgetitem44.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Продавец в сфере продаж",
-                                                                None))
-        ___qlistwidgetitem45 = self.listWidget_6.item(5)
-        ___qlistwidgetitem45.setText(
-            QCoreApplication.translate("ClusterPage", u"Кассир", None))
-        ___qlistwidgetitem46 = self.listWidget_6.item(6)
-        ___qlistwidgetitem46.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Старший кассир",
-                                                                None))
-        ___qlistwidgetitem47 = self.listWidget_6.item(7)
-        ___qlistwidgetitem47.setText(QCoreApplication.translate("ClusterPage",
-                                                                u"Консультант Магнит",
-                                                                None))
-        self.listWidget_6.setSortingEnabled(__sortingEnabled5)
+        self.clusterDescription_6.setHtml(QCoreApplication.translate("ClusterPage",
+                                                                     u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                                     "p, li { white-space: pre-wrap; }\n"
+                                                                     "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
+                                                                     DB_data[5][-1] + "</span></"
+                                                                                      "p></body></html>", None))
 
         self.pushButtonMore_6.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
@@ -8096,6 +7830,12 @@ class Ui_ProfessionPage(object):
     # setupUi
 
     def retranslateUi(self, ProfessionPage):
+        DB_data = ProfessionPage.TakeDataFromDB("Vacancy")
+        vacancies = list()
+        for data in DB_data:
+            temp = data[1:]
+            vacancies.append([temp[1], temp[2],temp[0], temp[-1], temp[-2]])
+        print(*vacancies)
         ProfessionPage.setWindowTitle(QCoreApplication.translate("ProfessionPage", u"Ваша Вакансия", None))
         self.label.setText("")
         self.pushButton.setText(QCoreApplication.translate("ProfessionPage",
@@ -8115,7 +7855,7 @@ class Ui_ProfessionPage(object):
                                                                      None))
         self.pushButtonFind.setText("")
         self.professionName.setText(
-            QCoreApplication.translate("ProfessionPage", u"Продавец", None))
+            QCoreApplication.translate("ProfessionPage", vacancies[0][0], None))
         self.pushButtonRedact.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact.setShortcut("")
@@ -8133,7 +7873,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney.setText(QCoreApplication.translate("ProfessionPage", u"21 000 - 25 000", None))
+        self.textMoney.setText(QCoreApplication.translate("ProfessionPage", vacancies[0][3], None))
         self.titleDescription.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -8141,7 +7881,7 @@ class Ui_ProfessionPage(object):
                                                                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                 "p, li { white-space: pre-wrap; }\n"
                                                                 "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">Продавец взаимодействует с покупателями, помогает им выбрать товары, отвечает на вопросы и предоставляет информацию о продуктах<br />Основная задача продавца — убедить клиента совершить покупку. Это может включать в себя демонстрацию товара, объяснение его преимуществ и работу с возражениями</span></"
+                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[0][1]+"</span></"
                                                                 "p></body></html>", None))
         self.pushButtonMore.setText(QCoreApplication.translate("ProfessionPage",
                                                                u"Показать ещё",
@@ -8154,7 +7894,7 @@ class Ui_ProfessionPage(object):
             QCoreApplication.translate("ProfessionPage", u"профессию",
                                        None))
         self.professionName_7.setText(
-            QCoreApplication.translate("ProfessionPage", u"Продавец", None))
+            QCoreApplication.translate("ProfessionPage", vacancies[1][0], None))
         self.pushButtonRedact_7.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_7.setShortcut("")
@@ -8172,7 +7912,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_2.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_2.setText(QCoreApplication.translate("ProfessionPage", u"21 000 - 25 000", None))
+        self.textMoney_2.setText(QCoreApplication.translate("ProfessionPage", vacancies[1][3], None))
         self.titleDescription_2.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_2.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -8180,13 +7920,13 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">Продавец взаимодействует с покупателями, помогает им выбрать товары, отвечает на вопросы и предоставляет информацию о продуктах<br />Основная задача продавца — убедить клиента совершить покупку. Это может включать в себя демонстрацию товара, объяснение его преимуществ и работу с возражениями</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[1][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_3.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.professionName_8.setText(
-            QCoreApplication.translate("ProfessionPage", u"Продавец", None))
+            QCoreApplication.translate("ProfessionPage", vacancies[2][0], None))
         self.pushButtonRedact_8.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_8.setShortcut("")
@@ -8204,7 +7944,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_3.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_3.setText(QCoreApplication.translate("ProfessionPage", u"21 000 - 25 000", None))
+        self.textMoney_3.setText(QCoreApplication.translate("ProfessionPage", vacancies[2][3], None))
         self.titleDescription_3.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_3.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -8212,13 +7952,13 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">Продавец взаимодействует с покупателями, помогает им выбрать товары, отвечает на вопросы и предоставляет информацию о продуктах<br />Основная задача продавца — убедить клиента совершить покупку. Это может включать в себя демонстрацию товара, объяснение его преимуществ и работу с возражениями</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[2][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_4.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.professionName_9.setText(
-            QCoreApplication.translate("ProfessionPage", u"Продавец", None))
+            QCoreApplication.translate("ProfessionPage", vacancies[3][0], None))
         self.pushButtonRedact_9.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_9.setShortcut("")
@@ -8236,7 +7976,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_4.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_4.setText(QCoreApplication.translate("ProfessionPage", u"21 000 - 25 000", None))
+        self.textMoney_4.setText(QCoreApplication.translate("ProfessionPage", vacancies[3][3], None))
         self.titleDescription_4.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_4.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -8244,13 +7984,13 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">Продавец взаимодействует с покупателями, помогает им выбрать товары, отвечает на вопросы и предоставляет информацию о продуктах<br />Основная задача продавца — убедить клиента совершить покупку. Это может включать в себя демонстрацию товара, объяснение его преимуществ и работу с возражениями</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[3][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_5.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.professionName_10.setText(
-            QCoreApplication.translate("ProfessionPage", u"Продавец", None))
+            QCoreApplication.translate("ProfessionPage", vacancies[4][0], None))
         self.pushButtonRedact_10.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_10.setShortcut("")
@@ -8268,7 +8008,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_5.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_5.setText(QCoreApplication.translate("ProfessionPage", u"21 000 - 25 000", None))
+        self.textMoney_5.setText(QCoreApplication.translate("ProfessionPage", vacancies[4][3], None))
         self.titleDescription_5.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_5.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -8276,13 +8016,13 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">Продавец взаимодействует с покупателями, помогает им выбрать товары, отвечает на вопросы и предоставляет информацию о продуктах<br />Основная задача продавца — убедить клиента совершить покупку. Это может включать в себя демонстрацию товара, объяснение его преимуществ и работу с возражениями</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[4][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_6.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.professionName_12.setText(
-            QCoreApplication.translate("ProfessionPage", u"Продавец", None))
+            QCoreApplication.translate("ProfessionPage", vacancies[5][0], None))
         self.pushButtonRedact_12.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_12.setShortcut("")
@@ -8300,7 +8040,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_7.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_7.setText(QCoreApplication.translate("ProfessionPage", u"21 000 - 25 000", None))
+        self.textMoney_7.setText(QCoreApplication.translate("ProfessionPage", vacancies[5][3], None))
         self.titleDescription_7.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_7.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -8308,7 +8048,7 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">Продавец взаимодействует с покупателями, помогает им выбрать товары, отвечает на вопросы и предоставляет информацию о продуктах<br />Основная задача продавца — убедить клиента совершить покупку. Это может включать в себя демонстрацию товара, объяснение его преимуществ и работу с возражениями</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[5][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_8.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
