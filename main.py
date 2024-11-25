@@ -79,7 +79,7 @@ for names in association_list:
     cursor.execute('''
             INSERT INTO Cluster(Profession, Association)
             VALUES (?,?)
-        ''', (names, '<br/>'.join(association_list[names])))
+        ''', (names, ','.join(association_list[names])))
 
 
 

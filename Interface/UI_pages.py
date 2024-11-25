@@ -3018,6 +3018,8 @@ class Ui_ClusterPage(object):
     def setupUi(self, ClusterPage):
         if not ClusterPage.objectName():
             ClusterPage.setObjectName(u"ClusterPage")
+
+        self.data = ClusterPage.TakeDataFromDB("Cluster")
         ClusterPage.resize(1920, 1142)
         ClusterPage.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
                                   "font-family: Roboto;")
@@ -3448,72 +3450,97 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout.addWidget(self.vacancy)
 
-        self.clusterDescription = QTextBrowser(self.cluster)
-        self.clusterDescription.setObjectName(u"clusterDescription")
-        self.clusterDescription.setStyleSheet(u"QWidget {\n"
-                                           "	border: none;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QScrollBar:vertical {\n"
-                                           "	border: none;\n"
-                                           "    background: #E7E7E7;\n"
-                                           "    width: 14px;\n"
-                                           "    margin: 15px 0 15px 0;\n"
-                                           "	border-radius: 0px;\n"
-                                           " }\n"
-                                           "\n"
-                                           "QScrollBar::handle:vertical {	\n"
-                                           "	background-color: #5B5B5B;\n"
-                                           "	min-height: 30px;\n"
-                                           "	border-radius: 7px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QScrollBar::handle:vertical:hover{	\n"
-                                           "	background-color: #501EBC;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QScrollBar::sub-line:vertical {\n"
-                                           "	border: none;\n"
-                                           "	background-color: #5B5B5B;\n"
-                                           "	height: 15px;\n"
-                                           "	border-top-left-radius: 7px;\n"
-                                           "	border-top-right-radius: 7px;\n"
-                                           "	border-bottom-left-radius: 3px;\n"
-                                           "	border-bottom-right-radius: 3px;\n"
-                                           "	subcontrol-position: top;\n"
-                                           "	subcontrol-origin: margin;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QScrollBar::sub-line:vertical:hover {	\n"
-                                           "	background-color: #501EBC;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QScrollBar::add-line:vertical {\n"
-                                           "	border: none;\n"
-                                           "	background-color: #5B5B5B;\n"
-                                           "	height: 15px;\n"
-                                           "	border-top-left-radius: 3px;\n"
-                                           "	border-top-right-radius: 3px;\n"
-                                           "	border-bottom-left-radi"
-                                           "us: 7px;\n"
-                                           "	border-bottom-right-radius: 7px;\n"
-                                           "	subcontrol-position: bottom;\n"
-                                           "	subcontrol-origin: margin;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QScrollBar::add-line:vertical:hover {	\n"
-                                           "	background-color: #501EBC;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                           "	background: none;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                           "	background: none;\n"
-                                           "}")
-        self.verticalLayout.addWidget(self.clusterDescription)
+        self.listWidget = QListWidget(self.cluster)
+        self.assotiations = self.data[0][2].split(',')
+        self.listWidget.setWordWrap(True)
+        for text in self.assotiations:
+            self.listWidget.addItem(text)
+        self.listWidget.setObjectName(u"listWidget")
+        self.listWidget.setMinimumSize(QSize(302, 260))
+        self.listWidget.setMaximumSize(QSize(302, 260))
+        palette7 = QPalette()
+        palette7.setBrush(QPalette.Active, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Window, brush)
+        self.listWidget.setPalette(palette7)
+        self.listWidget.setFont(font5)
+        self.listWidget.setStyleSheet(u"QWidget {\n"
+                                      "	border: none;\n"
+                                      "   color: #101010;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar:vertical {\n"
+                                      "	border: none;\n"
+                                      "    background: #E7E7E7;\n"
+                                      "    width: 14px;\n"
+                                      "    margin: 15px 0 15px 0;\n"
+                                      "	border-radius: 0px;\n"
+                                      " }\n"
+                                      "\n"
+                                      "QScrollBar::handle:vertical {	\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	min-height: 30px;\n"
+                                      "	border-radius: 7px;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::handle:vertical:hover{	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::sub-line:vertical {\n"
+                                      "	border: none;\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	height: 15px;\n"
+                                      "	border-top-left-radius: 7px;\n"
+                                      "	border-top-right-radius: 7px;\n"
+                                      "	border-bottom-left-radius: 3px;\n"
+                                      "	border-bottom-right-radius: 3px;\n"
+                                      "	subcontrol-position: top;\n"
+                                      "	subcontrol-origin: margin;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::sub-line:vertical:hover {	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-line:vertical {\n"
+                                      "	border: none;\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	height: 15px;\n"
+                                      "	border-top-left-radius: 3px;\n"
+                                      "	border-top-right-radius: 3px;\n"
+                                      "	border-bottom-left-radi"
+                                      "us: 7px;\n"
+                                      "	border-bottom-right-radius: 7px;\n"
+                                      "	subcontrol-position: bottom;\n"
+                                      "	subcontrol-origin: margin;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-line:vertical:hover {	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                      "	background: none;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                      "	background: none;\n"
+                                      "}")
+        self.listWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.listWidget.setProperty(u"showDropIndicator", False)
+        self.listWidget.setSelectionMode(QAbstractItemView.NoSelection)
+        self.listWidget.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.listWidget.setLayoutMode(QListView.SinglePass)
+        self.listWidget.setSpacing(4)
 
+        self.verticalLayout.addWidget(self.listWidget)
         palette7 = QPalette()
         palette7.setBrush(QPalette.Active, QPalette.Button, brush)
         palette7.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -4558,71 +4585,97 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_12.addWidget(self.vacancy_6)
 
-        self.clusterDescription_6 = QTextBrowser(self.cluster_6)
-        self.clusterDescription_6.setObjectName(u"clusterDescription")
-        self.clusterDescription_6.setStyleSheet(u"QWidget {\n"
-                                              "	border: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar:vertical {\n"
-                                              "	border: none;\n"
-                                              "    background: #E7E7E7;\n"
-                                              "    width: 14px;\n"
-                                              "    margin: 15px 0 15px 0;\n"
-                                              "	border-radius: 0px;\n"
-                                              " }\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical {	\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	min-height: 30px;\n"
-                                              "	border-radius: 7px;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical:hover{	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 7px;\n"
-                                              "	border-top-right-radius: 7px;\n"
-                                              "	border-bottom-left-radius: 3px;\n"
-                                              "	border-bottom-right-radius: 3px;\n"
-                                              "	subcontrol-position: top;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 3px;\n"
-                                              "	border-top-right-radius: 3px;\n"
-                                              "	border-bottom-left-radi"
-                                              "us: 7px;\n"
-                                              "	border-bottom-right-radius: 7px;\n"
-                                              "	subcontrol-position: bottom;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                              "	background: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                              "	background: none;\n"
-                                              "}")
-        self.verticalLayout_12.addWidget(self.clusterDescription_6)
+        self.listWidget_6 = QListWidget(self.cluster)
+        self.assotiations = self.data[5][2].split(',')
+        self.listWidget_6.setWordWrap(True)
+        for text in self.assotiations:
+            self.listWidget_6.addItem(text)
+        self.listWidget_6.setObjectName(u"listWidget")
+        self.listWidget_6.setMinimumSize(QSize(302, 260))
+        self.listWidget_6.setMaximumSize(QSize(302, 260))
+        palette7 = QPalette()
+        palette7.setBrush(QPalette.Active, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Window, brush)
+        self.listWidget_6.setPalette(palette7)
+        self.listWidget_6.setFont(font5)
+        self.listWidget_6.setStyleSheet(u"QWidget {\n"
+                                      "	border: none;\n"
+                                      "   color: #101010;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar:vertical {\n"
+                                      "	border: none;\n"
+                                      "    background: #E7E7E7;\n"
+                                      "    width: 14px;\n"
+                                      "    margin: 15px 0 15px 0;\n"
+                                      "	border-radius: 0px;\n"
+                                      " }\n"
+                                      "\n"
+                                      "QScrollBar::handle:vertical {	\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	min-height: 30px;\n"
+                                      "	border-radius: 7px;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::handle:vertical:hover{	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::sub-line:vertical {\n"
+                                      "	border: none;\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	height: 15px;\n"
+                                      "	border-top-left-radius: 7px;\n"
+                                      "	border-top-right-radius: 7px;\n"
+                                      "	border-bottom-left-radius: 3px;\n"
+                                      "	border-bottom-right-radius: 3px;\n"
+                                      "	subcontrol-position: top;\n"
+                                      "	subcontrol-origin: margin;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::sub-line:vertical:hover {	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-line:vertical {\n"
+                                      "	border: none;\n"
+                                      "	background-color: #5B5B5B;\n"
+                                      "	height: 15px;\n"
+                                      "	border-top-left-radius: 3px;\n"
+                                      "	border-top-right-radius: 3px;\n"
+                                      "	border-bottom-left-radi"
+                                      "us: 7px;\n"
+                                      "	border-bottom-right-radius: 7px;\n"
+                                      "	subcontrol-position: bottom;\n"
+                                      "	subcontrol-origin: margin;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-line:vertical:hover {	\n"
+                                      "	background-color: #501EBC;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                      "	background: none;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                      "	background: none;\n"
+                                      "}")
+        self.listWidget_6.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.listWidget_6.setProperty(u"showDropIndicator", False)
+        self.listWidget_6.setSelectionMode(QAbstractItemView.NoSelection)
+        self.listWidget_6.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.listWidget_6.setLayoutMode(QListView.SinglePass)
+        self.listWidget_6.setSpacing(4)
+
+        self.verticalLayout_12.addWidget(self.listWidget_6)
         palette27 = QPalette()
         palette27.setBrush(QPalette.Active, QPalette.Button, brush)
         palette27.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -4801,16 +4854,6 @@ class Ui_ClusterPage(object):
         # endif // QT_CONFIG(shortcut)
         self.vacancy.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
-
-        self.clusterDescription.setHtml(QCoreApplication.translate("ClusterPage",
-                                                                  u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                                  "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                                  "p, li { white-space: pre-wrap; }\n"
-                                                                  "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
-                                                                  DB_data[0][-1] + "</span></"
-                                                                                    "p></body></html>", None))
-
 
         self.pushButtonMore.setText(QCoreApplication.translate("ClusterPage",
                                                                u"Показать ещё",
