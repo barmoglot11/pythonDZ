@@ -27,7 +27,7 @@ class MainWindow(QMainWindow):
                                                    options=options)
         self.ChangeUI(Ui_TakeProfessionPage())
 
-    def CreatePopup(self, popup, UI):
+    def CreatePopup(self, popup, UI, data=None):
         if self.popup is not None:
             self.popup.close()
         match popup:
@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
             case "ClusterEdit":
                 self.popup = PopupClusterEdit(self, UI)
             case "Profession":
-                self.popup = PopupProfession(self, UI)
+                self.popup = PopupProfession(self, UI, data)
             case "ProfessionEdit":
                 self.popup = PopupProfessionEdit(self, UI)
             case "Apply":
@@ -72,7 +72,7 @@ class PopupWindow(QMainWindow):
         self.ui = UI
         self.ui.setupUi(self)
 
-    def CreatePopup(self, popup, UI):
+    def CreatePopup(self, popup, UI, data=None):
         match popup:
             case "AddResume":
                 self.popup = PopupAddResume(self, UI)
@@ -81,7 +81,7 @@ class PopupWindow(QMainWindow):
             case "ClusterEdit":
                 self.popup = PopupClusterEdit(self, UI)
             case "Profession":
-                self.popup = PopupProfession(self, UI)
+                self.popup = PopupProfession(self, UI, data)
             case "ProfessionEdit":
                 self.popup = PopupProfessionEdit(self, UI)
             case "Apply":
@@ -133,7 +133,12 @@ class PopupClusterEdit(PopupWindow):
 
 
 class PopupProfession(PopupWindow):
-    def __init__(self, mainWind, UI):
+    def __init__(self, mainWind, UI, data):
+        self.data = list()
+        if data is not None:
+            self.data = data
+        else:
+            self.data.extend(["", "", "", "", 0])
         super().__init__(mainWind, UI)
 
 

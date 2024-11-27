@@ -5411,7 +5411,7 @@ class Ui_PopUpClusterChangePage(object):
         self.buttons.setSpacing(20)
         self.buttons.setObjectName(u"buttons")
         self.buttons.setContentsMargins(0, 0, 0, 0)
-        self.pushButtonYes = QPushButton(self.buttonsFrame)
+        self.pushButtonYes = QPushButton(self.buttonsFrame, clicked = lambda : PopUpClusterChangePage.CreatePopup("Apply", Ui_PopUpSaveAttentionPage()))
         self.pushButtonYes.setObjectName(u"pushButtonYes")
         self.pushButtonYes.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.pushButtonYes.sizePolicy().hasHeightForWidth())
@@ -5453,7 +5453,7 @@ class Ui_PopUpClusterChangePage(object):
 
         self.buttons.addWidget(self.pushButtonYes)
 
-        self.pushButtonNo = QPushButton(self.buttonsFrame)
+        self.pushButtonNo = QPushButton(self.buttonsFrame, clicked = lambda : PopUpClusterChangePage.close())
         self.pushButtonNo.setObjectName(u"pushButtonNo")
         self.pushButtonNo.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.pushButtonNo.sizePolicy().hasHeightForWidth())
@@ -5516,9 +5516,17 @@ class Ui_PopUpClusterChangePage(object):
     # retranslateUi
 
 class Ui_ProfessionPage(object):
+
     def setupUi(self, ProfessionPage):
         if not ProfessionPage.objectName():
             ProfessionPage.setObjectName(u"ProfessionPage")
+
+        DB_data = ProfessionPage.TakeDataFromDB("Vacancy")
+        self.vacancies = list()
+        for data in DB_data:
+            temp = data[1:]
+            self.vacancies.append([temp[1], temp[2], temp[0], temp[-1], temp[-2]])
+
         ProfessionPage.resize(1920, 1134)
         ProfessionPage.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
                                      "font-family: Roboto;")
@@ -6064,7 +6072,7 @@ class Ui_ProfessionPage(object):
 
         self.verticalLayout_6.addLayout(self.professionInfo)
 
-        self.pushButtonMore = QPushButton(self.profession, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage()))
+        self.pushButtonMore = QPushButton(self.profession, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage(), self.vacancies[0]))
         self.pushButtonMore.setObjectName(u"pushButtonMore")
         sizePolicy1.setHeightForWidth(self.pushButtonMore.sizePolicy().hasHeightForWidth())
         self.pushButtonMore.setSizePolicy(sizePolicy1)
@@ -7830,12 +7838,7 @@ class Ui_ProfessionPage(object):
     # setupUi
 
     def retranslateUi(self, ProfessionPage):
-        DB_data = ProfessionPage.TakeDataFromDB("Vacancy")
-        vacancies = list()
-        for data in DB_data:
-            temp = data[1:]
-            vacancies.append([temp[1], temp[2],temp[0], temp[-1], temp[-2]])
-        print(*vacancies)
+
         ProfessionPage.setWindowTitle(QCoreApplication.translate("ProfessionPage", u"Ваша Вакансия", None))
         self.label.setText("")
         self.pushButton.setText(QCoreApplication.translate("ProfessionPage",
@@ -7855,7 +7858,7 @@ class Ui_ProfessionPage(object):
                                                                      None))
         self.pushButtonFind.setText("")
         self.professionName.setText(
-            QCoreApplication.translate("ProfessionPage", vacancies[0][0], None))
+            QCoreApplication.translate("ProfessionPage", self.vacancies[0][0], None))
         self.pushButtonRedact.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact.setShortcut("")
@@ -7873,7 +7876,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney.setText(QCoreApplication.translate("ProfessionPage", vacancies[0][3], None))
+        self.textMoney.setText(QCoreApplication.translate("ProfessionPage", self.vacancies[0][3], None))
         self.titleDescription.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -7881,7 +7884,7 @@ class Ui_ProfessionPage(object):
                                                                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                 "p, li { white-space: pre-wrap; }\n"
                                                                 "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[0][1]+"</span></"
+                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+self.vacancies[0][1]+"</span></"
                                                                 "p></body></html>", None))
         self.pushButtonMore.setText(QCoreApplication.translate("ProfessionPage",
                                                                u"Показать ещё",
@@ -7894,7 +7897,7 @@ class Ui_ProfessionPage(object):
             QCoreApplication.translate("ProfessionPage", u"профессию",
                                        None))
         self.professionName_7.setText(
-            QCoreApplication.translate("ProfessionPage", vacancies[1][0], None))
+            QCoreApplication.translate("ProfessionPage", self.vacancies[1][0], None))
         self.pushButtonRedact_7.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_7.setShortcut("")
@@ -7912,7 +7915,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_2.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_2.setText(QCoreApplication.translate("ProfessionPage", vacancies[1][3], None))
+        self.textMoney_2.setText(QCoreApplication.translate("ProfessionPage", self.vacancies[1][3], None))
         self.titleDescription_2.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_2.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -7920,13 +7923,13 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[1][1]+"</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+self.vacancies[1][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_3.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.professionName_8.setText(
-            QCoreApplication.translate("ProfessionPage", vacancies[2][0], None))
+            QCoreApplication.translate("ProfessionPage", self.vacancies[2][0], None))
         self.pushButtonRedact_8.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_8.setShortcut("")
@@ -7944,7 +7947,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_3.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_3.setText(QCoreApplication.translate("ProfessionPage", vacancies[2][3], None))
+        self.textMoney_3.setText(QCoreApplication.translate("ProfessionPage", self.vacancies[2][3], None))
         self.titleDescription_3.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_3.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -7952,13 +7955,13 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[2][1]+"</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+self.vacancies[2][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_4.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.professionName_9.setText(
-            QCoreApplication.translate("ProfessionPage", vacancies[3][0], None))
+            QCoreApplication.translate("ProfessionPage", self.vacancies[3][0], None))
         self.pushButtonRedact_9.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_9.setShortcut("")
@@ -7976,7 +7979,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_4.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_4.setText(QCoreApplication.translate("ProfessionPage", vacancies[3][3], None))
+        self.textMoney_4.setText(QCoreApplication.translate("ProfessionPage", self.vacancies[3][3], None))
         self.titleDescription_4.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_4.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -7984,13 +7987,13 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[3][1]+"</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+self.vacancies[3][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_5.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.professionName_10.setText(
-            QCoreApplication.translate("ProfessionPage", vacancies[4][0], None))
+            QCoreApplication.translate("ProfessionPage", self.vacancies[4][0], None))
         self.pushButtonRedact_10.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_10.setShortcut("")
@@ -8008,7 +8011,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_5.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_5.setText(QCoreApplication.translate("ProfessionPage", vacancies[4][3], None))
+        self.textMoney_5.setText(QCoreApplication.translate("ProfessionPage", self.vacancies[4][3], None))
         self.titleDescription_5.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_5.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -8016,13 +8019,13 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[4][1]+"</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+self.vacancies[4][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_6.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
                                                                  None))
         self.professionName_12.setText(
-            QCoreApplication.translate("ProfessionPage", vacancies[5][0], None))
+            QCoreApplication.translate("ProfessionPage", self.vacancies[5][0], None))
         self.pushButtonRedact_12.setText("")
         # if QT_CONFIG(shortcut)
         self.pushButtonRedact_12.setShortcut("")
@@ -8040,7 +8043,7 @@ class Ui_ProfessionPage(object):
         # if QT_CONFIG(shortcut)
         self.iconMoney_7.setShortcut("")
         # endif // QT_CONFIG(shortcut)
-        self.textMoney_7.setText(QCoreApplication.translate("ProfessionPage", vacancies[5][3], None))
+        self.textMoney_7.setText(QCoreApplication.translate("ProfessionPage", self.vacancies[5][3], None))
         self.titleDescription_7.setText(
             QCoreApplication.translate("ProfessionPage", u"Описание", None))
         self.textDescription_7.setHtml(QCoreApplication.translate("ProfessionPage",
@@ -8048,7 +8051,7 @@ class Ui_ProfessionPage(object):
                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                   "p, li { white-space: pre-wrap; }\n"
                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+vacancies[5][1]+"</span></"
+                                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">"+self.vacancies[5][1]+"</span></"
                                                                   "p></body></html>", None))
         self.pushButtonMore_8.setText(QCoreApplication.translate("ProfessionPage",
                                                                  u"Показать ещё",
@@ -8287,62 +8290,28 @@ class Ui_PopUpProfessionPage(object):
     # setupUi
 
     def retranslateUi(self, PopUpProfessionPage):
-        PopUpProfessionPage.setWindowTitle(QCoreApplication.translate("PopUpProfessionPage", u"Your Vacancy", None))
-        self.titleName.setText(QCoreApplication.translate("PopUpProfessionPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446", None))
+        PopUpProfessionPage.setWindowTitle(QCoreApplication.translate("PopUpProfessionPage", u"Ваша Вакансия", None))
+        self.titleName.setText(QCoreApplication.translate("PopUpProfessionPage", PopUpProfessionPage.data[0], None))
         self.pushButtonRedact.setText("")
-#if QT_CONFIG(shortcut)
+        # if QT_CONFIG(shortcut)
         self.pushButtonRedact.setShortcut("")
-#endif // QT_CONFIG(shortcut)
+        # endif // QT_CONFIG(shortcut)
         self.pushButtonDelete.setText("")
-#if QT_CONFIG(shortcut)
+        # if QT_CONFIG(shortcut)
         self.pushButtonDelete.setShortcut("")
-#endif // QT_CONFIG(shortcut)
+        # endif // QT_CONFIG(shortcut)
         self.pushButtonClose.setText("")
-        self.professionName.setText(QCoreApplication.translate("PopUpProfessionPage", u"\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435", None))
-        self.textDescription.setHtml(QCoreApplication.translate("PopUpProfessionPage", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">\u041f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u044f \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430 \u0438\u0433\u0440\u0430\u0435\u0442 \u043a\u043b\u044e\u0447\u0435\u0432\u0443\u044e \u0440\u043e\u043b\u044c \u0432 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u043a\u0435 \u0438 \u0431\u0438\u0437\u043d\u0435\u0441\u0435, \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0432\u0430\u044f \u0441\u0432\u044f\u0437\u044c \u043c\u0435\u0436\u0434\u0443 \u043f\u0440\u043e\u0438\u0437\u0432"
-                        "\u043e\u0434\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0442\u043e\u0432\u0430\u0440\u043e\u0432 \u0438 \u043a\u043e\u043d\u0435\u0447\u043d\u044b\u043c\u0438 \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044f\u043c\u0438. \u041e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u043e\u0431\u044f\u0437\u0430\u043d\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430 \u0432\u043a\u043b\u044e\u0447\u0430\u044e\u0442 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432, \u0433\u0434\u0435 \u043f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432\u044b\u044f\u0432\u043b\u044f\u0435\u0442 \u043f\u043e\u0442\u0440\u0435\u0431\u043d\u043e\u0441\u0442\u0438 \u0438 \u043f\u0440\u0435\u0434\u043b\u0430\u0433\u0430\u0435\u0442 \u043f\u043e\u0434\u0445\u043e\u0434\u044f\u0449\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u044b \u0438\u043b\u0438 \u0443\u0441\u043b\u0443\u0433\u0438, \u0430 \u0442\u0430"
-                        "\u043a\u0436\u0435 \u043f\u0440\u0435\u0437\u0435\u043d\u0442\u0430\u0446\u0438\u044e \u0442\u043e\u0432\u0430\u0440\u043e\u0432, \u0447\u0442\u043e \u043f\u043e\u0434\u0440\u0430\u0437\u0443\u043c\u0435\u0432\u0430\u0435\u0442 \u0434\u0435\u043c\u043e\u043d\u0441\u0442\u0440\u0430\u0446\u0438\u044e \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u043e\u0432 \u0438 \u043e\u0431\u044a\u044f\u0441\u043d\u0435\u043d\u0438\u0435 \u0438\u0445 \u043f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432. \u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0442\u0430\u043a\u0436\u0435 \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442 \u0437\u0430\u043a\u0430\u0437\u044b, \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u0442 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0438 \u0441\u043b\u0435\u0434\u0438\u0442 \u0437\u0430 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435\u043c \u0443\u0441\u043b\u043e\u0432\u0438\u0439 \u0441\u0434\u0435\u043b\u043a\u0438, \u0432\u043a\u043b"
-                        "\u044e\u0447\u0430\u044f \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0443 \u0438 \u043e\u043f\u043b\u0430\u0442\u0443. \u041f\u043e\u0434\u0434\u0435\u0440\u0436\u0430\u043d\u0438\u0435 \u043f\u043e\u0440\u044f\u0434\u043a\u0430 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435, \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u044f \u0432\u0438\u0442\u0440\u0438\u043d \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u0437\u0430 \u043d\u0430\u043b\u0438\u0447\u0438\u0435\u043c \u0442\u043e\u0432\u0430\u0440\u0430 \u0442\u0430\u043a\u0436\u0435 \u0432\u0445\u043e\u0434\u044f\u0442 \u0432 \u0435\u0433\u043e \u0437\u0430\u0434\u0430\u0447\u0438. \u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u043a\u0430\u0441\u0441\u043e\u0432\u044b\u043c \u0430\u043f\u043f\u0430\u0440\u0430\u0442\u043e\u043c \u0438 \u0443\u0447\u0435\u0442 \u043f\u0440\u043e\u0434\u0430\u0436 \u2014 \u0432\u0430\u0436\u043d\u044b\u0435 \u0430\u0441\u043f\u0435\u043a\u0442\u044b \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438"
-                        "\u0438, \u043a\u0430\u043a \u0438 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0437\u0430\u043f\u0430\u0441\u0430\u043c\u0438, \u0447\u0442\u043e \u0432\u043a\u043b\u044e\u0447\u0430\u0435\u0442 \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u0432 \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u0438\u0437\u0430\u0446\u0438\u0438 \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u0437\u0430 \u0442\u043e\u0432\u0430\u0440\u043d\u044b\u043c\u0438 \u0437\u0430\u043f\u0430\u0441\u0430\u043c\u0438.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u0435 \u043d\u0430\u0432\u044b\u043a"
-                        "\u0438 \u0438 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u0430 \u0434\u043b\u044f \u0443\u0441\u043f\u0435\u0448\u043d\u043e\u0439 \u0440\u0430\u0431\u043e\u0442\u044b \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u043e\u043c \u0432\u043a\u043b\u044e\u0447\u0430\u044e\u0442 \u043a\u043e\u043c\u043c\u0443\u043d\u0438\u043a\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u043d\u0430\u0432\u044b\u043a\u0438, \u0443\u043c\u0435\u043d\u0438\u0435 \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u0432 \u043a\u043e\u043c\u0430\u043d\u0434\u0435, \u0441\u0442\u0440\u0435\u0441\u0441\u043e\u0443\u0441\u0442\u043e\u0439\u0447\u0438\u0432\u043e\u0441\u0442\u044c, \u0437\u043d\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430 \u0438 \u043d\u0430\u0432\u044b\u043a\u0438 \u043f\u0440\u043e\u0434\u0430\u0436. \u0423\u043c\u0435\u043d\u0438\u0435 \u0447\u0435\u0442\u043a\u043e \u0438 \u0443\u0431\u0435\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u043e\u0431\u0449\u0430\u0442\u044c\u0441\u044f \u0441"
-                        " \u043a\u043b\u0438\u0435\u043d\u0442\u0430\u043c\u0438, \u0430 \u0442\u0430\u043a\u0436\u0435 \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u0441\u043b\u0443\u0448\u0430\u0442\u044c \u0438 \u043f\u043e\u043d\u0438\u043c\u0430\u0442\u044c \u0438\u0445 \u043f\u043e\u0442\u0440\u0435\u0431\u043d\u043e\u0441\u0442\u0438 \u044f\u0432\u043b\u044f\u044e\u0442\u0441\u044f \u043e\u0441\u043d\u043e\u0432\u043e\u043f\u043e\u043b\u0430\u0433\u0430\u044e\u0449\u0438\u043c\u0438. \u0425\u043e\u0442\u044f \u0434\u043b\u044f \u0440\u0430\u0431\u043e\u0442\u044b \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u043e\u043c \u043d\u0435 \u0432\u0441\u0435\u0433\u0434\u0430 \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u0432\u044b\u0441\u0448\u0435\u0435 \u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u0435, \u043d\u0430\u043b\u0438\u0447\u0438\u0435 \u0441\u0440\u0435\u0434\u043d\u0435\u0433\u043e \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043e\u0431\u0440\u0430"
-                        "\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0438\u043b\u0438 \u043a\u0443\u0440\u0441\u043e\u0432 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u043f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u043e\u043c, \u0430 \u043e\u043f\u044b\u0442 \u0440\u0430\u0431\u043e\u0442\u044b \u0432 \u0441\u0444\u0435\u0440\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u0442\u0430\u043a\u0436\u0435 \u0446\u0435\u043d\u0438\u0442\u0441\u044f.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">\u041f\u0435\u0440"
-                        "\u0441\u043f\u0435\u043a\u0442\u0438\u0432\u044b \u043a\u0430\u0440\u044c\u0435\u0440\u043d\u043e\u0433\u043e \u0440\u043e\u0441\u0442\u0430 \u0434\u043b\u044f \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u043e\u0432 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u0440\u0430\u0437\u043d\u043e\u043e\u0431\u0440\u0430\u0437\u043d\u044b. \u041e\u043d\u0438 \u043c\u043e\u0433\u0443\u0442 \u043f\u0440\u043e\u0434\u0432\u0438\u0433\u0430\u0442\u044c\u0441\u044f \u043f\u043e \u043a\u0430\u0440\u044c\u0435\u0440\u043d\u043e\u0439 \u043b\u0435\u0441\u0442\u043d\u0438\u0446\u0435, \u0441\u0442\u0430\u043d\u043e\u0432\u044f\u0441\u044c \u0441\u0442\u0430\u0440\u0448\u0438\u043c\u0438 \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430\u043c\u0438, \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u0430\u043c\u0438 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c \u0438\u043b\u0438 \u0434\u0430\u0436\u0435 \u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u043c\u0430"
-                        "\u0433\u0430\u0437\u0438\u043d\u043e\u0432. \u041e\u043f\u044b\u0442 \u0440\u0430\u0431\u043e\u0442\u044b \u0432 \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u0445 \u043c\u043e\u0436\u0435\u0442 \u043e\u0442\u043a\u0440\u044b\u0442\u044c \u0434\u0432\u0435\u0440\u0438 \u043a \u0431\u043e\u043b\u0435\u0435 \u0432\u044b\u0441\u043e\u043a\u0438\u043c \u0434\u043e\u043b\u0436\u043d\u043e\u0441\u0442\u044f\u043c \u0432 \u043e\u0431\u043b\u0430\u0441\u0442\u0438 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0438\u043b\u0438 \u043c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433\u0430. \u0422\u0430\u043a\u0438\u043c \u043e\u0431\u0440\u0430\u0437\u043e\u043c, \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u044f \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430 \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0432\u0430\u0436\u043d\u0430 \u0434\u043b\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0431\u0438\u0437\u043d\u0435\u0441\u0430, \u043d"
-                        "\u043e \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u0434\u043b\u044f \u043b\u0438\u0447\u043d\u043e\u0433\u043e \u0438 \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0440\u043e\u0441\u0442\u0430.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">\u041f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u044f \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430 \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0432\u0430\u0436\u043d\u0430 \u0434\u043b\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0438"
-                        "\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0431\u0438\u0437\u043d\u0435\u0441\u0430, \u043d\u043e \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u0434\u043b\u044f \u043b\u0438\u0447\u043d\u043e\u0433\u043e \u0438 \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0440\u043e\u0441\u0442\u0430. \u0412\u0430\u0436\u043d\u044b\u043c \u0430\u0441\u043f\u0435\u043a\u0442\u043e\u043c \u0440\u0430\u0431\u043e\u0442\u044b \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0443\u043c\u0435\u043d\u0438\u0435 \u0430\u0434\u0430\u043f\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f \u043a \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c \u043d\u0430 \u0440\u044b\u043d\u043a\u0435 \u0438 \u0432 \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0445 \u043f\u0440"
-                        "\u0435\u0434\u043f\u043e\u0447\u0442\u0435\u043d\u0438\u044f\u0445. \u0421\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0435 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0438, \u0442\u0430\u043a\u0438\u0435 \u043a\u0430\u043a \u043e\u043d\u043b\u0430\u0439\u043d-\u043f\u0440\u043e\u0434\u0430\u0436\u0438 \u0438 \u0441\u043e\u0446\u0438\u0430\u043b\u044c\u043d\u044b\u0435 \u0441\u0435\u0442\u0438, \u0442\u0440\u0435\u0431\u0443\u044e\u0442 \u043e\u0442 \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u043e\u0432 \u043e\u0441\u0432\u043e\u0435\u043d\u0438\u044f \u043d\u043e\u0432\u044b\u0445 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c \u0438 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u043e\u0432, \u0447\u0442\u043e \u0434\u0435\u043b\u0430\u0435\u0442 \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u044e \u0434\u0438\u043d\u0430\u043c\u0438\u0447\u043d\u043e\u0439 \u0438 \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u043d\u043e\u0439.</span></p>\n"
-"<p style=\"-qt-paragraph-ty"
-                        "pe:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">\u041a\u0440\u043e\u043c\u0435 \u0442\u043e\u0433\u043e, \u0443\u0441\u043f\u0435\u0448\u043d\u044b\u0435 \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u044b \u0447\u0430\u0441\u0442\u043e \u0441\u0442\u0430\u043d\u043e\u0432\u044f\u0442\u0441\u044f \u044d\u043a\u0441\u043f\u0435\u0440\u0442\u0430\u043c\u0438 \u0432 \u0441\u0432\u043e\u0435\u0439 \u043e\u0431\u043b\u0430\u0441\u0442\u0438, \u0447\u0442\u043e \u043f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0438\u043c \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u043e\u0434\u0430\u0432\u0430\u0442\u044c, \u043d\u043e \u0438 \u043e\u0431\u0443\u0447\u0430\u0442\u044c \u0434\u0440\u0443"
-                        "\u0433\u0438\u0445 \u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a\u043e\u0432, \u0434\u0435\u043b\u0438\u0442\u044c\u0441\u044f \u043e\u043f\u044b\u0442\u043e\u043c \u0438 \u0440\u0430\u0437\u0432\u0438\u0432\u0430\u0442\u044c \u043a\u043e\u043c\u0430\u043d\u0434\u043d\u044b\u0439 \u0434\u0443\u0445. \u042d\u0442\u043e \u043c\u043e\u0436\u0435\u0442 \u043f\u0440\u0438\u0432\u0435\u0441\u0442\u0438 \u043a \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044e \u0431\u043e\u043b\u0435\u0435 \u0441\u043f\u043b\u043e\u0447\u0435\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u043b\u043b\u0435\u043a\u0442\u0438\u0432\u0430, \u0433\u0434\u0435 \u043a\u0430\u0436\u0434\u044b\u0439 \u0447\u043b\u0435\u043d \u043a\u043e\u043c\u0430\u043d\u0434\u044b \u0441\u0442\u0440\u0435\u043c\u0438\u0442\u0441\u044f \u043a \u043e\u0431\u0449\u0435\u0439 \u0446\u0435\u043b\u0438.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px"
-                        "; font-size:13pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">\u0420\u0430\u0431\u043e\u0442\u0430 \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u043e\u043c \u0442\u0430\u043a\u0436\u0435 \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u044d\u043c\u043e\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e rewarding. \u0423\u0441\u043f\u0435\u0448\u043d\u044b\u0435 \u043f\u0440\u043e\u0434\u0430\u0436\u0438 \u0438 \u0434\u043e\u0432\u043e\u043b\u044c\u043d\u044b\u0435 \u043a\u043b\u0438\u0435\u043d\u0442\u044b \u043f\u0440\u0438\u043d\u043e\u0441\u044f\u0442 \u0443\u0434\u043e\u0432\u043b\u0435\u0442\u0432\u043e\u0440\u0435\u043d\u0438\u0435 \u0438 \u0447\u0443\u0432\u0441\u0442\u0432\u043e \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043d\u043e\u0433\u043e \u0434\u043e\u043b\u0433\u0430. \u041c\u043d\u043e\u0433\u0438"
-                        "\u0435 \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u044b \u043d\u0430\u0445\u043e\u0434\u044f\u0442 \u0440\u0430\u0434\u043e\u0441\u0442\u044c \u0432 \u0442\u043e\u043c, \u0447\u0442\u043e \u043c\u043e\u0433\u0443\u0442 \u043f\u043e\u043c\u043e\u0447\u044c \u043b\u044e\u0434\u044f\u043c \u0432\u044b\u0431\u0440\u0430\u0442\u044c \u0438\u043c\u0435\u043d\u043d\u043e \u0442\u043e, \u0447\u0442\u043e \u0438\u043c \u043d\u0443\u0436\u043d\u043e, \u0438 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0438\u0445 \u0434\u0435\u043d\u044c \u043b\u0443\u0447\u0448\u0435.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">\u0412\u0430\u0436\u043d\u043e\u0439 \u0447\u0430\u0441"
-                        "\u0442\u044c\u044e \u0440\u0430\u0431\u043e\u0442\u044b \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0440\u0430\u0431\u043e\u0442\u0430 \u0441 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u0439 \u0441\u0432\u044f\u0437\u044c\u044e \u043e\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432. \u0423\u043c\u0435\u043d\u0438\u0435 \u043f\u0440\u0438\u043d\u0438\u043c\u0430\u0442\u044c \u043a\u0440\u0438\u0442\u0438\u043a\u0443 \u0438 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0435\u0435 \u0434\u043b\u044f \u0443\u043b\u0443\u0447\u0448\u0435\u043d\u0438\u044f \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u0430 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0432\u0430\u0436\u043d\u044b\u043c \u043d\u0430\u0432\u044b\u043a\u043e\u043c. \u041f\u0440\u043e\u0434\u0430\u0432\u0446\u044b, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0430\u043a\u0442\u0438\u0432\u043d"
-                        "\u043e \u0441\u043e\u0431\u0438\u0440\u0430\u044e\u0442 \u0438 \u0430\u043d\u0430\u043b\u0438\u0437\u0438\u0440\u0443\u044e\u0442 \u043e\u0442\u0437\u044b\u0432\u044b, \u043c\u043e\u0433\u0443\u0442 \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0432\u044b\u0448\u0430\u0442\u044c \u0441\u0432\u043e\u0438 \u043b\u0438\u0447\u043d\u044b\u0435 \u043f\u043e\u043a\u0430\u0437\u0430\u0442\u0435\u043b\u0438, \u043d\u043e \u0438 \u0432\u043d\u043e\u0441\u0438\u0442\u044c \u0432\u043a\u043b\u0430\u0434 \u0432 \u043e\u0431\u0449\u0443\u044e \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u044f \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-i"
-                        "ndent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">\u041d\u0430\u043a\u043e\u043d\u0435\u0446, \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u044f \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430 \u043c\u043e\u0436\u0435\u0442 \u0441\u0442\u0430\u0442\u044c \u043e\u0442\u043f\u0440\u0430\u0432\u043d\u043e\u0439 \u0442\u043e\u0447\u043a\u043e\u0439 \u0434\u043b\u044f \u043a\u0430\u0440\u044c\u0435\u0440\u044b \u0432 \u0440\u0430\u0437\u043b\u0438\u0447\u043d\u044b\u0445 \u043e\u0431\u043b\u0430\u0441\u0442\u044f\u0445, \u0442\u0430\u043a\u0438\u0445 \u043a\u0430\u043a \u043c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433, \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u043d\u044b\u043c\u0438 \u0437\u0430\u043f\u0430\u0441\u0430\u043c\u0438 \u0438\u043b\u0438 \u0434\u0430\u0436\u0435 \u043f\u0440\u0435\u0434\u043f\u0440\u0438\u043d\u0438\u043c\u0430\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e. \u041e\u043f\u044b\u0442 \u0440"
-                        "\u0430\u0431\u043e\u0442\u044b \u0432 \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u0445 \u0434\u0430\u0435\u0442 \u043f\u043e\u043d\u0438\u043c\u0430\u043d\u0438\u0435 \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u043e\u0433\u043e \u043f\u043e\u0432\u0435\u0434\u0435\u043d\u0438\u044f, \u0447\u0442\u043e \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0446\u0435\u043d\u043d\u044b\u043c \u0430\u043a\u0442\u0438\u0432\u043e\u043c \u0434\u043b\u044f \u0431\u0443\u0434\u0443\u0449\u0438\u0445 \u0431\u0438\u0437\u043d\u0435\u0441-\u0438\u043d\u0438\u0446\u0438\u0430\u0442\u0438\u0432.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff"
-                        ";\">\u0422\u0430\u043a\u0438\u043c \u043e\u0431\u0440\u0430\u0437\u043e\u043c, \u043f\u0440\u043e\u0444\u0435\u0441\u0441\u0438\u044f \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u0430 \u0441\u043e\u0447\u0435\u0442\u0430\u0435\u0442 \u0432 \u0441\u0435\u0431\u0435 \u043c\u043d\u043e\u0436\u0435\u0441\u0442\u0432\u043e \u0430\u0441\u043f\u0435\u043a\u0442\u043e\u0432: \u044d\u0442\u043e \u0438 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u043a\u0430\u0440\u044c\u0435\u0440\u043d\u043e\u0433\u043e \u0440\u043e\u0441\u0442\u0430, \u0438 \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u0435 \u043b\u0438\u0447\u043d\u044b\u0445 \u043d\u0430\u0432\u044b\u043a\u043e\u0432, \u0438 \u0443\u0434\u043e\u0432\u043b\u0435\u0442\u0432\u043e\u0440\u0435\u043d\u0438\u0435 \u043e\u0442 \u043f\u043e\u043c\u043e\u0449\u0438 \u043b\u044e\u0434\u044f\u043c. \u042d\u0442\u043e \u0434\u0435\u043b\u0430\u0435\u0442 \u0435\u0451 \u043f\u0440\u0438\u0432\u043b\u0435\u043a\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0439"
-                        " \u0434\u043b\u044f \u043c\u043d\u043e\u0433\u0438\u0445, \u043a\u0442\u043e \u0438\u0449\u0435\u0442 \u0434\u0438\u043d\u0430\u043c\u0438\u0447\u043d\u0443\u044e \u0438 \u0437\u043d\u0430\u0447\u0438\u043c\u0443\u044e \u0440\u0430\u0431\u043e\u0442\u0443.</span></p></body></html>", None))
-    # retranslateUi
+        self.professionName.setText(QCoreApplication.translate("PopUpProfessionPage", u"Описание", None))
+        self.textDescription.setHtml(QCoreApplication.translate("PopUpProfessionPage",
+                                                                u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                                "p, li { white-space: pre-wrap; }\n"
+                                                                "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">"+ PopUpProfessionPage.data[1] +"</span></p>\n"
+                                                                "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n",
+                                                                None))
+
+
 class Ui_PopUpProfessionChangePage(object):
     def setupUi(self, PopUpProfessionChangePage):
         if not PopUpProfessionChangePage.objectName():
