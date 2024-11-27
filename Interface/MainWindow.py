@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
             case "AddResume":
                 self.popup = PopupAddResume(self, UI)
             case "Cluster":
-                self.popup = PopupCluster(self, UI)
+                self.popup = PopupCluster(self, UI, data)
             case "ClusterEdit":
                 self.popup = PopupClusterEdit(self, UI)
             case "Profession":
@@ -77,7 +77,7 @@ class PopupWindow(QMainWindow):
             case "AddResume":
                 self.popup = PopupAddResume(self, UI)
             case "Cluster":
-                self.popup = PopupCluster(self, UI)
+                self.popup = PopupCluster(self, UI, data)
             case "ClusterEdit":
                 self.popup = PopupClusterEdit(self, UI)
             case "Profession":
@@ -123,7 +123,12 @@ class PopupAddResume(PopupWindow):
 
 
 class PopupCluster(PopupWindow):
-    def __init__(self, mainWind, UI):
+    def __init__(self, mainWind, UI, data):
+        self.data = list()
+        if data is not None:
+            self.data = data
+        else:
+            self.data.extend(["",""])
         super().__init__(mainWind, UI)
 
 

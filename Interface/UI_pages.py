@@ -3554,7 +3554,7 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_2.addLayout(self.verticalLayout)
 
-        self.pushButtonMore = QPushButton(self.cluster, clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage()))
+        self.pushButtonMore = QPushButton(self.cluster, clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage(), self.data[0]))
         self.pushButtonMore.setObjectName(u"pushButtonMore")
         sizePolicy1.setHeightForWidth(self.pushButtonMore.sizePolicy().hasHeightForWidth())
         self.pushButtonMore.setSizePolicy(sizePolicy1)
@@ -3701,71 +3701,97 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_8.addWidget(self.vacancy_4)
 
-        self.clusterDescription_4 = QTextBrowser(self.cluster_4)
-        self.clusterDescription_4.setObjectName(u"clusterDescription")
-        self.clusterDescription_4.setStyleSheet(u"QWidget {\n"
-                                              "	border: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar:vertical {\n"
-                                              "	border: none;\n"
-                                              "    background: #E7E7E7;\n"
-                                              "    width: 14px;\n"
-                                              "    margin: 15px 0 15px 0;\n"
-                                              "	border-radius: 0px;\n"
-                                              " }\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical {	\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	min-height: 30px;\n"
-                                              "	border-radius: 7px;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical:hover{	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 7px;\n"
-                                              "	border-top-right-radius: 7px;\n"
-                                              "	border-bottom-left-radius: 3px;\n"
-                                              "	border-bottom-right-radius: 3px;\n"
-                                              "	subcontrol-position: top;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 3px;\n"
-                                              "	border-top-right-radius: 3px;\n"
-                                              "	border-bottom-left-radi"
-                                              "us: 7px;\n"
-                                              "	border-bottom-right-radius: 7px;\n"
-                                              "	subcontrol-position: bottom;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                              "	background: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                              "	background: none;\n"
-                                              "}")
-        self.verticalLayout_8.addWidget(self.clusterDescription_4)
+        self.listWidget_4 = QListWidget(self.cluster)
+        self.assotiations = self.data[3][2].split(',')
+        self.listWidget_4.setWordWrap(True)
+        for text in self.assotiations:
+            self.listWidget_4.addItem(text)
+        self.listWidget_4.setObjectName(u"listWidget")
+        self.listWidget_4.setMinimumSize(QSize(302, 260))
+        self.listWidget_4.setMaximumSize(QSize(302, 260))
+        palette7 = QPalette()
+        palette7.setBrush(QPalette.Active, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Window, brush)
+        self.listWidget_4.setPalette(palette7)
+        self.listWidget_4.setFont(font5)
+        self.listWidget_4.setStyleSheet(u"QWidget {\n"
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
+        self.listWidget_4.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.listWidget_4.setProperty(u"showDropIndicator", False)
+        self.listWidget_4.setSelectionMode(QAbstractItemView.NoSelection)
+        self.listWidget_4.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.listWidget_4.setLayoutMode(QListView.SinglePass)
+        self.listWidget_4.setSpacing(4)
+
+        self.verticalLayout_8.addWidget(self.listWidget_4)
         palette11 = QPalette()
         palette11.setBrush(QPalette.Active, QPalette.Button, brush)
         palette11.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -3780,7 +3806,7 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_7.addLayout(self.verticalLayout_8)
 
-        self.pushButtonMore_4 = QPushButton(self.cluster_4, clicked = lambda : ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage()))
+        self.pushButtonMore_4 = QPushButton(self.cluster_4, clicked = lambda : ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage(), self.data[3]))
         self.pushButtonMore_4.setObjectName(u"pushButtonMore_4")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_4.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_4.setSizePolicy(sizePolicy1)
@@ -3922,71 +3948,97 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_4.addWidget(self.vacancy_2)
 
-        self.clusterDescription_2 = QTextBrowser(self.cluster_2)
-        self.clusterDescription_2.setObjectName(u"clusterDescription")
-        self.clusterDescription_2.setStyleSheet(u"QWidget {\n"
-                                              "	border: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar:vertical {\n"
-                                              "	border: none;\n"
-                                              "    background: #E7E7E7;\n"
-                                              "    width: 14px;\n"
-                                              "    margin: 15px 0 15px 0;\n"
-                                              "	border-radius: 0px;\n"
-                                              " }\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical {	\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	min-height: 30px;\n"
-                                              "	border-radius: 7px;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical:hover{	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 7px;\n"
-                                              "	border-top-right-radius: 7px;\n"
-                                              "	border-bottom-left-radius: 3px;\n"
-                                              "	border-bottom-right-radius: 3px;\n"
-                                              "	subcontrol-position: top;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 3px;\n"
-                                              "	border-top-right-radius: 3px;\n"
-                                              "	border-bottom-left-radi"
-                                              "us: 7px;\n"
-                                              "	border-bottom-right-radius: 7px;\n"
-                                              "	subcontrol-position: bottom;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                              "	background: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                              "	background: none;\n"
-                                              "}")
-        self.verticalLayout_4.addWidget(self.clusterDescription_2)
+        self.listWidget_2 = QListWidget(self.cluster)
+        self.assotiations = self.data[1][2].split(',')
+        self.listWidget_2.setWordWrap(True)
+        for text in self.assotiations:
+            self.listWidget_2.addItem(text)
+        self.listWidget_2.setObjectName(u"listWidget")
+        self.listWidget_2.setMinimumSize(QSize(302, 260))
+        self.listWidget_2.setMaximumSize(QSize(302, 260))
+        palette7 = QPalette()
+        palette7.setBrush(QPalette.Active, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Window, brush)
+        self.listWidget_2.setPalette(palette7)
+        self.listWidget_2.setFont(font5)
+        self.listWidget_2.setStyleSheet(u"QWidget {\n"
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
+        self.listWidget_2.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.listWidget_2.setProperty(u"showDropIndicator", False)
+        self.listWidget_2.setSelectionMode(QAbstractItemView.NoSelection)
+        self.listWidget_2.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.listWidget_2.setLayoutMode(QListView.SinglePass)
+        self.listWidget_2.setSpacing(4)
+
+        self.verticalLayout_4.addWidget(self.listWidget_2)
         palette15 = QPalette()
         palette15.setBrush(QPalette.Active, QPalette.Button, brush)
         palette15.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -4001,7 +4053,7 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_3.addLayout(self.verticalLayout_4)
 
-        self.pushButtonMore_2 = QPushButton(self.cluster_2,clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage()))
+        self.pushButtonMore_2 = QPushButton(self.cluster_2,clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage(), self.data[1]))
         self.pushButtonMore_2.setObjectName(u"pushButtonMore_2")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_2.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_2.setSizePolicy(sizePolicy1)
@@ -4143,71 +4195,97 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_6.addWidget(self.vacancy_3)
 
-        self.clusterDescription_3 = QTextBrowser(self.cluster_3)
-        self.clusterDescription_3.setObjectName(u"clusterDescription")
-        self.clusterDescription_3.setStyleSheet(u"QWidget {\n"
-                                              "	border: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar:vertical {\n"
-                                              "	border: none;\n"
-                                              "    background: #E7E7E7;\n"
-                                              "    width: 14px;\n"
-                                              "    margin: 15px 0 15px 0;\n"
-                                              "	border-radius: 0px;\n"
-                                              " }\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical {	\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	min-height: 30px;\n"
-                                              "	border-radius: 7px;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical:hover{	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 7px;\n"
-                                              "	border-top-right-radius: 7px;\n"
-                                              "	border-bottom-left-radius: 3px;\n"
-                                              "	border-bottom-right-radius: 3px;\n"
-                                              "	subcontrol-position: top;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 3px;\n"
-                                              "	border-top-right-radius: 3px;\n"
-                                              "	border-bottom-left-radi"
-                                              "us: 7px;\n"
-                                              "	border-bottom-right-radius: 7px;\n"
-                                              "	subcontrol-position: bottom;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                              "	background: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                              "	background: none;\n"
-                                              "}")
-        self.verticalLayout_6.addWidget(self.clusterDescription_3)
+        self.listWidget_3 = QListWidget(self.cluster)
+        self.assotiations = self.data[2][2].split(',')
+        self.listWidget_3.setWordWrap(True)
+        for text in self.assotiations:
+            self.listWidget_3.addItem(text)
+        self.listWidget_3.setObjectName(u"listWidget")
+        self.listWidget_3.setMinimumSize(QSize(302, 260))
+        self.listWidget_3.setMaximumSize(QSize(302, 260))
+        palette7 = QPalette()
+        palette7.setBrush(QPalette.Active, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Window, brush)
+        self.listWidget_3.setPalette(palette7)
+        self.listWidget_3.setFont(font5)
+        self.listWidget_3.setStyleSheet(u"QWidget {\n"
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
+        self.listWidget_3.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.listWidget_3.setProperty(u"showDropIndicator", False)
+        self.listWidget_3.setSelectionMode(QAbstractItemView.NoSelection)
+        self.listWidget_3.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.listWidget_3.setLayoutMode(QListView.SinglePass)
+        self.listWidget_3.setSpacing(4)
+
+        self.verticalLayout_6.addWidget(self.listWidget_3)
         palette19 = QPalette()
         palette19.setBrush(QPalette.Active, QPalette.Button, brush)
         palette19.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -4222,7 +4300,7 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_5.addLayout(self.verticalLayout_6)
 
-        self.pushButtonMore_3 = QPushButton(self.cluster_3,clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage()))
+        self.pushButtonMore_3 = QPushButton(self.cluster_3,clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage(), self.data[2]))
         self.pushButtonMore_3.setObjectName(u"pushButtonMore_3")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_3.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_3.setSizePolicy(sizePolicy1)
@@ -4364,71 +4442,97 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_10.addWidget(self.vacancy_5)
 
-        self.clusterDescription_5 = QTextBrowser(self.cluster_5)
-        self.clusterDescription_5.setObjectName(u"clusterDescription")
-        self.clusterDescription_5.setStyleSheet(u"QWidget {\n"
-                                              "	border: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar:vertical {\n"
-                                              "	border: none;\n"
-                                              "    background: #E7E7E7;\n"
-                                              "    width: 14px;\n"
-                                              "    margin: 15px 0 15px 0;\n"
-                                              "	border-radius: 0px;\n"
-                                              " }\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical {	\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	min-height: 30px;\n"
-                                              "	border-radius: 7px;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::handle:vertical:hover{	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 7px;\n"
-                                              "	border-top-right-radius: 7px;\n"
-                                              "	border-bottom-left-radius: 3px;\n"
-                                              "	border-bottom-right-radius: 3px;\n"
-                                              "	subcontrol-position: top;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::sub-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical {\n"
-                                              "	border: none;\n"
-                                              "	background-color: #5B5B5B;\n"
-                                              "	height: 15px;\n"
-                                              "	border-top-left-radius: 3px;\n"
-                                              "	border-top-right-radius: 3px;\n"
-                                              "	border-bottom-left-radi"
-                                              "us: 7px;\n"
-                                              "	border-bottom-right-radius: 7px;\n"
-                                              "	subcontrol-position: bottom;\n"
-                                              "	subcontrol-origin: margin;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-line:vertical:hover {	\n"
-                                              "	background-color: #501EBC;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-                                              "	background: none;\n"
-                                              "}\n"
-                                              "\n"
-                                              "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-                                              "	background: none;\n"
-                                              "}")
-        self.verticalLayout_10.addWidget(self.clusterDescription_5)
+        self.listWidget_5 = QListWidget(self.cluster)
+        self.assotiations = self.data[4][2].split(',')
+        self.listWidget_5.setWordWrap(True)
+        for text in self.assotiations:
+            self.listWidget_5.addItem(text)
+        self.listWidget_5.setObjectName(u"listWidget")
+        self.listWidget_5.setMinimumSize(QSize(302, 260))
+        self.listWidget_5.setMaximumSize(QSize(302, 260))
+        palette7 = QPalette()
+        palette7.setBrush(QPalette.Active, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Active, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Inactive, QPalette.Window, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Button, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Base, brush)
+        palette7.setBrush(QPalette.Disabled, QPalette.Window, brush)
+        self.listWidget_5.setPalette(palette7)
+        self.listWidget_5.setFont(font5)
+        self.listWidget_5.setStyleSheet(u"QWidget {\n"
+                                        "	border: none;\n"
+                                        "   color: #101010;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar:vertical {\n"
+                                        "	border: none;\n"
+                                        "    background: #E7E7E7;\n"
+                                        "    width: 14px;\n"
+                                        "    margin: 15px 0 15px 0;\n"
+                                        "	border-radius: 0px;\n"
+                                        " }\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical {	\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	min-height: 30px;\n"
+                                        "	border-radius: 7px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::handle:vertical:hover{	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 7px;\n"
+                                        "	border-top-right-radius: 7px;\n"
+                                        "	border-bottom-left-radius: 3px;\n"
+                                        "	border-bottom-right-radius: 3px;\n"
+                                        "	subcontrol-position: top;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::sub-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical {\n"
+                                        "	border: none;\n"
+                                        "	background-color: #5B5B5B;\n"
+                                        "	height: 15px;\n"
+                                        "	border-top-left-radius: 3px;\n"
+                                        "	border-top-right-radius: 3px;\n"
+                                        "	border-bottom-left-radi"
+                                        "us: 7px;\n"
+                                        "	border-bottom-right-radius: 7px;\n"
+                                        "	subcontrol-position: bottom;\n"
+                                        "	subcontrol-origin: margin;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-line:vertical:hover {	\n"
+                                        "	background-color: #501EBC;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+                                        "	background: none;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                        "	background: none;\n"
+                                        "}")
+        self.listWidget_5.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.listWidget_5.setProperty(u"showDropIndicator", False)
+        self.listWidget_5.setSelectionMode(QAbstractItemView.NoSelection)
+        self.listWidget_5.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.listWidget_5.setLayoutMode(QListView.SinglePass)
+        self.listWidget_5.setSpacing(4)
+
+        self.verticalLayout_10.addWidget(self.listWidget_5)
         palette23 = QPalette()
         palette23.setBrush(QPalette.Active, QPalette.Button, brush)
         palette23.setBrush(QPalette.Active, QPalette.Base, brush)
@@ -4443,7 +4547,7 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_9.addLayout(self.verticalLayout_10)
 
-        self.pushButtonMore_5 = QPushButton(self.cluster_5,clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage()))
+        self.pushButtonMore_5 = QPushButton(self.cluster_5,clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage(), self.data[4]))
         self.pushButtonMore_5.setObjectName(u"pushButtonMore_5")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_5.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_5.setSizePolicy(sizePolicy1)
@@ -4690,7 +4794,7 @@ class Ui_ClusterPage(object):
 
         self.verticalLayout_11.addLayout(self.verticalLayout_12)
 
-        self.pushButtonMore_6 = QPushButton(self.cluster_6,clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage()))
+        self.pushButtonMore_6 = QPushButton(self.cluster_6,clicked = lambda :  ClusterPage.CreatePopup("Cluster", Ui_PopUpClusterPage(), self.data[5]))
         self.pushButtonMore_6.setObjectName(u"pushButtonMore_6")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_6.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_6.setSizePolicy(sizePolicy1)
@@ -4871,15 +4975,6 @@ class Ui_ClusterPage(object):
         self.vacancy_4.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        self.clusterDescription_2.setHtml(QCoreApplication.translate("ClusterPage",
-                                                                   u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                                   "p, li { white-space: pre-wrap; }\n"
-                                                                   "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                   "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
-                                                                   DB_data[1][-1] + "</span></"
-                                                                                    "p></body></html>", None))
-
         self.pushButtonMore_4.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
                                                                  None))
@@ -4896,14 +4991,6 @@ class Ui_ClusterPage(object):
         self.vacancy_2.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        self.clusterDescription_3.setHtml(QCoreApplication.translate("ClusterPage",
-                                                                     u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                                     "p, li { white-space: pre-wrap; }\n"
-                                                                     "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
-                                                                     DB_data[2][-1] + "</span></"
-                                                                                      "p></body></html>", None))
 
         self.pushButtonMore_2.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
@@ -4921,14 +5008,6 @@ class Ui_ClusterPage(object):
         self.vacancy_3.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        self.clusterDescription_4.setHtml(QCoreApplication.translate("ClusterPage",
-                                                                     u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                                     "p, li { white-space: pre-wrap; }\n"
-                                                                     "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
-                                                                     DB_data[3][-1] + "</span></"
-                                                                                      "p></body></html>", None))
 
         self.pushButtonMore_3.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
@@ -4946,14 +5025,6 @@ class Ui_ClusterPage(object):
         self.vacancy_5.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        self.clusterDescription_5.setHtml(QCoreApplication.translate("ClusterPage",
-                                                                     u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                                     "p, li { white-space: pre-wrap; }\n"
-                                                                     "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
-                                                                     DB_data[4][-1] + "</span></"
-                                                                                      "p></body></html>", None))
 
         self.pushButtonMore_5.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
@@ -4971,15 +5042,6 @@ class Ui_ClusterPage(object):
         self.vacancy_6.setText(
             QCoreApplication.translate("ClusterPage", u"Вакансии", None))
 
-        self.clusterDescription_6.setHtml(QCoreApplication.translate("ClusterPage",
-                                                                     u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                                     "p, li { white-space: pre-wrap; }\n"
-                                                                     "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10.5pt; font-weight:600; color:#101010;\">" +
-                                                                     DB_data[5][-1] + "</span></"
-                                                                                      "p></body></html>", None))
-
         self.pushButtonMore_6.setText(QCoreApplication.translate("ClusterPage",
                                                                  u"Показать ещё",
                                                                  None))
@@ -4989,6 +5051,7 @@ class Ui_PopUpClusterPage(object):
     def setupUi(self, PopUpClusterPage):
         if not PopUpClusterPage.objectName():
             PopUpClusterPage.setObjectName(u"PopUpClusterPage")
+        self.data = PopUpClusterPage.data
         PopUpClusterPage.resize(1380, 680)
         PopUpClusterPage.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "font-family: Roboto;")
@@ -5137,22 +5200,8 @@ class Ui_PopUpClusterPage(object):
         self.description.addWidget(self.vacancy)
 
         self.listWidget = QListWidget(self.popUpClusterPage)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
+        for item in self.data[2].split(','):
+            self.listWidget.addItem(item)
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setMinimumSize(QSize(1320, 510))
         self.listWidget.setMaximumSize(QSize(1320, 510))
@@ -5256,7 +5305,7 @@ class Ui_PopUpClusterPage(object):
 
     def retranslateUi(self, PopUpClusterPage):
         PopUpClusterPage.setWindowTitle(QCoreApplication.translate("PopUpClusterPage", u"Your Vacancy", None))
-        self.titleName.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0436\u0438", None))
+        self.titleName.setText(QCoreApplication.translate("PopUpClusterPage", self.data[1], None))
         self.pushButtonRedact.setText("")
 #if QT_CONFIG(shortcut)
         self.pushButtonRedact.setShortcut("")
@@ -5266,43 +5315,11 @@ class Ui_PopUpClusterPage(object):
         self.pushButtonDelete.setShortcut("")
 #endif // QT_CONFIG(shortcut)
         self.pushButtonClose.setText("")
-        self.vacancy.setText(QCoreApplication.translate("PopUpClusterPage", u"\u0412\u0430\u043a\u0430\u043d\u0441\u0438\u0438", None))
+        self.vacancy.setText(QCoreApplication.translate("PopUpClusterPage", u"Вакансии", None))
 
         __sortingEnabled = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)
-        ___qlistwidgetitem = self.listWidget.item(0)
-        ___qlistwidgetitem.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None));
-        ___qlistwidgetitem1 = self.listWidget.item(1)
-        ___qlistwidgetitem1.setText(QCoreApplication.translate("PopUpClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c \u0432\u044b\u0441\u043e\u043a\u043e\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f", None));
-        ___qlistwidgetitem2 = self.listWidget.item(2)
-        ___qlistwidgetitem2.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435", None));
-        ___qlistwidgetitem3 = self.listWidget.item(3)
-        ___qlistwidgetitem3.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c\u043d\u043e\u0433\u043e \u0441\u0430\u043b\u043e\u043d\u0430", None));
-        ___qlistwidgetitem4 = self.listWidget.item(4)
-        ___qlistwidgetitem4.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0441\u0435\u0442\u0438 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u043e\u0432 \u0431\u044b\u0442\u043e\u0432\u043e\u0439 \u0442\u0435\u0445\u043d\u0438\u043a\u0438", None));
-        ___qlistwidgetitem5 = self.listWidget.item(5)
-        ___qlistwidgetitem5.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436", None));
-        ___qlistwidgetitem6 = self.listWidget.item(6)
-        ___qlistwidgetitem6.setText(QCoreApplication.translate("PopUpClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440", None));
-        ___qlistwidgetitem7 = self.listWidget.item(7)
-        ___qlistwidgetitem7.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442", None));
-        ___qlistwidgetitem8 = self.listWidget.item(8)
-        ___qlistwidgetitem8.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None));
-        ___qlistwidgetitem9 = self.listWidget.item(9)
-        ___qlistwidgetitem9.setText(QCoreApplication.translate("PopUpClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c \u0432\u044b\u0441\u043e\u043a\u043e\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f", None));
-        ___qlistwidgetitem10 = self.listWidget.item(10)
-        ___qlistwidgetitem10.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0435", None));
-        ___qlistwidgetitem11 = self.listWidget.item(11)
-        ___qlistwidgetitem11.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c\u043d\u043e\u0433\u043e \u0441\u0430\u043b\u043e\u043d\u0430", None));
-        ___qlistwidgetitem12 = self.listWidget.item(12)
-        ___qlistwidgetitem12.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u0441\u0435\u0442\u0438 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u043e\u0432 \u0431\u044b\u0442\u043e\u0432\u043e\u0439 \u0442\u0435\u0445\u043d\u0438\u043a\u0438", None));
-        ___qlistwidgetitem13 = self.listWidget.item(13)
-        ___qlistwidgetitem13.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446 \u0432 \u0441\u0444\u0435\u0440\u0435 \u043f\u0440\u043e\u0434\u0430\u0436", None));
-        ___qlistwidgetitem14 = self.listWidget.item(14)
-        ___qlistwidgetitem14.setText(QCoreApplication.translate("PopUpClusterPage", u"\u0421\u0442\u0430\u0440\u0448\u0438\u0439 \u043a\u0430\u0441\u0441\u0438\u0440", None));
-        ___qlistwidgetitem15 = self.listWidget.item(15)
-        ___qlistwidgetitem15.setText(QCoreApplication.translate("PopUpClusterPage", u"\u041a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442 \u041c\u0430\u0433\u043d\u0438\u0442", None));
-        self.listWidget.setSortingEnabled(__sortingEnabled)
+
 
     # retranslateUi
 class Ui_PopUpClusterChangePage(object):
