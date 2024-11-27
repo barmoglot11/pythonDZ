@@ -2,7 +2,6 @@ import random
 import sqlite3
 
 import requests
-from pywebio import input, output, start_server
 
 
 connection = sqlite3.connect('./Interface/vacancies-sqlite.db')

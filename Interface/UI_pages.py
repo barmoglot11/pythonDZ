@@ -6473,7 +6473,7 @@ class Ui_ProfessionPage(object):
 
         self.verticalLayout_7.addLayout(self.professionInfo_2)
 
-        self.pushButtonMore_3 = QPushButton(self.profession_3, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage()))
+        self.pushButtonMore_3 = QPushButton(self.profession_3, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage(), self.vacancies[1]))
         self.pushButtonMore_3.setObjectName(u"pushButtonMore_3")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_3.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_3.setSizePolicy(sizePolicy1)
@@ -6782,7 +6782,7 @@ class Ui_ProfessionPage(object):
 
         self.verticalLayout_8.addLayout(self.professionInfo_3)
 
-        self.pushButtonMore_4 = QPushButton(self.profession_4, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage()))
+        self.pushButtonMore_4 = QPushButton(self.profession_4, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage(), self.vacancies[2]))
         self.pushButtonMore_4.setObjectName(u"pushButtonMore_4")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_4.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_4.setSizePolicy(sizePolicy1)
@@ -7091,7 +7091,7 @@ class Ui_ProfessionPage(object):
 
         self.verticalLayout_9.addLayout(self.professionInfo_4)
 
-        self.pushButtonMore_5 = QPushButton(self.profession_5, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage()))
+        self.pushButtonMore_5 = QPushButton(self.profession_5, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage(), self.vacancies[3]))
         self.pushButtonMore_5.setObjectName(u"pushButtonMore_5")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_5.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_5.setSizePolicy(sizePolicy1)
@@ -7400,7 +7400,7 @@ class Ui_ProfessionPage(object):
 
         self.verticalLayout_10.addLayout(self.professionInfo_5)
 
-        self.pushButtonMore_6 = QPushButton(self.profession_6, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage()))
+        self.pushButtonMore_6 = QPushButton(self.profession_6, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage(), self.vacancies[4]))
         self.pushButtonMore_6.setObjectName(u"pushButtonMore_6")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_6.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_6.setSizePolicy(sizePolicy1)
@@ -7709,7 +7709,7 @@ class Ui_ProfessionPage(object):
 
         self.verticalLayout_12.addLayout(self.professionInfo_7)
 
-        self.pushButtonMore_8 = QPushButton(self.profession_7, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage()))
+        self.pushButtonMore_8 = QPushButton(self.profession_7, clicked = lambda : ProfessionPage.CreatePopup("Profession", Ui_PopUpProfessionPage(), self.vacancies[5]))
         self.pushButtonMore_8.setObjectName(u"pushButtonMore_8")
         sizePolicy1.setHeightForWidth(self.pushButtonMore_8.sizePolicy().hasHeightForWidth())
         self.pushButtonMore_8.setSizePolicy(sizePolicy1)
