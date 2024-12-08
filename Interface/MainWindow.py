@@ -26,28 +26,27 @@ class MainWindow(QMainWindow):
                                                         "",
                                                         "Документы Word (*.docx);;PDF файлы (*.pdf);;Все файлы (*)",
                                                         options=options)
-
-        if self.file_name:
+        try:
             ReadDocx(self.file_name)
-        else:
+        except self.file_name is None:
             print("Error: No file")
 
         self.ChangeUI(Ui_TakeProfessionPage())
 
-    def CreatePopup(self, popup, UI, data=None):
+    def CreatePopup(self, popup, UI, ID = None):
         if self.popup is not None:
             self.popup.close()
         match popup:
             case "AddResume":
                 self.popup = PopupAddResume(self, UI)
             case "Cluster":
-                self.popup = PopupCluster(self, UI, data)
+                self.popup = PopupCluster(self, UI, ID)
             case "ClusterEdit":
                 self.popup = PopupClusterEdit(self, UI)
             case "Profession":
-                self.popup = PopupProfession(self, UI, data)
+                self.popup = PopupProfession(self, UI, ID)
             case "ProfessionEdit":
-                self.popup = PopupProfessionEdit(self, UI)
+                self.popup = PopupProfessionEdit(self, UI, ID)
             case "Apply":
                 self.popup = PopupSave(self, UI)
             case "Delete":
@@ -96,16 +95,16 @@ class PopupWindow(QMainWindow):
         self.ui = UI
         self.ui.setupUi(self)
 
-    def CreatePopup(self, popup, UI, data=None):
+    def CreatePopup(self, popup, UI, data=None, ID=None):
         match popup:
             case "AddResume":
                 self.popup = PopupAddResume(self, UI)
             case "Cluster":
-                self.popup = PopupCluster(self, UI, data)
+                self.popup = PopupCluster(self, UI, data, ID)
             case "ClusterEdit":
                 self.popup = PopupClusterEdit(self, UI)
             case "Profession":
-                self.popup = PopupProfession(self, UI, data)
+                self.popup = PopupProfession(self, UI, data, ID)
             case "ProfessionEdit":
                 self.popup = PopupProfessionEdit(self, UI)
             case "Apply":
@@ -134,6 +133,27 @@ class PopupWindow(QMainWindow):
 
         cursor.close()
         connection.close()
+
+        return data
+
+    def TakeDataFromDBByID(self, Table_name, ID):
+        connection = sqlite3.connect('vacancies-sqlite.db')
+        cursor = connection.cursor()
+        if isinstance(ID, tuple):
+            ID = ID[0]
+        try:
+            cursor.execute(f'''
+                SELECT * FROM {Table_name}
+                WHERE {Table_name}ID = ?
+            ''', (ID,))
+
+            data = cursor.fetchall()
+        except sqlite3.Error as e:
+            print(f"Ошибка при выполнении запроса: {e}")
+            data = None
+        finally:
+            cursor.close()
+            connection.close()
 
         return data
 
@@ -186,16 +206,18 @@ class PopupAddResume(PopupWindow):
         else:
             print("Error: No file")
 
-        self.mainW.ChangeUI(Ui_TakeProfessionPage())
+        self.mainWindows[-1].ChangeUI(Ui_TakeProfessionPage())
+
+
 
 
 class PopupCluster(PopupWindow):
-    def __init__(self, mainWind, UI, data):
-        self.data = list()
-        if data is not None:
-            self.data = data
-        else:
-            self.data.extend(["", ""])
+    def __init__(self, mainWind, UI, ID):
+        self.data = self.TakeDataFromDBByID('Cluster', ID)
+        if self.data is None:
+            self.data = ["", ""]
+
+        self.ID = ID
         super().__init__(mainWind, UI)
 
 
@@ -204,9 +226,10 @@ class PopupClusterEdit(PopupWindow):
         super().__init__(mainWind, UI)
 
     def Apply(self):
-        dataToChange = self.ui.Save()
+        dataToChange = list()
+        dataToChange.append(self.mainWindows[-1].ID)
+        dataToChange.append(self.ui.Save())
         self.ChangeDataInDB('Cluster', dataToChange)
-
 
         self.mainWindows[-1].UpdateUI()
         self.mainWindows[-1].ui.setupUi(self.mainWindows[-1])
@@ -214,12 +237,14 @@ class PopupClusterEdit(PopupWindow):
 
 
 class PopupProfession(PopupWindow):
-    def __init__(self, mainWind, UI, data):
-        self.data = list()
-        if data is not None:
-            self.data = data
-        else:
-            self.data.extend(["", "", "", "", 0])
+    def __init__(self, mainWind, UI, ID):
+        try:
+            self.dataFromDB = self.TakeDataFromDBByID('Vacancy', ID)[0]
+            self.data = [self.dataFromDB[3], self.dataFromDB[4]]
+        except self.data is None:
+            self.data = ["", ""]
+
+        self.ID = ID
         super().__init__(mainWind, UI)
 
 
@@ -227,21 +252,32 @@ class PopupProfessionEdit(PopupWindow):
     def __init__(self, mainWind, UI):
         super().__init__(mainWind, UI)
 
-    def Apply(self):
-        dataToChange = self.ui.Save()
+    def Apply(self, ID = None):
+        dataToChange = list()
+        if ID is not None:
+            dataToChange.append(ID)
+        else:
+            dataToChange.append(self.mainWindows[-1].ID)
+        dataToChange.extend(self.ui.Save())
         self.ChangeDataInDB('Vacancy', dataToChange)
 
-        self.mainWindows[-1].ui.setupUi(self.mainWindows[-1])
         self.mainWindows[-1].UpdateUI()
+        self.mainWindows[-1].ui.setupUi(self.mainWindows[-1])
         self.close()
 
 
-class PopupSave(PopupWindow):
-    def __init__(self, mainWind, UI):
-        super().__init__(mainWind, UI)
 
-    def Save(self):
-        self.mainWindows[-1].Apply()
+class PopupSave(PopupWindow):
+    def __init__(self, mainWind, UI, ID = None):
+        super().__init__(mainWind, UI)
+        self.ID = ID
+
+    def Save(self, ):
+        if self.ID is not None:
+            self.mainWindows[-1].Apply(self.ID)
+        else:
+            self.mainWindows[-1].Apply()
+
         self.close()
 
 
