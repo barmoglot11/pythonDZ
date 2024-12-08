@@ -8,24 +8,30 @@ connection = sqlite3.connect('./Interface/vacancies-sqlite.db')
 
 cursor = connection.cursor()
 
+cursor.execute(''' CREATE TABLE IF NOT EXISTS Organization 
+                    (OrganizationID INTEGER PRIMARY KEY AUTOINCREMENT, 
+                    OrganizationName TEXT NOT NULL)
+                ''')
+cursor.execute(''' CREATE TABLE IF NOT EXISTS Cluster 
+                    (ClusterID INTEGER PRIMARY KEY AUTOINCREMENT, 
+                    ClusterProfession TEXT,
+                    Association TEXT)
+                ''')
+
 cursor.execute(''' CREATE TABLE IF NOT EXISTS Vacancy 
                     (VacancyID INTEGER PRIMARY KEY AUTOINCREMENT, 
-                    Organization TEXT,
+                    OrganizationName TEXT,
+                    OrganizationID INT,
                     VacancyName TEXT,
                     VacancyDesc TEXT, 
                     URL TEXT, 
-                    SalaryMean TEXT)
+                    Salary TEXT,
+                    ClusterID INT,
+                    FOREIGN KEY (OrganizationID) REFERENCES Organization (OrganizationID),
+                    FOREIGN KEY (ClusterID) REFERENCES Cluster (ClusterID))
                 ''')
 
-cursor.execute(''' CREATE TABLE IF NOT EXISTS Organization 
-                    (OrganizationID INTEGER PRIMARY KEY AUTOINCREMENT, 
-                    Organization TEXT NOT NULL)
-                ''')
-cursor.execute(''' CREATE TABLE IF NOT EXISTS Cluster 
-                    (ID INTEGER PRIMARY KEY AUTOINCREMENT, 
-                    Profession TEXT,
-                    Association TEXT)
-                ''')
+
 
 association_list = {
     "Программист": [
@@ -66,20 +72,32 @@ association_list = {
 }
 data_to_insert = []
 for names in association_list:
-    data_to_insert.append(("AAA", names, "abcabc", "hh.ru", random.randint(30, 45) * 1000))
-    cursor.executemany('''
-                            INSERT INTO Vacancy(Organization, VacancyName, VacancyDesc, URL, SalaryMean)
-                            VALUES (?,?,?,?,?)
-                        ''', data_to_insert)
-    cursor.execute('''
-            INSERT INTO Organization(Organization)
-            VALUES (?)
-        ''', ("AAA",))
+    organization_name = names[0] * 3
+    organization_id = random.randint(1, 5)
+    vacancy_name = names
+    vacancy_desc = "abcabc"
+    url = "hh.ru"
+    salary = random.randint(30, 45) * 1000
+    cluster_id = random.randint(1, 5)
 
     cursor.execute('''
-            INSERT INTO Cluster(Profession, Association)
-            VALUES (?,?)
-        ''', (names, ','.join(association_list[names])))
+                INSERT INTO Organization(OrganizationName)
+                VALUES (?)
+            ''', (names[0]*3,))
+
+    cursor.execute('''
+                INSERT INTO Cluster(ClusterProfession, Association)
+                VALUES (?,?)
+            ''', (names, ','.join(association_list[names])))
+
+    data_to_insert.append((organization_name, organization_id, vacancy_name, vacancy_desc, url, salary, cluster_id))
+
+    # Вставка всех данных в Vacancy за один раз
+    cursor.executemany('''
+        INSERT INTO Vacancy(OrganizationName, OrganizationID, VacancyName, VacancyDesc, URL, Salary, ClusterID)
+        VALUES (?,?,?,?,?,?,?)
+    ''', data_to_insert)
+
 
 
 

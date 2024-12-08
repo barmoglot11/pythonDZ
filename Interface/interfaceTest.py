@@ -1,11 +1,9 @@
 import sys
 
 from PyQt5 import QtGui, QtWidgets
-from PySide6.QtWidgets import QApplication, QMainWindow, QStackedWidget, QDialog, QPushButton
-from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication
 
 from MainWindow import MainWindow
-
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

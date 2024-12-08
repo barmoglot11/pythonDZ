@@ -1870,74 +1870,74 @@ class Ui_TakeProfessionPage(object):
                                                         u"Похожие вакансии",
                                                         None))
         self.nameButton_7.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[0][2],
+                                                             TakeProfessionPage.vacancy_info[0][3],
                                                              None))
         self.iconMoney_6.setText("")
         self.textMoney_6.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[0][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[0][-2] + " руб/мес",
                                        None))
         self.nameButton_8.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[1][2],
+                                                             TakeProfessionPage.vacancy_info[1][3],
                                                              None))
         self.iconMoney_7.setText("")
         self.textMoney_7.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[1][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[1][-2] + " руб/мес",
                                        None))
         self.nameButton_10.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                              TakeProfessionPage.vacancy_info[2][2],
+                                                              TakeProfessionPage.vacancy_info[2][3],
                                                               None))
         self.iconMoney_9.setText("")
         self.textMoney_9.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[2][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[2][-2] + " руб/мес",
                                        None))
         self.nameButton_4.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[3][2],
+                                                             TakeProfessionPage.vacancy_info[3][3],
                                                              None))
         self.iconMoney_3.setText("")
         self.textMoney_3.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[3][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[3][-2] + " руб/мес",
                                        None))
         self.nameButton_2.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[4][2],
+                                                             TakeProfessionPage.vacancy_info[4][3],
                                                              None))
         self.iconMoney_2.setText("")
         self.textMoney_2.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[4][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[4][-2] + " руб/мес",
                                        None))
         self.nameButton_11.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                              TakeProfessionPage.vacancy_info[5][2],
+                                                              TakeProfessionPage.vacancy_info[5][3],
                                                               None))
         self.iconMoney_10.setText("")
         self.textMoney_10.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[5][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[5][-2] + " руб/мес",
                                        None))
         self.nameButton_12.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                              TakeProfessionPage.vacancy_info[6][2],
+                                                              TakeProfessionPage.vacancy_info[6][3],
                                                               None))
         self.iconMoney_11.setText("")
         self.textMoney_11.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[6][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[6][-2] + " руб/мес",
                                        None))
         self.nameButton_13.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                              TakeProfessionPage.vacancy_info[7][2],
+                                                              TakeProfessionPage.vacancy_info[7][3],
                                                               None))
         self.iconMoney_12.setText("")
         self.textMoney_12.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[7][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[7][-2] + " руб/мес",
                                        None))
         self.nameButton_6.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[8][2],
+                                                             TakeProfessionPage.vacancy_info[8][3],
                                                              None))
         self.iconMoney_5.setText("")
         self.textMoney_5.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[8][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[8][-2] + " руб/мес",
                                        None))
         self.nameButton_5.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[9][2],
+                                                             TakeProfessionPage.vacancy_info[9][3],
                                                              None))
         self.iconMoney_4.setText("")
         self.textMoney_4.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[9][-1] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[9][-2] + " руб/мес",
                                        None))
 
     # retranslateUi
@@ -5575,6 +5575,10 @@ class Ui_PopUpClusterChangePage(object):
         self.pushButtonNo.setText(QCoreApplication.translate("PopUpClusterChangePage", u"\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c", None))
     # retranslateUi
 
+    def Save(self):
+        return (1, self.input.text())
+    # Save
+
 class Ui_ProfessionPage(object):
 
     def setupUi(self, ProfessionPage):
@@ -5584,8 +5588,7 @@ class Ui_ProfessionPage(object):
         DB_data = ProfessionPage.TakeDataFromDB("Vacancy")
         self.vacancies = list()
         for data in DB_data:
-            temp = data[1:]
-            self.vacancies.append([temp[1], temp[2], temp[0], temp[-1], temp[-2]])
+            self.vacancies.append([data[3], data[4], data[1], data[-2], data[-3], data[0]])
 
         ProfessionPage.resize(1920, 1134)
         ProfessionPage.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
@@ -8845,11 +8848,11 @@ class Ui_PopUpProfessionChangePage(object):
         self.cluster.addWidget(self.name_4)
 
         self.comboBoxCluster = QComboBox(self.popUpProfessionChangePage)
-        self.comboBoxCluster.addItem("")
-        self.comboBoxCluster.addItem("")
-        self.comboBoxCluster.addItem("")
-        self.comboBoxCluster.addItem("")
-        self.comboBoxCluster.addItem("")
+
+        DB_data = PopUpProfessionChangePage.TakeDataFromDB('Cluster')
+        for data in DB_data:
+            self.comboBoxCluster.addItem(data[1])
+
         self.comboBoxCluster.setObjectName(u"comboBoxCluster")
         self.comboBoxCluster.setMinimumSize(QSize(500, 48))
         self.comboBoxCluster.setMaximumSize(QSize(500, 48))
@@ -9091,15 +9094,16 @@ class Ui_PopUpProfessionChangePage(object):
         self.comboBoxRegion.setItemText(4, QCoreApplication.translate("PopUpProfessionChangePage", u"\u041c\u043e\u0441\u043a\u0432\u0430", None))
 
         self.name_4.setText(QCoreApplication.translate("PopUpProfessionChangePage", u"\u041a\u043b\u0430\u0441\u0442\u0435\u0440", None))
-        self.comboBoxCluster.setItemText(0, QCoreApplication.translate("PopUpProfessionChangePage", u"\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446", None))
-        self.comboBoxCluster.setItemText(1, QCoreApplication.translate("PopUpProfessionChangePage", u"\u0421\u0442\u0438\u043b\u0438\u0441\u0442", None))
-        self.comboBoxCluster.setItemText(2, QCoreApplication.translate("PopUpProfessionChangePage", u"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c", None))
-        self.comboBoxCluster.setItemText(3, QCoreApplication.translate("PopUpProfessionChangePage", u"\u0422\u043e\u0440\u0433\u043e\u0432\u0435\u0446 \u043c\u0435\u0431\u0435\u043b\u0438", None))
-        self.comboBoxCluster.setItemText(4, QCoreApplication.translate("PopUpProfessionChangePage", u"\u0414\u0438\u0437\u0430\u0439\u043d\u0435\u0440 \u0438\u043d\u0442\u0435\u0440\u044c\u0435\u0440\u0430", None))
-
         self.pushButtonYes.setText(QCoreApplication.translate("PopUpProfessionChangePage", u"\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c", None))
         self.pushButtonNo.setText(QCoreApplication.translate("PopUpProfessionChangePage", u"\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c", None))
     # retranslateUi
+
+    def Save(self):
+        professionName = self.input.text()
+        description = self.inputDescription.toPlainText()
+        cluster = self.comboBoxCluster.currentText()
+        region = self.comboBoxRegion.currentText()
+        return [1, professionName, description, region, cluster]
 
 class Ui_PopUpSaveAttentionPage(object):
     def setupUi(self, PopUpSaveAttentionPage):
@@ -9168,7 +9172,7 @@ class Ui_PopUpSaveAttentionPage(object):
         self.buttons = QHBoxLayout(self.buttonsFrame)
         self.buttons.setSpacing(20)
         self.buttons.setObjectName(u"buttons")
-        self.pushButtonYes = QPushButton(self.buttonsFrame, clicked = lambda : PopUpSaveAttentionPage.Apply())
+        self.pushButtonYes = QPushButton(self.buttonsFrame, clicked = lambda : PopUpSaveAttentionPage.Save())
         self.pushButtonYes.setObjectName(u"pushButtonYes")
         self.pushButtonYes.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.pushButtonYes.sizePolicy().hasHeightForWidth())
