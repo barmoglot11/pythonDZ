@@ -1,10 +1,10 @@
 import sqlite3
 
-from PySide6.QtCore import Qt, QEvent
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow, QFileDialog
 
 from BackEnd.Readers import ReadDocx
-from .UI_pages import Ui_TakeProfessionPage
+from main_UI import Ui_TakeProfessionPage
 
 
 class MainWindow(QMainWindow):

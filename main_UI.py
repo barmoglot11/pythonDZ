@@ -21,8 +21,9 @@ from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame,
                                QLayout, QLineEdit, QMainWindow,
                                QPushButton, QScrollBar, QSizePolicy, QSpacerItem,
                                QTextBrowser, QVBoxLayout, QWidget, QFileDialog, QComboBox, QPlainTextEdit)
-from .Logo import *
-from .Icons import *
+
+from Interface.Logo import *
+from Interface.Icons import *
 
 
 class Ui_TakeProfessionPage(object):
