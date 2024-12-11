@@ -21,8 +21,8 @@ from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame,
                                QLayout, QLineEdit, QMainWindow,
                                QPushButton, QScrollBar, QSizePolicy, QSpacerItem,
                                QTextBrowser, QVBoxLayout, QWidget, QFileDialog, QComboBox, QPlainTextEdit)
-import Logo
-import Icons
+from .Logo import *
+from .Icons import *
 
 
 class Ui_TakeProfessionPage(object):
@@ -3383,7 +3383,7 @@ class Ui_ClusterPage(object):
         self.buttons = QHBoxLayout()
         self.buttons.setSpacing(10)
         self.buttons.setObjectName(u"buttons")
-        self.pushButtonRedact = QPushButton(self.cluster, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage()))
+        self.pushButtonRedact = QPushButton(self.cluster, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage(), ID = 1))
         self.pushButtonRedact.setObjectName(u"pushButtonRedact")
         self.pushButtonRedact.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact.setMaximumSize(QSize(24, 24))
@@ -3638,7 +3638,7 @@ class Ui_ClusterPage(object):
         self.buttons_4 = QHBoxLayout()
         self.buttons_4.setSpacing(10)
         self.buttons_4.setObjectName(u"buttons_4")
-        self.pushButtonRedact_4 = QPushButton(self.cluster_4, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage()))
+        self.pushButtonRedact_4 = QPushButton(self.cluster_4, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage(), ID = 4))
         self.pushButtonRedact_4.setObjectName(u"pushButtonRedact_4")
         self.pushButtonRedact_4.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_4.setMaximumSize(QSize(24, 24))
@@ -3885,7 +3885,7 @@ class Ui_ClusterPage(object):
         self.buttons_2 = QHBoxLayout()
         self.buttons_2.setSpacing(10)
         self.buttons_2.setObjectName(u"buttons_2")
-        self.pushButtonRedact_2 = QPushButton(self.cluster_2, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage()))
+        self.pushButtonRedact_2 = QPushButton(self.cluster_2, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage(), ID = 2))
         self.pushButtonRedact_2.setObjectName(u"pushButtonRedact_2")
         self.pushButtonRedact_2.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_2.setMaximumSize(QSize(24, 24))
@@ -4132,7 +4132,7 @@ class Ui_ClusterPage(object):
         self.buttons_3 = QHBoxLayout()
         self.buttons_3.setSpacing(10)
         self.buttons_3.setObjectName(u"buttons_3")
-        self.pushButtonRedact_3 = QPushButton(self.cluster_3, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage()))
+        self.pushButtonRedact_3 = QPushButton(self.cluster_3, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage(), ID = 3))
         self.pushButtonRedact_3.setObjectName(u"pushButtonRedact_3")
         self.pushButtonRedact_3.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_3.setMaximumSize(QSize(24, 24))
@@ -4379,7 +4379,7 @@ class Ui_ClusterPage(object):
         self.buttons_5 = QHBoxLayout()
         self.buttons_5.setSpacing(10)
         self.buttons_5.setObjectName(u"buttons_5")
-        self.pushButtonRedact_5 = QPushButton(self.cluster_5, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage()))
+        self.pushButtonRedact_5 = QPushButton(self.cluster_5, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage(), ID = 5))
         self.pushButtonRedact_5.setObjectName(u"pushButtonRedact_5")
         self.pushButtonRedact_5.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_5.setMaximumSize(QSize(24, 24))
@@ -4626,7 +4626,7 @@ class Ui_ClusterPage(object):
         self.buttons_6 = QHBoxLayout()
         self.buttons_6.setSpacing(10)
         self.buttons_6.setObjectName(u"buttons_6")
-        self.pushButtonRedact_6 = QPushButton(self.cluster_6, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage()))
+        self.pushButtonRedact_6 = QPushButton(self.cluster_6, clicked = lambda : ClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage(), ID = 6))
         self.pushButtonRedact_6.setObjectName(u"pushButtonRedact_6")
         self.pushButtonRedact_6.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_6.setMaximumSize(QSize(24, 24))
@@ -5576,7 +5576,7 @@ class Ui_PopUpClusterChangePage(object):
     # retranslateUi
 
     def Save(self):
-        return (1, self.input.text())
+        return self.input.text()
     # Save
 
 class Ui_ProfessionPage(object):
@@ -5896,7 +5896,7 @@ class Ui_ProfessionPage(object):
         self.buttons = QHBoxLayout()
         self.buttons.setSpacing(10)
         self.buttons.setObjectName(u"buttons")
-        self.pushButtonRedact = QPushButton(self.profession, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage()))
+        self.pushButtonRedact = QPushButton(self.profession, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), ID = 1))
         self.pushButtonRedact.setObjectName(u"pushButtonRedact")
         self.pushButtonRedact.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact.setMaximumSize(QSize(24, 24))
@@ -6307,7 +6307,7 @@ class Ui_ProfessionPage(object):
         self.buttons_7 = QHBoxLayout()
         self.buttons_7.setSpacing(10)
         self.buttons_7.setObjectName(u"buttons_7")
-        self.pushButtonRedact_7 = QPushButton(self.profession_3, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), ID))
+        self.pushButtonRedact_7 = QPushButton(self.profession_3, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), ID = 2))
         self.pushButtonRedact_7.setObjectName(u"pushButtonRedact_7")
         self.pushButtonRedact_7.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_7.setMaximumSize(QSize(24, 24))
@@ -6616,7 +6616,7 @@ class Ui_ProfessionPage(object):
         self.buttons_8 = QHBoxLayout()
         self.buttons_8.setSpacing(10)
         self.buttons_8.setObjectName(u"buttons_8")
-        self.pushButtonRedact_8 = QPushButton(self.profession_4, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage()))
+        self.pushButtonRedact_8 = QPushButton(self.profession_4, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), ID = 3))
         self.pushButtonRedact_8.setObjectName(u"pushButtonRedact_8")
         self.pushButtonRedact_8.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_8.setMaximumSize(QSize(24, 24))
@@ -6925,7 +6925,7 @@ class Ui_ProfessionPage(object):
         self.buttons_9 = QHBoxLayout()
         self.buttons_9.setSpacing(10)
         self.buttons_9.setObjectName(u"buttons_9")
-        self.pushButtonRedact_9 = QPushButton(self.profession_5, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage()))
+        self.pushButtonRedact_9 = QPushButton(self.profession_5, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), ID = 4))
         self.pushButtonRedact_9.setObjectName(u"pushButtonRedact_9")
         self.pushButtonRedact_9.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_9.setMaximumSize(QSize(24, 24))
@@ -7234,7 +7234,7 @@ class Ui_ProfessionPage(object):
         self.buttons_10 = QHBoxLayout()
         self.buttons_10.setSpacing(10)
         self.buttons_10.setObjectName(u"buttons_10")
-        self.pushButtonRedact_10 = QPushButton(self.profession_6, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage()))
+        self.pushButtonRedact_10 = QPushButton(self.profession_6, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), ID = 5))
         self.pushButtonRedact_10.setObjectName(u"pushButtonRedact_10")
         self.pushButtonRedact_10.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_10.setMaximumSize(QSize(24, 24))
@@ -8186,7 +8186,7 @@ class Ui_PopUpProfessionPage(object):
 
         self.title.addWidget(self.titleName)
 
-        self.pushButtonRedact = QPushButton(self.popUpProfessionPage, clicked = lambda : PopUpProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage()))
+        self.pushButtonRedact = QPushButton(self.popUpProfessionPage, clicked = lambda : PopUpProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), self.ID))
         self.pushButtonRedact.setObjectName(u"pushButtonRedact")
         self.pushButtonRedact.setMinimumSize(QSize(36, 36))
         self.pushButtonRedact.setMaximumSize(QSize(36, 36))

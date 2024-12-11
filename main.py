@@ -4,7 +4,7 @@ import sqlite3
 import requests
 
 
-connection = sqlite3.connect('./Interface/vacancies-sqlite.db')
+connection = sqlite3.connect('db/vacancies-sqlite.db')
 
 cursor = connection.cursor()
 

@@ -4,7 +4,7 @@ from PySide6.QtCore import Qt, QEvent
 from PySide6.QtWidgets import QMainWindow, QFileDialog
 
 from BackEnd.Readers import ReadDocx
-from UI_pages import Ui_TakeProfessionPage
+from .UI_pages import Ui_TakeProfessionPage
 
 
 class MainWindow(QMainWindow):
@@ -33,7 +33,7 @@ class MainWindow(QMainWindow):
 
         self.ChangeUI(Ui_TakeProfessionPage())
 
-    def CreatePopup(self, popup, UI, ID = None):
+    def CreatePopup(self, popup, UI, ID=None):
         if self.popup is not None:
             self.popup.close()
         match popup:
@@ -42,7 +42,7 @@ class MainWindow(QMainWindow):
             case "Cluster":
                 self.popup = PopupCluster(self, UI, ID)
             case "ClusterEdit":
-                self.popup = PopupClusterEdit(self, UI)
+                self.popup = PopupClusterEdit(self, UI, ID)
             case "Profession":
                 self.popup = PopupProfession(self, UI, ID)
             case "ProfessionEdit":
@@ -53,7 +53,7 @@ class MainWindow(QMainWindow):
                 self.popup = PopupDelete(self, UI)
 
     def TakeDataFromDB(self, Table_name):
-        connection = sqlite3.connect('vacancies-sqlite.db')
+        connection = sqlite3.connect('../db/vacancies-sqlite.db')
         cursor = connection.cursor()
 
         cursor.execute(f"SELECT * FROM {Table_name}")
@@ -65,7 +65,7 @@ class MainWindow(QMainWindow):
         return data
 
     def ChangeDataInDB(self, Table_name, *dataToChange):
-        connection = sqlite3.connect('vacancies-sqlite.db')
+        connection = sqlite3.connect('../db/vacancies-sqlite.db')
         cursor = connection.cursor()
         match Table_name:
             case 'Cluster':
@@ -102,11 +102,11 @@ class PopupWindow(QMainWindow):
             case "Cluster":
                 self.popup = PopupCluster(self, UI, data, ID)
             case "ClusterEdit":
-                self.popup = PopupClusterEdit(self, UI)
+                self.popup = PopupClusterEdit(self, UI, ID)
             case "Profession":
                 self.popup = PopupProfession(self, UI, data, ID)
             case "ProfessionEdit":
-                self.popup = PopupProfessionEdit(self, UI)
+                self.popup = PopupProfessionEdit(self, UI, ID)
             case "Apply":
                 self.popup = PopupSave(self, UI)
             case "Delete":
@@ -125,7 +125,7 @@ class PopupWindow(QMainWindow):
         self.close()
 
     def TakeDataFromDB(self, Table_name):
-        connection = sqlite3.connect('vacancies-sqlite.db')
+        connection = sqlite3.connect('../db/vacancies-sqlite.db')
         cursor = connection.cursor()
 
         cursor.execute(f"SELECT * FROM {Table_name}")
@@ -137,7 +137,7 @@ class PopupWindow(QMainWindow):
         return data
 
     def TakeDataFromDBByID(self, Table_name, ID):
-        connection = sqlite3.connect('vacancies-sqlite.db')
+        connection = sqlite3.connect('../db/vacancies-sqlite.db')
         cursor = connection.cursor()
         if isinstance(ID, tuple):
             ID = ID[0]
@@ -158,7 +158,7 @@ class PopupWindow(QMainWindow):
         return data
 
     def ChangeDataInDB(self, table_name, *dataToChange):
-        connection = sqlite3.connect('vacancies-sqlite.db')
+        connection = sqlite3.connect('../db/vacancies-sqlite.db')
         cursor = connection.cursor()
         data = dataToChange[0]
         match table_name:
@@ -209,8 +209,6 @@ class PopupAddResume(PopupWindow):
         self.mainWindows[-1].ChangeUI(Ui_TakeProfessionPage())
 
 
-
-
 class PopupCluster(PopupWindow):
     def __init__(self, mainWind, UI, ID):
         self.data = self.TakeDataFromDBByID('Cluster', ID)
@@ -222,12 +220,19 @@ class PopupCluster(PopupWindow):
 
 
 class PopupClusterEdit(PopupWindow):
-    def __init__(self, mainWind, UI):
+    def __init__(self, mainWind, UI, ID=None):
         super().__init__(mainWind, UI)
+
+        if ID is not None:
+            self.ID = ID
 
     def Apply(self):
         dataToChange = list()
-        dataToChange.append(self.mainWindows[-1].ID)
+        if self.ID is not None:
+            dataToChange.append(self.ID)
+        else:
+            dataToChange.append(self.mainWindows[-1].ID)
+
         dataToChange.append(self.ui.Save())
         self.ChangeDataInDB('Cluster', dataToChange)
 
@@ -249,13 +254,16 @@ class PopupProfession(PopupWindow):
 
 
 class PopupProfessionEdit(PopupWindow):
-    def __init__(self, mainWind, UI):
+    def __init__(self, mainWind, UI, ID = None):
         super().__init__(mainWind, UI)
-
-    def Apply(self, ID = None):
-        dataToChange = list()
+        self.ID = None
         if ID is not None:
-            dataToChange.append(ID)
+            self.ID = ID
+
+    def Apply(self):
+        dataToChange = list()
+        if self.ID is not None:
+            dataToChange.append(self.ID)
         else:
             dataToChange.append(self.mainWindows[-1].ID)
         dataToChange.extend(self.ui.Save())
@@ -266,18 +274,13 @@ class PopupProfessionEdit(PopupWindow):
         self.close()
 
 
-
 class PopupSave(PopupWindow):
-    def __init__(self, mainWind, UI, ID = None):
+    def __init__(self, mainWind, UI, ID=None):
         super().__init__(mainWind, UI)
         self.ID = ID
 
-    def Save(self, ):
-        if self.ID is not None:
-            self.mainWindows[-1].Apply(self.ID)
-        else:
-            self.mainWindows[-1].Apply()
-
+    def Save(self):
+        self.mainWindows[-1].Apply()
         self.close()
 
 
