@@ -7,13 +7,13 @@ from PySide6.QtWidgets import QMainWindow, QFileDialog
 from BackEnd.Readers import ReadDocx, ReadPDF
 from main_UI import Ui_TakeProfessionPage
 
-
 db_location = 'db/vacancies-sqlite.db'
 
 
 def check_file_extension(file_path, valid_extensions):
     _, ext = os.path.splitext(file_path)
     return ext.lower() in valid_extensions
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -45,6 +45,7 @@ class MainWindow(QMainWindow):
             except self.file_name is None:
                 print("Error: No file")
         self.vacancy_info = self.SearchDataFromDB(searchOption)
+        self.check_data(self.vacancy_info)
         self.ChangeUI(Ui_TakeProfessionPage())
 
     def CreatePopup(self, popup, UI, ID=None):
@@ -77,8 +78,6 @@ class MainWindow(QMainWindow):
         connection.close()
 
         return data
-
-
 
     def SearchDataFromDB(self, profession):
         connection = sqlite3.connect(db_location)
@@ -121,6 +120,11 @@ class MainWindow(QMainWindow):
 
     def UpdateUI(self):
         self.ui.setupUi(self)
+
+    def check_data(self, vacancy_info):
+        if len(vacancy_info) < 11:
+            for i in range(11):
+                vacancy_info.append(("", "", "", "", "", "", "", "", "", "", ""))
 
 
 class PopupWindow(QMainWindow):
@@ -243,7 +247,6 @@ class PopupAddResume(PopupWindow):
 
     def load_data(self):
 
-
         if check_file_extension(self.file_name, ".docx"):
             try:
                 searchOption = ReadDocx(self.file_name)
@@ -255,6 +258,7 @@ class PopupAddResume(PopupWindow):
             except self.file_name is None:
                 print("Error: No file")
         self.mainWindows[-1].vacancy_info = self.SearchDataFromDB(searchOption)
+        self.check_data(self.mainWindows[-1].vacancy_info)
         self.mainWindows[-1].ChangeUI(Ui_TakeProfessionPage())
         self.close()
 
@@ -283,6 +287,11 @@ class PopupAddResume(PopupWindow):
         connection.close()
 
         return vacancies
+
+    def check_data(self, vacancy_info):
+        if len(vacancy_info) < 11:
+            for i in range(11):
+                vacancy_info.append(("", "", "", "", "", "", "", "", "", "", ""))
 
 
 class PopupCluster(PopupWindow):
@@ -328,7 +337,7 @@ class PopupProfession(PopupWindow):
 
 
 class PopupProfessionEdit(PopupWindow):
-    def __init__(self, mainWind, UI, ID = None):
+    def __init__(self, mainWind, UI, ID=None):
         super().__init__(mainWind, UI)
         self.ID = None
         if ID is not None:
