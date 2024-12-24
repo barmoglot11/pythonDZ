@@ -1,11 +1,19 @@
+import os
 import sqlite3
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow, QFileDialog
 
-from BackEnd.Readers import ReadDocx
+from BackEnd.Readers import ReadDocx, ReadPDF
 from main_UI import Ui_TakeProfessionPage
 
+
+db_location = 'db/vacancies-sqlite.db'
+
+
+def check_file_extension(file_path, valid_extensions):
+    _, ext = os.path.splitext(file_path)
+    return ext.lower() in valid_extensions
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -26,11 +34,17 @@ class MainWindow(QMainWindow):
                                                         "",
                                                         "Документы Word (*.docx);;PDF файлы (*.pdf);;Все файлы (*)",
                                                         options=options)
-        try:
-            ReadDocx(self.file_name)
-        except self.file_name is None:
-            print("Error: No file")
-
+        if check_file_extension(self.file_name, ".docx"):
+            try:
+                searchOption = ReadDocx(self.file_name)
+            except self.file_name is None:
+                print("Error: No file")
+        elif check_file_extension(self.file_name, ".pdf"):
+            try:
+                searchOption = ReadPDF(self.file_name)
+            except self.file_name is None:
+                print("Error: No file")
+        self.vacancy_info = self.SearchDataFromDB(searchOption)
         self.ChangeUI(Ui_TakeProfessionPage())
 
     def CreatePopup(self, popup, UI, ID=None):
@@ -53,7 +67,7 @@ class MainWindow(QMainWindow):
                 self.popup = PopupDelete(self, UI)
 
     def TakeDataFromDB(self, Table_name):
-        connection = sqlite3.connect('../db/vacancies-sqlite.db')
+        connection = sqlite3.connect(db_location)
         cursor = connection.cursor()
 
         cursor.execute(f"SELECT * FROM {Table_name}")
@@ -64,8 +78,36 @@ class MainWindow(QMainWindow):
 
         return data
 
+
+
+    def SearchDataFromDB(self, profession):
+        connection = sqlite3.connect(db_location)
+        cursor = connection.cursor()
+
+        cursor.execute("SELECT ClusterID FROM Cluster WHERE Association LIKE ?", ('%' + profession + '%',))
+        cluster_id_row = cursor.fetchone()
+        if cluster_id_row is None:
+            print("Кластер с указанной профессией не найден.")
+            return []
+
+        cluster_id = cluster_id_row[0]
+        print(f"Найден ClusterID: {cluster_id}")
+
+        # 2. Получаем вакансии по ClusterID
+        cursor.execute("SELECT * FROM Vacancy WHERE ClusterID = ? ORDER BY Salary DESC", (cluster_id,))
+        vacancies = cursor.fetchall()
+
+        if not vacancies:
+            print("Вакансии не найдены для данного кластера.")
+            return []
+
+        cursor.close()
+        connection.close()
+
+        return vacancies
+
     def ChangeDataInDB(self, Table_name, *dataToChange):
-        connection = sqlite3.connect('../db/vacancies-sqlite.db')
+        connection = sqlite3.connect(db_location)
         cursor = connection.cursor()
         match Table_name:
             case 'Cluster':
@@ -99,12 +141,8 @@ class PopupWindow(QMainWindow):
         match popup:
             case "AddResume":
                 self.popup = PopupAddResume(self, UI)
-            case "Cluster":
-                self.popup = PopupCluster(self, UI, data, ID)
             case "ClusterEdit":
                 self.popup = PopupClusterEdit(self, UI, ID)
-            case "Profession":
-                self.popup = PopupProfession(self, UI, data, ID)
             case "ProfessionEdit":
                 self.popup = PopupProfessionEdit(self, UI, ID)
             case "Apply":
@@ -125,7 +163,7 @@ class PopupWindow(QMainWindow):
         self.close()
 
     def TakeDataFromDB(self, Table_name):
-        connection = sqlite3.connect('../db/vacancies-sqlite.db')
+        connection = sqlite3.connect(db_location)
         cursor = connection.cursor()
 
         cursor.execute(f"SELECT * FROM {Table_name}")
@@ -137,7 +175,7 @@ class PopupWindow(QMainWindow):
         return data
 
     def TakeDataFromDBByID(self, Table_name, ID):
-        connection = sqlite3.connect('../db/vacancies-sqlite.db')
+        connection = sqlite3.connect(db_location)
         cursor = connection.cursor()
         if isinstance(ID, tuple):
             ID = ID[0]
@@ -158,7 +196,7 @@ class PopupWindow(QMainWindow):
         return data
 
     def ChangeDataInDB(self, table_name, *dataToChange):
-        connection = sqlite3.connect('../db/vacancies-sqlite.db')
+        connection = sqlite3.connect(db_location)
         cursor = connection.cursor()
         data = dataToChange[0]
         match table_name:
@@ -195,27 +233,63 @@ class PopupAddResume(PopupWindow):
         super().__init__(mainWind, UI)
 
     def load_file(self):
-
         options = QFileDialog.Options()
         self.file_name, _ = QFileDialog.getOpenFileName(self, "Выберите файл",
                                                         "",
                                                         "Документы Word (*.docx);;PDF файлы (*.pdf);;Все файлы (*)",
                                                         options=options)
-        if self.file_name:
-            ReadDocx(self.file_name)
-        else:
-            print("Error: No file")
 
+        self.ui.changeFileName(self.file_name.split('/')[-1])
+
+    def load_data(self):
+
+
+        if check_file_extension(self.file_name, ".docx"):
+            try:
+                searchOption = ReadDocx(self.file_name)
+            except self.file_name is None:
+                print("Error: No file")
+        elif check_file_extension(self.file_name, ".pdf"):
+            try:
+                searchOption = ReadPDF(self.file_name)
+            except self.file_name is None:
+                print("Error: No file")
+        self.mainWindows[-1].vacancy_info = self.SearchDataFromDB(searchOption)
         self.mainWindows[-1].ChangeUI(Ui_TakeProfessionPage())
+        self.close()
+
+    def SearchDataFromDB(self, profession):
+        connection = sqlite3.connect(db_location)
+        cursor = connection.cursor()
+
+        cursor.execute("SELECT ClusterID FROM Cluster WHERE Association LIKE ?", ('%' + profession + '%',))
+        cluster_id_row = cursor.fetchone()
+        if cluster_id_row is None:
+            print("Кластер с указанной профессией не найден.")
+            return []
+
+        cluster_id = cluster_id_row[0]
+        print(f"Найден ClusterID: {cluster_id}")
+
+        # 2. Получаем вакансии по ClusterID
+        cursor.execute("SELECT * FROM Vacancy WHERE ClusterID = ? ORDER BY Salary DESC", (cluster_id,))
+        vacancies = cursor.fetchall()
+
+        if not vacancies:
+            print("Вакансии не найдены для данного кластера.")
+            return []
+
+        cursor.close()
+        connection.close()
+
+        return vacancies
 
 
 class PopupCluster(PopupWindow):
     def __init__(self, mainWind, UI, ID):
         self.data = self.TakeDataFromDBByID('Cluster', ID)
-        if self.data is None:
-            self.data = ["", ""]
-
-        self.ID = ID
+        if ID is not None:
+            self.ID = ID
         super().__init__(mainWind, UI)
 
 

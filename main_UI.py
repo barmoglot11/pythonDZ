@@ -1850,12 +1850,12 @@ class Ui_TakeProfessionPage(object):
                                                         None))
         self.label_2.setText("")
         self.nameButton.setText(
-            QCoreApplication.translate("TakeProfessionPage", u"Продавец", None))
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[0][3], None))
         self.iconCity.setText("")
         self.textCity.setText(QCoreApplication.translate("TakeProfessionPage", u"Омск", None))
         self.iconMoney.setText("")
         self.textMoney.setText(
-            QCoreApplication.translate("TakeProfessionPage", u"21 000 - 25 000 руб/месяц",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[0][-2] + " руб/мес",
                                        None))
         self.titleDescription.setText(
             QCoreApplication.translate("TakeProfessionPage", u"Описание", None))
@@ -1864,81 +1864,81 @@ class Ui_TakeProfessionPage(object):
                                                                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                                 "p, li { white-space: pre-wrap; }\n"
                                                                 "</style></head><body style=\" font-family:'Roboto'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Профессия продавца играет ключевую роль в мире бизнеса. Продавцы отвечают за взаимодействие с клиентами и продажу товаров или услуг. Они должны обладать хорошими коммуникационными навыками, чтобы эффективно донести информацию о продукте. Успешные продавцы умеют выявлять потребности клиентов и предлагать им подходящие решения. Работа продавца часто требует умений работать в команде и поддерживать позитивную атмосферу в магазине. Продавцы также занимаются оформлением витрин и поддержанием порядка на торговом месте. Важной частью их работы является знание ассортимента и особенностей товаров. Продавцы должны быть готовы к работе в условиях стресса и высокой конкуренции. Эта профессия предоставляет возможности для карьерного роста и развития навыков продаж. В целом, работа продавца может быть как увлекательной, так и требующей значительных усилий. Продавцы часто работают в различных сферах, включая розничную торговлю, услуги и B2B-продажи. Они могут специализироваться на конкретных категориях товаров, таких как электроника, одежда или продукты питания. Успешные продавцы часто становятся экспертами в своей области, что помогает им устанавливать доверительные отношения с клиентами. Важным аспектом работы продавца является умение справляться с возражениями и находить компромиссы. Продавцы также должны быть готовы к обучению новым продуктам и технологиям. Эффективные продавцы используют различные техники продаж, включая активное слушание и задавание вопросов. Они часто участвуют в акциях и распродажах, что требует от них гибкости и креативности. В некоторых случаях продавцы получают комиссионные за свои продажи, что может значительно увеличить их доход. Работа продавца может быть физически требовательной, особенно в больших магазинах или на складах. Кроме того, продавцы часто занимаются оформлением отчетов о продажах и анализом результатов своей работы. Они могут работать по сменам, включая выходные и праздничные дни, что требует от них высокой степени самоорганизации. Продавцы играют важную роль в формировании имиджа компании, так как именно они представляют бренд перед клиентами. Хорошие продавцы могут стать не только лидерами продаж, но и менеджерами, обучая новых сотрудников. В современных условиях продавцы также должны иметь навыки работы с цифровыми инструментами и интернет-платформами. Это особенно актуально в эпоху онлайн-продаж, когда конкуренция становится глобальной. Умение адаптироваться к изменениям на рынке и в потребительских предпочтениях также является важным качеством успешного продавца. В конечном итоге, профессия продавца может быть очень разнообразной и динамичной, предлагая множество возможностей для личного и профессионального роста.</span></p></body></html>",
+                                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">"+TakeProfessionPage.vacancy_info[0][4]+"</span></p></body></html>",
                                                                 None))
         self.label_3.setText("")
         self.title_4.setText(QCoreApplication.translate("TakeProfessionPage",
                                                         u"Похожие вакансии",
                                                         None))
         self.nameButton_7.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[0][3],
+                                                             TakeProfessionPage.vacancy_info[1][3],
                                                              None))
         self.iconMoney_6.setText("")
         self.textMoney_6.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[0][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[1][-2] + " руб/мес",
                                        None))
         self.nameButton_8.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[1][3],
+                                                             TakeProfessionPage.vacancy_info[2][3],
                                                              None))
         self.iconMoney_7.setText("")
         self.textMoney_7.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[1][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[2][-2] + " руб/мес",
                                        None))
         self.nameButton_10.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                              TakeProfessionPage.vacancy_info[2][3],
+                                                              TakeProfessionPage.vacancy_info[3][3],
                                                               None))
         self.iconMoney_9.setText("")
         self.textMoney_9.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[2][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[3][-2] + " руб/мес",
                                        None))
         self.nameButton_4.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[3][3],
+                                                             TakeProfessionPage.vacancy_info[4][3],
                                                              None))
         self.iconMoney_3.setText("")
         self.textMoney_3.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[3][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[4][-2] + " руб/мес",
                                        None))
         self.nameButton_2.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[4][3],
+                                                             TakeProfessionPage.vacancy_info[5][3],
                                                              None))
         self.iconMoney_2.setText("")
         self.textMoney_2.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[4][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[5][-2] + " руб/мес",
                                        None))
         self.nameButton_11.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                              TakeProfessionPage.vacancy_info[5][3],
+                                                              TakeProfessionPage.vacancy_info[6][3],
                                                               None))
         self.iconMoney_10.setText("")
         self.textMoney_10.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[5][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[6][-2] + " руб/мес",
                                        None))
         self.nameButton_12.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                              TakeProfessionPage.vacancy_info[6][3],
+                                                              TakeProfessionPage.vacancy_info[7][3],
                                                               None))
         self.iconMoney_11.setText("")
         self.textMoney_11.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[6][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[7][-2] + " руб/мес",
                                        None))
         self.nameButton_13.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                              TakeProfessionPage.vacancy_info[7][3],
+                                                              TakeProfessionPage.vacancy_info[8][3],
                                                               None))
         self.iconMoney_12.setText("")
         self.textMoney_12.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[7][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[8][-2] + " руб/мес",
                                        None))
         self.nameButton_6.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[8][3],
+                                                             TakeProfessionPage.vacancy_info[9][3],
                                                              None))
         self.iconMoney_5.setText("")
         self.textMoney_5.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[8][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[9][-2] + " руб/мес",
                                        None))
         self.nameButton_5.setText(QCoreApplication.translate("TakeProfessionPage",
-                                                             TakeProfessionPage.vacancy_info[9][3],
+                                                             TakeProfessionPage.vacancy_info[10][3],
                                                              None))
         self.iconMoney_4.setText("")
         self.textMoney_4.setText(
-            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[9][-2] + " руб/мес",
+            QCoreApplication.translate("TakeProfessionPage", TakeProfessionPage.vacancy_info[10][-2] + " руб/мес",
                                        None))
 
     # retranslateUi
@@ -2909,7 +2909,7 @@ class PopUpAddResumePage(object):
         self.buttons.setSpacing(20)
         self.buttons.setObjectName(u"buttons")
         self.buttons.setContentsMargins(0, 0, 0, 0)
-        self.pushButtonYes = QPushButton(self.buttonsFrame, clicked = lambda : PopUpProfessionChangePage.Apply(Ui_TakeProfessionPage()))
+        self.pushButtonYes = QPushButton(self.buttonsFrame, clicked = lambda : PopUpProfessionChangePage.load_data())
         self.pushButtonYes.setObjectName(u"pushButtonYes")
         self.pushButtonYes.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.pushButtonYes.sizePolicy().hasHeightForWidth())
@@ -3014,6 +3014,9 @@ class PopUpAddResumePage(object):
         self.pushButtonYes.setText(QCoreApplication.translate("PopUpProfessionChangePage", u"\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c", None))
         self.pushButtonNo.setText(QCoreApplication.translate("PopUpProfessionChangePage", u"\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c", None))
     # retranslateUi
+
+    def changeFileName(self, text):
+        self.file.setText(QCoreApplication.translate("PopUpProfessionChangePage", text, None))
 
 class Ui_ClusterPage(object):
     def setupUi(self, ClusterPage):
@@ -5114,7 +5117,7 @@ class Ui_PopUpClusterPage(object):
 
         self.title.addWidget(self.titleName)
 
-        self.pushButtonRedact = QPushButton(self.popUpClusterPage, clicked = lambda : PopUpClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage()))
+        self.pushButtonRedact = QPushButton(self.popUpClusterPage, clicked = lambda : PopUpClusterPage.CreatePopup("ClusterEdit", Ui_PopUpClusterChangePage(), ID = PopUpClusterPage.ID))
         self.pushButtonRedact.setObjectName(u"pushButtonRedact")
         self.pushButtonRedact.setMinimumSize(QSize(36, 36))
         self.pushButtonRedact.setMaximumSize(QSize(36, 36))
@@ -8187,7 +8190,7 @@ class Ui_PopUpProfessionPage(object):
 
         self.title.addWidget(self.titleName)
 
-        self.pushButtonRedact = QPushButton(self.popUpProfessionPage, clicked = lambda : PopUpProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), self.ID))
+        self.pushButtonRedact = QPushButton(self.popUpProfessionPage, clicked = lambda : PopUpProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), PopUpProfessionPage.ID))
         self.pushButtonRedact.setObjectName(u"pushButtonRedact")
         self.pushButtonRedact.setMinimumSize(QSize(36, 36))
         self.pushButtonRedact.setMaximumSize(QSize(36, 36))
