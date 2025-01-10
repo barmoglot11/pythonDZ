@@ -6,7 +6,7 @@ import Interface
 from Interface.MainWindow import MainWindow
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)  # Создаем единственный экземпляр QApplication
+    app = QApplication(sys.argv)
     app.setWindowIcon(QtGui.QIcon('static/img/iconLogo.ico'))
 
     window = MainWindow()

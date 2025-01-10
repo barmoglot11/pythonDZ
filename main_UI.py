@@ -28,8 +28,7 @@ from Interface.Icons import *
 
 class Ui_TakeProfessionPage(object):
     def setupUi(self, TakeProfessionPage):
-        if not TakeProfessionPage.objectName():
-            TakeProfessionPage.setObjectName(u"TakeProfessionPage")
+        TakeProfessionPage.setObjectName(u"TakeProfessionPage")
         TakeProfessionPage.resize(1920, 1110)
         TakeProfessionPage.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
                                          "font-family: Roboto;")
@@ -1945,8 +1944,7 @@ class Ui_TakeProfessionPage(object):
 class Ui_TakeProfessionNonePage(object):
 
     def setupUi(self, TakeProfessionNonePage):
-        if not TakeProfessionNonePage.objectName():
-            TakeProfessionNonePage.setObjectName(u"TakeProfessionNonePage")
+        TakeProfessionNonePage.setObjectName(u"TakeProfessionNonePage")
         TakeProfessionNonePage.resize(1920, 1144)
         TakeProfessionNonePage.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
                                              "font-family: Roboto;")
@@ -3020,8 +3018,7 @@ class PopUpAddResumePage(object):
 
 class Ui_ClusterPage(object):
     def setupUi(self, ClusterPage):
-        if not ClusterPage.objectName():
-            ClusterPage.setObjectName(u"ClusterPage")
+        ClusterPage.setObjectName(u"ClusterPage")
 
         self.data = ClusterPage.TakeDataFromDB("Cluster")
         ClusterPage.resize(1920, 1142)
@@ -3193,73 +3190,7 @@ class Ui_ClusterPage(object):
 
         self.title.addItem(self.horizontalSpacer)
 
-        self.findCluster = QFrame(self.titleFrame)
-        self.findCluster.setObjectName(u"findCluster")
-        self.horizontalLayout_2 = QHBoxLayout(self.findCluster)
-        self.horizontalLayout_2.setSpacing(15)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setSizeConstraint(QLayout.SetFixedSize)
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.findInput = QLineEdit(self.findCluster)
-        self.findInput.setObjectName(u"findInput")
-        self.findInput.setEnabled(True)
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(20)
-        sizePolicy2.setVerticalStretch(10)
-        sizePolicy2.setHeightForWidth(self.findInput.sizePolicy().hasHeightForWidth())
-        self.findInput.setSizePolicy(sizePolicy2)
-        self.findInput.setMinimumSize(QSize(685, 48))
-        palette3 = QPalette()
-        palette3.setBrush(QPalette.Active, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Window, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Window, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.findInput.setPalette(palette3)
-        font2 = QFont()
-        font2.setFamilies([u"Roboto"])
-        font2.setPointSize(18)
-        font2.setBold(True)
-        font2.setKerning(True)
-        self.findInput.setFont(font2)
-        self.findInput.setAcceptDrops(True)
-        self.findInput.setStyleSheet(u"QLineEdit {\n"
-                                     "   color: #101010;\n"
-                                     "	border: 2px solid #5B5B5B;\n"
-                                     "	border-radius: 10px;\n"
-                                     "	padding-left: 20px;\n"
-                                     "	padding-right: 20px;\n"
-                                     "}")
 
-        self.horizontalLayout_2.addWidget(self.findInput)
-
-        self.pushButtonFind = QPushButton(self.findCluster)
-        self.pushButtonFind.setObjectName(u"pushButtonFind")
-        self.pushButtonFind.setEnabled(True)
-        sizePolicy1.setHeightForWidth(self.pushButtonFind.sizePolicy().hasHeightForWidth())
-        self.pushButtonFind.setSizePolicy(sizePolicy1)
-        self.pushButtonFind.setMinimumSize(QSize(48, 48))
-        self.pushButtonFind.setFont(font)
-        self.pushButtonFind.setStyleSheet(u"QPushButton {\n"
-                                          "	background-color: rgb(80, 30, 188);\n"
-                                          "	border-radius: 10px;\n"
-                                          "}\n"
-                                          "\n"
-                                          "QPushButton:hover {\n"
-                                          "	background-color: rgb(50, 19, 116);\n"
-                                          "}")
-        icon = QIcon()
-        icon.addFile(u":/Icons/Icons And Logo/Search.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.pushButtonFind.setIcon(icon)
-        self.pushButtonFind.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_2.addWidget(self.pushButtonFind)
-
-        self.title.addWidget(self.findCluster)
 
         self.verticalLayout_13.addWidget(self.titleFrame, 0, Qt.AlignTop)
 
@@ -3273,47 +3204,15 @@ class Ui_ClusterPage(object):
         self.gridClusters.setObjectName(u"gridClusters")
         self.gridClusters.setHorizontalSpacing(22)
         self.gridClusters.setVerticalSpacing(20)
-        self.clusterAdd = QFrame(self.clustersFrame)
-        self.clusterAdd.setObjectName(u"clusterAdd")
-        self.clusterAdd.setMinimumSize(QSize(346, 407))
-        self.clusterAdd.setMaximumSize(QSize(346, 407))
-        self.clusterAdd.setLayoutDirection(Qt.LeftToRight)
-        self.clusterAdd.setStyleSheet(u"background-color: #FFFFFF;\n"
-                                      "border: 2px dashed #501EBC;\n"
-                                      "border-radius: 10px;")
-        self.pushButtonAdd = QPushButton(self.clusterAdd)
-        self.pushButtonAdd.setObjectName(u"pushButtonAdd")
-        self.pushButtonAdd.setGeometry(QRect(125, 123, 96, 96))
+
         sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
         sizePolicy3.setHorizontalStretch(96)
         sizePolicy3.setVerticalStretch(96)
-        sizePolicy3.setHeightForWidth(self.pushButtonAdd.sizePolicy().hasHeightForWidth())
-        self.pushButtonAdd.setSizePolicy(sizePolicy3)
-        self.pushButtonAdd.setMinimumSize(QSize(96, 96))
-        self.pushButtonAdd.setMaximumSize(QSize(96, 96))
-        self.pushButtonAdd.setStyleSheet(u"QPushButton {\n"
-                                         "	background-color: rgb(80, 30, 188);\n"
-                                         "	border: none;\n"
-                                         "	border-radius: 20px;\n"
-                                         "}\n"
-                                         "\n"
-                                         "QPushButton:hover {\n"
-                                         "	background-color: rgb(50, 19, 116);\n"
-                                         "}")
-        icon1 = QIcon()
-        icon1.addFile(u":/Icons/Icons And Logo/Add.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.pushButtonAdd.setIcon(icon1)
-        self.pushButtonAdd.setIconSize(QSize(56, 56))
-        self.textAdd = QLabel(self.clusterAdd)
-        self.textAdd.setObjectName(u"textAdd")
-        self.textAdd.setGeometry(QRect(30, 240, 294, 28))
+
         sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy4.setHorizontalStretch(0)
         sizePolicy4.setVerticalStretch(28)
-        sizePolicy4.setHeightForWidth(self.textAdd.sizePolicy().hasHeightForWidth())
-        self.textAdd.setSizePolicy(sizePolicy4)
-        self.textAdd.setMinimumSize(QSize(0, 28))
-        self.textAdd.setMaximumSize(QSize(16777215, 28))
+
         palette4 = QPalette()
         palette4.setBrush(QPalette.Active, QPalette.WindowText, brush1)
         palette4.setBrush(QPalette.Active, QPalette.Button, brush)
@@ -3329,15 +3228,12 @@ class Ui_ClusterPage(object):
         palette4.setBrush(QPalette.Disabled, QPalette.Button, brush)
         palette4.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette4.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.textAdd.setPalette(palette4)
+
         font3 = QFont()
         font3.setFamilies([u"Roboto"])
         font3.setPointSize(18)
         font3.setBold(True)
-        self.textAdd.setFont(font3)
-        self.textAdd.setStyleSheet(u"border: none;")
 
-        self.gridClusters.addWidget(self.clusterAdd, 1, 1, 1, 1)
 
         self.cluster = QFrame(self.clustersFrame)
         self.cluster.setObjectName(u"cluster")
@@ -3403,7 +3299,7 @@ class Ui_ClusterPage(object):
 
         self.buttons.addWidget(self.pushButtonRedact)
 
-        self.pushButtonDelete = QPushButton(self.cluster, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete = QPushButton(self.cluster, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 1))
         self.pushButtonDelete.setObjectName(u"pushButtonDelete")
         self.pushButtonDelete.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete.setMaximumSize(QSize(24, 24))
@@ -3658,7 +3554,7 @@ class Ui_ClusterPage(object):
 
         self.buttons_4.addWidget(self.pushButtonRedact_4)
 
-        self.pushButtonDelete_4 = QPushButton(self.cluster_4, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_4 = QPushButton(self.cluster_4, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 4))
         self.pushButtonDelete_4.setObjectName(u"pushButtonDelete_4")
         self.pushButtonDelete_4.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_4.setMaximumSize(QSize(24, 24))
@@ -3905,7 +3801,7 @@ class Ui_ClusterPage(object):
 
         self.buttons_2.addWidget(self.pushButtonRedact_2)
 
-        self.pushButtonDelete_2 = QPushButton(self.cluster_2, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_2 = QPushButton(self.cluster_2, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 2))
         self.pushButtonDelete_2.setObjectName(u"pushButtonDelete_2")
         self.pushButtonDelete_2.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_2.setMaximumSize(QSize(24, 24))
@@ -4152,7 +4048,7 @@ class Ui_ClusterPage(object):
 
         self.buttons_3.addWidget(self.pushButtonRedact_3)
 
-        self.pushButtonDelete_3 = QPushButton(self.cluster_3, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_3 = QPushButton(self.cluster_3, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 3))
         self.pushButtonDelete_3.setObjectName(u"pushButtonDelete_3")
         self.pushButtonDelete_3.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_3.setMaximumSize(QSize(24, 24))
@@ -4399,7 +4295,7 @@ class Ui_ClusterPage(object):
 
         self.buttons_5.addWidget(self.pushButtonRedact_5)
 
-        self.pushButtonDelete_5 = QPushButton(self.cluster_5, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_5 = QPushButton(self.cluster_5, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 5))
         self.pushButtonDelete_5.setObjectName(u"pushButtonDelete_5")
         self.pushButtonDelete_5.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_5.setMaximumSize(QSize(24, 24))
@@ -4646,7 +4542,7 @@ class Ui_ClusterPage(object):
 
         self.buttons_6.addWidget(self.pushButtonRedact_6)
 
-        self.pushButtonDelete_6 = QPushButton(self.cluster_6, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_6 = QPushButton(self.cluster_6, clicked = lambda: ClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 6))
         self.pushButtonDelete_6.setObjectName(u"pushButtonDelete_6")
         self.pushButtonDelete_6.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_6.setMaximumSize(QSize(24, 24))
@@ -4941,15 +4837,8 @@ class Ui_ClusterPage(object):
             QCoreApplication.translate("ClusterPage", u"Профессии", None))
         self.title_2.setText(
             QCoreApplication.translate("ClusterPage", u"Кластеры", None))
-        self.findInput.setText("")
-        self.findInput.setPlaceholderText(QCoreApplication.translate("ClusterPage",
-                                                                     u"Введите название кластера",
-                                                                     None))
-        self.pushButtonFind.setText("")
-        self.pushButtonAdd.setText("")
-        self.textAdd.setText(QCoreApplication.translate("ClusterPage",
-                                                        u"Добавить новый кластер",
-                                                        None))
+
+
         self.clusterName.setText(
             QCoreApplication.translate("ClusterPage", DB_data[0][1], None))
         self.pushButtonRedact.setText("")
@@ -5133,7 +5022,7 @@ class Ui_PopUpClusterPage(object):
 
         self.title.addWidget(self.pushButtonRedact)
 
-        self.pushButtonDelete = QPushButton(self.popUpClusterPage, clicked = lambda : PopUpClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete = QPushButton(self.popUpClusterPage, clicked = lambda : PopUpClusterPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = PopUpClusterPage.ID))
         self.pushButtonDelete.setObjectName(u"pushButtonDelete")
         self.pushButtonDelete.setMinimumSize(QSize(36, 36))
         self.pushButtonDelete.setMaximumSize(QSize(36, 36))
@@ -5326,6 +5215,7 @@ class Ui_PopUpClusterPage(object):
 
 
     # retranslateUi
+
 class Ui_PopUpClusterChangePage(object):
     def setupUi(self, PopUpClusterChangePage):
         if not PopUpClusterChangePage.objectName():
@@ -5586,8 +5476,7 @@ class Ui_PopUpClusterChangePage(object):
 class Ui_ProfessionPage(object):
 
     def setupUi(self, ProfessionPage):
-        if not ProfessionPage.objectName():
-            ProfessionPage.setObjectName(u"ProfessionPage")
+        ProfessionPage.setObjectName(u"ProfessionPage")
 
         DB_data = ProfessionPage.TakeDataFromDB("Vacancy")
         self.vacancies = list()
@@ -5768,73 +5657,7 @@ class Ui_ProfessionPage(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer)
 
-        self.find = QFrame(self.title)
-        self.find.setObjectName(u"find")
-        self.horizontalLayout_2 = QHBoxLayout(self.find)
-        self.horizontalLayout_2.setSpacing(15)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setSizeConstraint(QLayout.SetFixedSize)
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.findInput = QLineEdit(self.find)
-        self.findInput.setObjectName(u"findInput")
-        self.findInput.setEnabled(True)
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(20)
-        sizePolicy2.setVerticalStretch(10)
-        sizePolicy2.setHeightForWidth(self.findInput.sizePolicy().hasHeightForWidth())
-        self.findInput.setSizePolicy(sizePolicy2)
-        self.findInput.setMinimumSize(QSize(685, 48))
-        palette3 = QPalette()
-        palette3.setBrush(QPalette.Active, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Window, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Window, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.findInput.setPalette(palette3)
-        font2 = QFont()
-        font2.setFamilies([u"Roboto"])
-        font2.setPointSize(18)
-        font2.setBold(True)
-        font2.setKerning(True)
-        self.findInput.setFont(font2)
-        self.findInput.setAcceptDrops(True)
-        self.findInput.setStyleSheet(u"QLineEdit {\n"
-                                     "   color: #101010;\n"
-                                     "	border: 2px solid #5B5B5B;\n"
-                                     "	border-radius: 10px;\n"
-                                     "	padding-left: 20px;\n"
-                                     "	padding-right: 20px;\n"
-                                     "}")
 
-        self.horizontalLayout_2.addWidget(self.findInput)
-
-        self.pushButtonFind = QPushButton(self.find)
-        self.pushButtonFind.setObjectName(u"pushButtonFind")
-        self.pushButtonFind.setEnabled(True)
-        sizePolicy1.setHeightForWidth(self.pushButtonFind.sizePolicy().hasHeightForWidth())
-        self.pushButtonFind.setSizePolicy(sizePolicy1)
-        self.pushButtonFind.setMinimumSize(QSize(48, 48))
-        self.pushButtonFind.setFont(font)
-        self.pushButtonFind.setStyleSheet(u"QPushButton {\n"
-                                          "	background-color: rgb(80, 30, 188);\n"
-                                          "	border-radius: 10px;\n"
-                                          "}\n"
-                                          "\n"
-                                          "QPushButton:hover {\n"
-                                          "	background-color: rgb(50, 19, 116);\n"
-                                          "}")
-        icon = QIcon()
-        icon.addFile(u":/Icons/Icons And Logo/Search.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.pushButtonFind.setIcon(icon)
-        self.pushButtonFind.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_2.addWidget(self.pushButtonFind)
-
-        self.horizontalLayout_4.addWidget(self.find)
 
         self.verticalLayout.addWidget(self.title, 0, Qt.AlignTop)
 
@@ -5916,7 +5739,7 @@ class Ui_ProfessionPage(object):
 
         self.buttons.addWidget(self.pushButtonRedact)
 
-        self.pushButtonDelete = QPushButton(self.profession, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete = QPushButton(self.profession, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 1))
         self.pushButtonDelete.setObjectName(u"pushButtonDelete")
         self.pushButtonDelete.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete.setMaximumSize(QSize(24, 24))
@@ -6183,92 +6006,7 @@ class Ui_ProfessionPage(object):
 
         self.gridProfessions.addWidget(self.profession, 0, 0, 1, 1)
 
-        self.professionAdd = QFrame(self.professionsFrame)
-        self.professionAdd.setObjectName(u"professionAdd")
-        self.professionAdd.setMinimumSize(QSize(346, 407))
-        self.professionAdd.setMaximumSize(QSize(346, 407))
-        self.professionAdd.setLayoutDirection(Qt.LeftToRight)
-        self.professionAdd.setStyleSheet(u"background-color: #FFFFFF;\n"
-                                         "border: 2px dashed #501EBC;\n"
-                                         "border-radius: 10px;")
-        self.pushButtonAdd = QPushButton(self.professionAdd)
-        self.pushButtonAdd.setObjectName(u"pushButtonAdd")
-        self.pushButtonAdd.setGeometry(QRect(125, 113, 96, 96))
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-        sizePolicy3.setHorizontalStretch(96)
-        sizePolicy3.setVerticalStretch(96)
-        sizePolicy3.setHeightForWidth(self.pushButtonAdd.sizePolicy().hasHeightForWidth())
-        self.pushButtonAdd.setSizePolicy(sizePolicy3)
-        self.pushButtonAdd.setMinimumSize(QSize(96, 96))
-        self.pushButtonAdd.setMaximumSize(QSize(96, 96))
-        self.pushButtonAdd.setStyleSheet(u"QPushButton {\n"
-                                         "	background-color: rgb(80, 30, 188);\n"
-                                         "	border: none;\n"
-                                         "	border-radius: 20px;\n"
-                                         "}\n"
-                                         "\n"
-                                         "QPushButton:hover {\n"
-                                         "	background-color: rgb(50, 19, 116);\n"
-                                         "}")
-        icon1 = QIcon()
-        icon1.addFile(u":/Icons/Icons And Logo/Add.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.pushButtonAdd.setIcon(icon1)
-        self.pushButtonAdd.setIconSize(QSize(56, 56))
-        self.textAdd = QLabel(self.professionAdd)
-        self.textAdd.setObjectName(u"textAdd")
-        self.textAdd.setGeometry(QRect(80, 230, 191, 28))
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(28)
-        sizePolicy4.setHeightForWidth(self.textAdd.sizePolicy().hasHeightForWidth())
-        self.textAdd.setSizePolicy(sizePolicy4)
-        self.textAdd.setMinimumSize(QSize(0, 28))
-        self.textAdd.setMaximumSize(QSize(16777215, 28))
-        palette9 = QPalette()
-        palette9.setBrush(QPalette.Active, QPalette.WindowText, brush1)
-        palette9.setBrush(QPalette.Active, QPalette.Button, brush)
-        palette9.setBrush(QPalette.Active, QPalette.Base, brush)
-        palette9.setBrush(QPalette.Active, QPalette.Window, brush)
-        palette9.setBrush(QPalette.Inactive, QPalette.WindowText, brush1)
-        palette9.setBrush(QPalette.Inactive, QPalette.Button, brush)
-        palette9.setBrush(QPalette.Inactive, QPalette.Base, brush)
-        palette9.setBrush(QPalette.Inactive, QPalette.Window, brush)
-        palette9.setBrush(QPalette.Disabled, QPalette.WindowText, brush3)
-        palette9.setBrush(QPalette.Disabled, QPalette.Button, brush)
-        palette9.setBrush(QPalette.Disabled, QPalette.Base, brush)
-        palette9.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.textAdd.setPalette(palette9)
-        font7 = QFont()
-        font7.setFamilies([u"Roboto"])
-        font7.setPointSize(18)
-        font7.setBold(True)
-        self.textAdd.setFont(font7)
-        self.textAdd.setStyleSheet(u"border: none;")
-        self.textAdd_2 = QLabel(self.professionAdd)
-        self.textAdd_2.setObjectName(u"textAdd_2")
-        self.textAdd_2.setGeometry(QRect(110, 260, 131, 28))
-        sizePolicy4.setHeightForWidth(self.textAdd_2.sizePolicy().hasHeightForWidth())
-        self.textAdd_2.setSizePolicy(sizePolicy4)
-        self.textAdd_2.setMinimumSize(QSize(0, 28))
-        self.textAdd_2.setMaximumSize(QSize(16777215, 28))
-        palette10 = QPalette()
-        palette10.setBrush(QPalette.Active, QPalette.WindowText, brush1)
-        palette10.setBrush(QPalette.Active, QPalette.Button, brush)
-        palette10.setBrush(QPalette.Active, QPalette.Base, brush)
-        palette10.setBrush(QPalette.Active, QPalette.Window, brush)
-        palette10.setBrush(QPalette.Inactive, QPalette.WindowText, brush1)
-        palette10.setBrush(QPalette.Inactive, QPalette.Button, brush)
-        palette10.setBrush(QPalette.Inactive, QPalette.Base, brush)
-        palette10.setBrush(QPalette.Inactive, QPalette.Window, brush)
-        palette10.setBrush(QPalette.Disabled, QPalette.WindowText, brush3)
-        palette10.setBrush(QPalette.Disabled, QPalette.Button, brush)
-        palette10.setBrush(QPalette.Disabled, QPalette.Base, brush)
-        palette10.setBrush(QPalette.Disabled, QPalette.Window, brush)
-        self.textAdd_2.setPalette(palette10)
-        self.textAdd_2.setFont(font7)
-        self.textAdd_2.setStyleSheet(u"border: none;")
 
-        self.gridProfessions.addWidget(self.professionAdd, 1, 1, 1, 1)
 
         self.profession_3 = QFrame(self.professionsFrame)
         self.profession_3.setObjectName(u"profession_3")
@@ -6327,7 +6065,7 @@ class Ui_ProfessionPage(object):
 
         self.buttons_7.addWidget(self.pushButtonRedact_7)
 
-        self.pushButtonDelete_7 = QPushButton(self.profession_3, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_7 = QPushButton(self.profession_3, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 2))
         self.pushButtonDelete_7.setObjectName(u"pushButtonDelete_7")
         self.pushButtonDelete_7.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_7.setMaximumSize(QSize(24, 24))
@@ -6636,7 +6374,7 @@ class Ui_ProfessionPage(object):
 
         self.buttons_8.addWidget(self.pushButtonRedact_8)
 
-        self.pushButtonDelete_8 = QPushButton(self.profession_4, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_8 = QPushButton(self.profession_4, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 3))
         self.pushButtonDelete_8.setObjectName(u"pushButtonDelete_8")
         self.pushButtonDelete_8.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_8.setMaximumSize(QSize(24, 24))
@@ -6945,7 +6683,7 @@ class Ui_ProfessionPage(object):
 
         self.buttons_9.addWidget(self.pushButtonRedact_9)
 
-        self.pushButtonDelete_9 = QPushButton(self.profession_5, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_9 = QPushButton(self.profession_5, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 4))
         self.pushButtonDelete_9.setObjectName(u"pushButtonDelete_9")
         self.pushButtonDelete_9.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_9.setMaximumSize(QSize(24, 24))
@@ -7254,7 +6992,7 @@ class Ui_ProfessionPage(object):
 
         self.buttons_10.addWidget(self.pushButtonRedact_10)
 
-        self.pushButtonDelete_10 = QPushButton(self.profession_6, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_10 = QPushButton(self.profession_6, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 5))
         self.pushButtonDelete_10.setObjectName(u"pushButtonDelete_10")
         self.pushButtonDelete_10.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_10.setMaximumSize(QSize(24, 24))
@@ -7547,7 +7285,7 @@ class Ui_ProfessionPage(object):
         self.buttons_12 = QHBoxLayout()
         self.buttons_12.setSpacing(10)
         self.buttons_12.setObjectName(u"buttons_12")
-        self.pushButtonRedact_12 = QPushButton(self.profession_7)
+        self.pushButtonRedact_12 = QPushButton(self.profession_7, clicked = lambda : ProfessionPage.CreatePopup("ProfessionEdit", Ui_PopUpProfessionChangePage(), ID = 6))
         self.pushButtonRedact_12.setObjectName(u"pushButtonRedact_12")
         self.pushButtonRedact_12.setMinimumSize(QSize(24, 24))
         self.pushButtonRedact_12.setMaximumSize(QSize(24, 24))
@@ -7563,7 +7301,7 @@ class Ui_ProfessionPage(object):
 
         self.buttons_12.addWidget(self.pushButtonRedact_12)
 
-        self.pushButtonDelete_12 = QPushButton(self.profession_7, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete_12 = QPushButton(self.profession_7, clicked = lambda : ProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = 6))
         self.pushButtonDelete_12.setObjectName(u"pushButtonDelete_12")
         self.pushButtonDelete_12.setMinimumSize(QSize(24, 24))
         self.pushButtonDelete_12.setMaximumSize(QSize(24, 24))
@@ -7919,11 +7657,7 @@ class Ui_ProfessionPage(object):
         self.title_2.setText(
             QCoreApplication.translate("ProfessionPage", u"Профессии",
                                        None))
-        self.findInput.setText("")
-        self.findInput.setPlaceholderText(QCoreApplication.translate("ProfessionPage",
-                                                                     u"Введите название профессии",
-                                                                     None))
-        self.pushButtonFind.setText("")
+
         self.professionName.setText(
             QCoreApplication.translate("ProfessionPage", self.vacancies[0][0], None))
         self.pushButtonRedact.setText("")
@@ -7956,13 +7690,7 @@ class Ui_ProfessionPage(object):
         self.pushButtonMore.setText(QCoreApplication.translate("ProfessionPage",
                                                                u"Показать ещё",
                                                                None))
-        self.pushButtonAdd.setText("")
-        self.textAdd.setText(QCoreApplication.translate("ProfessionPage",
-                                                        u"Добавить новую",
-                                                        None))
-        self.textAdd_2.setText(
-            QCoreApplication.translate("ProfessionPage", u"профессию",
-                                       None))
+
         self.professionName_7.setText(
             QCoreApplication.translate("ProfessionPage", self.vacancies[1][0], None))
         self.pushButtonRedact_7.setText("")
@@ -8206,7 +7934,7 @@ class Ui_PopUpProfessionPage(object):
 
         self.title.addWidget(self.pushButtonRedact)
 
-        self.pushButtonDelete = QPushButton(self.popUpProfessionPage, clicked = lambda : PopUpProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage()))
+        self.pushButtonDelete = QPushButton(self.popUpProfessionPage, clicked = lambda : PopUpProfessionPage.CreatePopup("Delete", Ui_PopUpDeleteAttentionPage(), ID = PopUpProfessionPage.ID))
         self.pushButtonDelete.setObjectName(u"pushButtonDelete")
         self.pushButtonDelete.setMinimumSize(QSize(36, 36))
         self.pushButtonDelete.setMaximumSize(QSize(36, 36))
@@ -8377,7 +8105,6 @@ class Ui_PopUpProfessionPage(object):
                                                                 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:13pt; font-weight:600; background-color:#ffffff;\">"+ PopUpProfessionPage.data[1] +"</span></p>\n"
                                                                 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:13pt; font-weight:600;\"><br /></p>\n",
                                                                 None))
-
 
 class Ui_PopUpProfessionChangePage(object):
     def setupUi(self, PopUpProfessionChangePage):
@@ -9105,7 +8832,7 @@ class Ui_PopUpProfessionChangePage(object):
     def Save(self):
         professionName = self.input.text()
         description = self.inputDescription.toPlainText()
-        cluster = self.comboBoxCluster.currentText()
+        cluster = self.comboBoxCluster.currentIndex()
         region = self.comboBoxRegion.currentText()
         return [professionName, description, region, cluster]
 
@@ -9343,7 +9070,7 @@ class Ui_PopUpDeleteAttentionPage(object):
         self.buttons = QHBoxLayout(self.buttonsFrame)
         self.buttons.setSpacing(20)
         self.buttons.setObjectName(u"buttons")
-        self.pushButtonYes = QPushButton(self.buttonsFrame, clicked = lambda: PopUpDeleteAttentionPage.Apply())
+        self.pushButtonYes = QPushButton(self.buttonsFrame, clicked = lambda: PopUpDeleteAttentionPage.Delete())
         self.pushButtonYes.setObjectName(u"pushButtonYes")
         self.pushButtonYes.setEnabled(True)
         sizePolicy1.setHeightForWidth(self.pushButtonYes.sizePolicy().hasHeightForWidth())
